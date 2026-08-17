@@ -1,0 +1,17 @@
+# Downloaded/cached market data -- regenerated automatically by DataHandler.from_yfinance
+cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
