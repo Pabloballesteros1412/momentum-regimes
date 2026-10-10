@@ -15,6 +15,8 @@ the regime study; engine v2):
   pit_benchmark     equal weight across current members, monthly
                     (buy & hold can't be used: it would hold every name that
                     ever joined and never sell)
+  pit_liquid40      breadth control: PIT, but only the 40 most liquid current
+                    members (63-day dollar volume) are ranked
   sensitivity       the same two with a -30% delisting return (Shumway 1997)
                     applied to every name whose data ends early. Mergers are
                     most S&P exits, so this is a pessimistic bound.
@@ -43,7 +45,7 @@ from quantbt.engine.broker import SimulatedBroker
 from quantbt.portfolio.portfolio import Portfolio
 from quantbt.strategies.momentum import SignalCache
 from quantbt.strategies.pit import (PITEqualWeightSizer, PITVolatilityTargetSizer, PointInTimeEqualWeight,
-                                    PointInTimeMomentum)
+                                    PointInTimeLiquidMomentum, PointInTimeMomentum)
 from quantbt.validation.walkforward import run_walkforward
 import run_regimes
 from run_walkforward import TRADE_YEARS, TRAIN_YEARS
@@ -123,6 +125,24 @@ def stage_runs() -> None:
                          ).to_csv(CURVES / f"{name}_folds.csv", index=False)
             _save(name, wf.equity_curve, [f.equity_curve.index[0] for f in wf.folds])
 
+    # Breadth control: point-in-time, but only the 40 most liquid current
+    # members are ranked -- about as narrow as the fixed 37-name list.
+    name = "pit_liquid40_momentum_base"
+    if not (CURVES / f"{name}.csv").exists():
+        wf = run_walkforward(
+            frames=frames, param_grid=run_regimes._param_grid(),
+            strategy_factory=partial(PointInTimeLiquidMomentum, top_n_liquid=40),
+            sizer_factory=partial(PITVolatilityTargetSizer, engine_version="v2", delisting_return=0.0),
+            train_years=TRAIN_YEARS, trade_years=TRADE_YEARS, initial_capital=100_000.0,
+            warmup_days=WARMUP_DAYS, trade_extra_kwargs=lambda t: {"active_from": t},
+            strategy_shared_kwargs={"signal_cache": cache, "schedule": schedule},
+            n_jobs=run_regimes.N_JOBS, progress=lambda m: _log(f"[PIT liquid-40 momentum] {m}"),
+        )
+        pd.DataFrame([{"fold_index": i, "trade_start": f.trade_start.date(), "trade_end": f.trade_end.date(),
+                       **f.params, "train_sharpe": f.train_sharpe} for i, f in enumerate(wf.folds, 1)]
+                     ).to_csv(CURVES / f"{name}_folds.csv", index=False)
+        _save(name, wf.equity_curve, [f.equity_curve.index[0] for f in wf.folds])
+
 
 def _row(label: str, mom: pd.Series, bench: pd.Series, regime: pd.Series, curve: pd.DataFrame) -> dict:
     a = pd.DataFrame({"m": mom, "b": bench, "regime": regime}).dropna()
@@ -150,6 +170,10 @@ def stage_analyze() -> None:
         m = _load(CURVES / f"pit_momentum_{label}.csv")
         b = _load(CURVES / f"pit_benchmark_{label}.csv")
         rows.append(_row(f"PIT S&P 500, delisting return {DELISTING[label]:+.0%}", m["returns"], b["returns"], regime, m))
+    m = _load(CURVES / "pit_liquid40_momentum_base.csv")
+    b = _load(CURVES / "pit_benchmark_base.csv")
+    rows.append(_row("PIT S&P 500, 40 most liquid members only (vs PIT equal-weight S&P 500), delisting +0%",
+                     m["returns"], b["returns"], regime, m))
     comp = pd.DataFrame(rows)
     comp.to_csv(OUT / "comparison.csv", index=False)
     with pd.option_context("display.width", 250, "display.max_columns", 40, "display.float_format", "{:.5f}".format):

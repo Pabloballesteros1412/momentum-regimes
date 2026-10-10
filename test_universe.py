@@ -82,8 +82,23 @@ def test_delisted_position_is_liquidated() -> None:
     print(f"A held name whose data ends ({victim}) is liquidated on its last bar, with or without a delisting haircut.")
 
 
+def test_liquid_variant_restricts_breadth() -> None:
+    from quantbt.strategies.pit import PointInTimeLiquidMomentum
+    frames = synthetic_universe(n_symbols=16, n_days=900, seed=11)
+    pf, _ = _run(frames, partial(PointInTimeLiquidMomentum, schedule=_always(frames), top_n_liquid=5, **KW),
+                 partial(PITVolatilityTargetSizer, engine_version="v2"))
+    bought = {f.symbol for f in pf.fills if f.quantity > 0}
+    wide, _ = _run(frames, partial(PointInTimeLiquidMomentum, schedule=_always(frames), top_n_liquid=100, **KW),
+                   partial(PITVolatilityTargetSizer, engine_version="v2"))
+    fixed, _ = _run(frames, partial(CrossSectionalMomentum, **KW), partial(VolatilityTargetSizer, engine_version="v2"))
+    assert wide.equity_curve()["equity"].equals(fixed.equity_curve()["equity"])
+    assert bought and len(bought) < len({f.symbol for f in fixed.fills if f.quantity > 0})
+    print("Liquid-subset variant narrows the universe; with no cap it equals the fixed-universe run.")
+
+
 if __name__ == "__main__":
     test_always_member_matches_fixed_universe()
     test_never_holds_a_non_member()
     test_delisted_position_is_liquidated()
+    test_liquid_variant_restricts_breadth()
     print("\nAll universe tests passed.")

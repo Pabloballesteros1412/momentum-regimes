@@ -126,3 +126,39 @@ class PITEqualWeightSizer(_LiquidateOnEndOfData, EqualWeightSizer):
         n = self.strategy.n_members if self.strategy is not None else 1
         budget = self.portfolio.current_equity * self.max_leverage / n * (1.0 - self.execution_buffer)
         return int(budget / price)
+
+
+class PointInTimeLiquidMomentum(PointInTimeMomentum):
+    """PointInTimeMomentum restricted, on each rebalance day, to the
+    `top_n_liquid` current members by trailing average dollar volume.
+
+    A breadth control: the fixed-universe study ranks ~37 large names, the
+    PIT S&P 500 ranks ~500. This keeps the universe point-in-time but about
+    as narrow as the fixed list, so survivorship and breadth can be told
+    apart (PLAN.md item 1, "Risks")."""
+
+    name = "pit_liquid_momentum"
+
+    def __init__(self, data, schedule: UniverseSchedule, top_n_liquid: int = 40, liquidity_window: int = 63,
+                 **kwargs) -> None:
+        super().__init__(data, schedule, **kwargs)
+        self.top_n_liquid = top_n_liquid
+        self.liquidity_window = liquidity_window
+        self._liquid_at = None
+        self._liquid: set[str] = set()
+
+    def _momentum_score(self, symbol: str) -> float | None:
+        now = self.data.current_time
+        if self._liquid_at != now:
+            self._liquid_at = now
+            dollar_volume = {}
+            for s in self.data.symbols:
+                if not self.schedule.is_member(s, now):
+                    continue
+                bars = self.data.get_latest_bars(s, self.liquidity_window)
+                if len(bars) and bars.index[-1] == self.data.timeline[self.data._cursor]:
+                    dollar_volume[s] = float((bars["close"] * bars["volume"]).mean())
+            self._liquid = set(sorted(dollar_volume, key=dollar_volume.get, reverse=True)[: self.top_n_liquid])
+        if symbol not in self._liquid:
+            return None
+        return super()._momentum_score(symbol)
