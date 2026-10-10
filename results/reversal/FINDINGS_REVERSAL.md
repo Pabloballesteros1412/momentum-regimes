@@ -153,7 +153,7 @@ All values are mean daily differences.
   confirmations.
 - **The Nagel prediction (T2) fails to show.** Reversal's edge over
   buy & hold is a little higher in high-vol regimes everywhere (+0.012%
-  to +0.026% a day), but the CIs are about eight times wider than the
+  to +0.026% a day), but the CIs are many times wider than the
   estimates.
 - **As a strategy, reversal is not competitive here.** It has a lower
   Sharpe than buy & hold in all three markets, and the deepest drawdowns,

@@ -90,7 +90,11 @@ def main() -> None:
                 for row in records(pd.read_csv(fpath)):
                     fold_rows.append({"universe": u, "strategy": key, **row})
 
-        common = returns["momentum"].index.intersection(returns["reversal"].index)
+        # Same definition as results/reversal (headline and regime tables):
+        # days all three strategies have a return AND SPY has a regime label.
+        # In Europe this drops local trading days on which the US was closed.
+        both = pd.DataFrame(returns).assign(regime=regime).dropna()
+        common = returns["momentum"].index.intersection(returns["reversal"].index).intersection(both.index)
         series = {}
         for key, r in returns.items():
             equity, drawdown = equity_and_drawdown(r)
@@ -149,7 +153,7 @@ def main() -> None:
         "units": {"returns": "decimal (0.01 = 1%)", "dates": "ISO YYYY-MM-DD",
                   "equity": "rebased to 1.0 at each series' first date", "drawdown": "decimal, <= 0"},
         "windows": {"full": "each series' own history (B&H from 2005, walk-forwards from 2009)",
-                    "common": "days both walk-forward strategies have a return (the regime tables use this)"},
+                    "common": "days all three strategies have a return and SPY has a regime label (the regime and headline tables in results/reversal use this; in Europe it drops local trading days on which the US was closed)"},
         "caveats": [
             "Universes are fixed present-day ticker lists, not point-in-time (survivorship bias).",
             "No FX layer: EUR/CHF-quoted names are in local currency.",
