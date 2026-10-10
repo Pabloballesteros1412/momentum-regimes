@@ -39,9 +39,10 @@ class PositionSizer(ABC):
         afford at its actual fill (see Backtest._settle_pending), so cash
         can never go negative.
 
-    `full_investment` (v2 only) additionally rescales a batch's long targets
-    so their combined notional is the whole account (less the execution
-    buffer), keeping their relative weights. Vol targeting otherwise holds
+    `full_investment` (v2 only) additionally scales a batch's long targets
+    UP so their combined notional is the whole account (less the execution
+    buffer), keeping their relative weights. Books already above 100% are
+    left to v2's pro-rata cash cap (never scaled down). Vol targeting otherwise holds
     cash by design whenever the names' weights sum to under 100% (e.g. in
     high-volatility markets). This assumes each batch carries the strategy's
     complete target book, as CrossSectionalMomentum's rebalances do; it is
@@ -132,6 +133,12 @@ class PositionSizer(ABC):
         if notional <= 0:
             return targets
         factor = self.portfolio.current_equity * (1.0 - self.execution_buffer) / notional
+        # Scale up only. A book whose weights already sum past 100% is filled
+        # by v2's pro-rata cash cap; scaling it *down* to (1 - buffer) here
+        # would leave it less invested than plain v2 (the haircuts then bite
+        # twice) and churn held positions.
+        if factor <= 1.0:
+            return targets
         return [(s, int(t * factor) if t > 0 else t) for s, t in targets]
 
     @staticmethod
