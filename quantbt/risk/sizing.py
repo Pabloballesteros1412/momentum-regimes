@@ -74,6 +74,7 @@ class PositionSizer(ABC):
         raise NotImplementedError
 
     def size(self, signal: SignalEvent) -> OrderEvent | None:
+        """Turn one signal into an incremental order (v1 path), or None."""
         target = self.target_quantity(signal)
         if target is None:
             return None
@@ -221,6 +222,7 @@ class EqualWeightSizer(PositionSizer):
         self.max_leverage = max_leverage
 
     def target_quantity(self, signal: SignalEvent) -> int | None:
+        """Target end-state position for `signal` before any cash cap (see PositionSizer)."""
         if signal.direction is Direction.EXIT:
             return 0
 
@@ -258,6 +260,7 @@ class VolatilityTargetSizer(PositionSizer):
         self.max_weight = max_weight
 
     def target_quantity(self, signal: SignalEvent) -> int | None:
+        """Target end-state position for `signal` before any cash cap (see PositionSizer)."""
         if signal.direction is Direction.EXIT:
             return 0
 

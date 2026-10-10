@@ -96,9 +96,31 @@ def test_liquid_variant_restricts_breadth() -> None:
     print("Liquid-subset variant narrows the universe; with no cap it equals the fixed-universe run.")
 
 
+def test_pit_equal_weight_benchmark() -> None:
+    from quantbt.strategies.pit import PITEqualWeightSizer, PointInTimeEqualWeight
+    frames = synthetic_universe(n_symbols=12, n_days=400, seed=6)
+    members = [s for s in frames if s not in ("S03", "S07")]
+    schedule = UniverseSchedule(pd.DataFrame([{"ticker": s, "start": "1900-01-01", "end": "2100-01-01"}
+                                              for s in members]))
+    data = DataHandler(frames)
+    pf = Portfolio(data, initial_capital=100_000.0)
+    st = PointInTimeEqualWeight(data, schedule)
+    sz = PITEqualWeightSizer(data, pf, engine_version="v2")
+    sz.strategy = st
+    Backtest(data, st, sz, SimulatedBroker(data), pf).run()
+    held = {s for s, p in pf.positions.items() if p.quantity}
+    assert held and held <= set(members), held
+    last = pf.equity_curve().iloc[-1]
+    values = [p.quantity * frames[s]["close"].iloc[-1] for s, p in pf.positions.items() if p.quantity]
+    assert max(values) / min(values) < 1.6  # rebalanced monthly to equal weight
+    assert last["holdings"] / last["equity"] > 0.9
+    print("PIT equal-weight benchmark holds only members, near equal weights, ~fully invested.")
+
+
 if __name__ == "__main__":
     test_always_member_matches_fixed_universe()
     test_never_holds_a_non_member()
     test_delisted_position_is_liquidated()
     test_liquid_variant_restricts_breadth()
+    test_pit_equal_weight_benchmark()
     print("\nAll universe tests passed.")

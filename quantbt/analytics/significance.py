@@ -198,7 +198,7 @@ def bootstrap_mean_test(
             "p_value": _bootstrap_pvalue(boot)}
 
 
-def holm_adjust(p_values) -> np.ndarray:
+def holm_adjust(p_values: "np.ndarray | list[float]") -> np.ndarray:
     """Holm-Bonferroni step-down adjusted p-values (family-wise error)."""
     p = np.asarray(p_values, dtype=float)
     m = len(p)

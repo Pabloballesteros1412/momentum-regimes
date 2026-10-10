@@ -28,6 +28,7 @@ class CommissionModel:
     max_pct_of_trade: float = 0.01
 
     def calculate(self, quantity: int, price: float) -> float:
+        """Commission for a fill of `quantity` shares at `price`, with minimum and cap applied."""
         raw = abs(quantity) * self.per_share
         capped = min(max(raw, self.minimum), abs(quantity) * price * self.max_pct_of_trade)
         return round(capped, 4)

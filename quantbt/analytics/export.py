@@ -16,9 +16,9 @@ import pandas as pd
 DECIMALS = 8
 
 
-def clean(value, decimals: int = DECIMALS):
+def clean(value: object, decimals: int = DECIMALS) -> object:
     """One scalar -> JSON-safe value (None for NaN/inf, rounded floats)."""
-    if value is None:
+    if value is None or value is pd.NaT:
         return None
     if isinstance(value, (pd.Timestamp, np.datetime64)):
         return pd.Timestamp(value).date().isoformat()
@@ -64,7 +64,7 @@ def records(df: pd.DataFrame) -> list[dict]:
     return [{k: clean(v) for k, v in row.items()} for row in df.to_dict(orient="records")]
 
 
-def metrics_dict(m) -> dict:
+def metrics_dict(m: object) -> dict:
     """compute_metrics() result -> flat JSON-safe dict (yearly returns keyed by year)."""
     d = asdict(m) if is_dataclass(m) else dict(m)
     out = {}

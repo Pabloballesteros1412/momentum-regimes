@@ -26,13 +26,16 @@ class UniverseSchedule:
 
     @classmethod
     def from_csv(cls, path: str | Path) -> "UniverseSchedule":
+        """Load membership intervals from a CSV with columns ticker, start, end."""
         return cls(pd.read_csv(path, parse_dates=["start", "end"]))
 
     @property
     def tickers(self) -> list[str]:
+        """Every ticker that is a member at some point, sorted."""
         return sorted(self._starts)
 
-    def is_member(self, symbol: str, date) -> bool:
+    def is_member(self, symbol: str, date: "pd.Timestamp | str") -> bool:
+        """Whether `symbol` is an index member on `date` (intervals are inclusive)."""
         starts = self._starts.get(symbol)
         if not starts:
             return False
@@ -40,6 +43,7 @@ class UniverseSchedule:
         i = bisect_right(starts, ts) - 1
         return i >= 0 and ts <= self._ends[symbol][i]
 
-    def members(self, date, among=None) -> list[str]:
+    def members(self, date: "pd.Timestamp | str", among: "list[str] | None" = None) -> list[str]:
+        """Members on `date`, drawn from `among` (default: every ticker in the schedule)."""
         pool = self._starts if among is None else among
         return [s for s in pool if self.is_member(s, date)]

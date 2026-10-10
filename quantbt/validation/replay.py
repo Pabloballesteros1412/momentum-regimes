@@ -137,7 +137,7 @@ def replay_walkforward(
                         selections=selections, positions=positions)
 
 
-def daily_positions(fills, index: pd.DatetimeIndex) -> pd.DataFrame:
+def daily_positions(fills: list, index: pd.DatetimeIndex) -> pd.DataFrame:
     """End-of-day position quantity per symbol from a Portfolio's fills
     (a fill is stamped with the bar it executed on)."""
     if not fills:

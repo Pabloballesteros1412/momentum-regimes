@@ -47,6 +47,7 @@ class Backtest:
         self.fill_count = 0
 
     def run(self) -> Portfolio:
+        """Run the event loop over the whole dataset and return the portfolio."""
         while self.data.advance():
             timestamp = self.data.current_time
 

@@ -115,6 +115,16 @@ def test_folds_match_csvs() -> None:
     print("folds.json equals the fold CSVs (16 folds per universe and strategy).")
 
 
+def test_columnar_and_records() -> None:
+    from quantbt.analytics.export import columnar, records
+    idx = pd.bdate_range("2024-01-01", periods=3)
+    col = columnar({"a": pd.Series([1.0, np.nan, 3.0], index=idx)})
+    assert col["dates"][0] == "2024-01-01" and col["a"] == [1.0, None, 3.0]
+    rec = records(pd.DataFrame({"x": [np.inf, 2], "d": [pd.Timestamp("2024-01-02"), pd.NaT]}))
+    assert rec[0]["x"] is None and rec[0]["d"] == "2024-01-02" and rec[1]["d"] is None
+    json.dumps(rec, allow_nan=False)
+
+
 def test_clean_is_strict() -> None:
     assert clean(float("nan")) is None and clean(float("inf")) is None and clean(np.float64(1.5)) == 1.5
     eq, dd = equity_and_drawdown(pd.Series([0.1, -0.5, 0.2]))
@@ -124,6 +134,7 @@ def test_clean_is_strict() -> None:
 
 if __name__ == "__main__":
     test_clean_is_strict()
+    test_columnar_and_records()
     test_strict_json_and_manifest()
     test_regime_metrics_match_breakdown_csv()
     test_breakdown_rebuilds_from_daily_returns()

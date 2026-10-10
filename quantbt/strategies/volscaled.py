@@ -63,6 +63,7 @@ class VolScaledMomentum(CrossSectionalMomentum):
         return float(ew.std() * np.sqrt(252))
 
     def on_market(self, event: MarketEvent) -> list[SignalEvent]:
+        """Momentum's signals, with every LONG carrying the book's volatility scale as strength."""
         signals = super().on_market(event)
         longs = [s for s in signals if s.direction is Direction.LONG]
         if not longs:
@@ -89,6 +90,7 @@ class GrossTargetSizer(VolatilityTargetSizer):
         self._gross: float = 1.0
 
     def target_quantity(self, signal: SignalEvent) -> int | None:
+        """Raw vol-target size at full strength; the book-level gross is applied in _scale_to_full."""
         return super().target_quantity(replace(signal, strength=1.0))
 
     def _size_batch_v2(self, signals):

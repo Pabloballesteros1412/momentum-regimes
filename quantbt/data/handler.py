@@ -99,6 +99,7 @@ class DataHandler:
     # ------------------------------------------------------------------
     @property
     def symbols(self) -> list[str]:
+        """Every symbol the handler holds, in insertion order."""
         return list(self._frames)
 
     @property
@@ -113,6 +114,7 @@ class DataHandler:
 
     @property
     def current_time(self) -> datetime:
+        """Timestamp of the bar the simulation clock is on."""
         if self._cursor < 0:
             raise RuntimeError("Clock has not started; call advance() first")
         return self.timeline[self._cursor].to_pydatetime()
@@ -134,6 +136,7 @@ class DataHandler:
         return visible.tail(n)
 
     def get_latest_close(self, symbol: str) -> float | None:
+        """Latest visible close for `symbol`, or None if it has no bar yet."""
         bars = self.get_latest_bars(symbol, 1)
         if bars.empty:
             return None
@@ -155,4 +158,5 @@ class DataHandler:
         return float(df.at[next_ts, "open"])
 
     def has_data(self, symbol: str) -> bool:
+        """Whether `symbol` has at least one bar visible at the current time."""
         return not self.get_latest_bars(symbol, 1).empty

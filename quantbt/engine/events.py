@@ -69,6 +69,7 @@ class FillEvent:
 
     @property
     def gross_value(self) -> float:
+        """Signed notional of the fill, before commission."""
         return self.quantity * self.fill_price
 
     @property

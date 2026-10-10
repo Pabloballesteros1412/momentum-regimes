@@ -52,6 +52,7 @@ class PointInTimeEqualWeight(Strategy):
         self.n_members = 1
 
     def on_market(self, event: MarketEvent) -> list[SignalEvent]:
+        """On the first bar of each month, target equal weight across members with a bar today."""
         if self.active_from is not None and event.timestamp < self.active_from:
             return []
         period = (event.timestamp.year, event.timestamp.month)
@@ -77,7 +78,8 @@ class _LiquidateOnEndOfData:
 
     delisting_return: float = 0.0
 
-    def size_batch(self, signals):
+    def size_batch(self, signals: list[SignalEvent]) -> list:
+        """Liquidate names whose data ended today, then size the batch as usual."""
         self._liquidate_ended()
         return super().size_batch(signals)
 
@@ -118,6 +120,7 @@ class PITEqualWeightSizer(_LiquidateOnEndOfData, EqualWeightSizer):
         self.strategy: PointInTimeEqualWeight | None = None
 
     def target_quantity(self, signal: SignalEvent) -> int | None:
+        """Equal share of equity per current member (1 / strategy.n_members)."""
         if signal.direction is Direction.EXIT:
             return 0
         price = self.data.get_latest_close(signal.symbol)
