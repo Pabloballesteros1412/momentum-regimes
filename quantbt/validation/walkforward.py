@@ -122,12 +122,13 @@ def _run_backtest(
     strategy_kwargs: dict,
     sizer_factory: SizerFactory,
     initial_capital: float,
+    broker_factory: Callable[[DataHandler], SimulatedBroker] = SimulatedBroker,
 ) -> Portfolio:
     data = DataHandler(frames)
     portfolio = Portfolio(data, initial_capital=initial_capital)
     strategy = strategy_factory(data, **strategy_kwargs)
     sizer = sizer_factory(data, portfolio)
-    broker = SimulatedBroker(data)
+    broker = broker_factory(data)
     backtest = Backtest(data, strategy, sizer, broker, portfolio, verbose=False)
     backtest.run()
     return portfolio
@@ -145,6 +146,7 @@ def _pool_init(
     sizer_factory: SizerFactory,
     initial_capital: float,
     shared_kwargs: dict,
+    broker_factory: Callable = SimulatedBroker,
 ) -> None:
     global _POOL_STATE
     _POOL_STATE = {
@@ -153,6 +155,7 @@ def _pool_init(
         "sizer_factory": sizer_factory,
         "initial_capital": initial_capital,
         "shared_kwargs": shared_kwargs,
+        "broker_factory": broker_factory,
     }
 
 
@@ -161,7 +164,7 @@ def _pool_evaluate(params: dict) -> tuple[dict, float]:
     strategy_kwargs = {**params, **state["shared_kwargs"]}
     portfolio = _run_backtest(
         state["train_frames"], state["strategy_factory"], strategy_kwargs,
-        state["sizer_factory"], state["initial_capital"],
+        state["sizer_factory"], state["initial_capital"], state["broker_factory"],
     )
     return params, _sharpe_ratio(portfolio.equity_curve())
 
@@ -174,6 +177,7 @@ def _select_best_params(
     initial_capital: float,
     shared_kwargs: dict | None = None,
     n_jobs: int = 1,
+    broker_factory: Callable = SimulatedBroker,
 ) -> tuple[dict, float]:
     """Grid search restricted entirely to train_frames. Best Sharpe wins."""
     shared_kwargs = shared_kwargs or {}
@@ -182,13 +186,14 @@ def _select_best_params(
         results = []
         for params in param_grid:
             strategy_kwargs = {**params, **shared_kwargs}
-            portfolio = _run_backtest(train_frames, strategy_factory, strategy_kwargs, sizer_factory, initial_capital)
+            portfolio = _run_backtest(train_frames, strategy_factory, strategy_kwargs, sizer_factory, initial_capital,
+                                      broker_factory)
             results.append((params, _sharpe_ratio(portfolio.equity_curve())))
     else:
         with Pool(
             processes=n_jobs,
             initializer=_pool_init,
-            initargs=(train_frames, strategy_factory, sizer_factory, initial_capital, shared_kwargs),
+            initargs=(train_frames, strategy_factory, sizer_factory, initial_capital, shared_kwargs, broker_factory),
         ) as pool:
             results = pool.map(_pool_evaluate, param_grid)
 
@@ -210,6 +215,7 @@ def run_walkforward(
     n_jobs: int | None = None,
     progress: Callable[[str], None] | None = None,
     on_fold_complete: Callable[[int, Fold], None] | None = None,
+    broker_factory: Callable[[DataHandler], SimulatedBroker] = SimulatedBroker,
 ) -> WalkForwardResult:
     """
     strategy_shared_kwargs: merged into every strategy construction call
@@ -220,6 +226,9 @@ def run_walkforward(
         selects or reports.
     n_jobs: worker processes for the per-fold grid search. None (default)
         uses os.cpu_count() - 1; 1 runs sequentially in-process.
+    broker_factory: builds the broker for every backtest (training and
+        trading); defaults to SimulatedBroker with its default frictions.
+        Used for transaction-cost sensitivity runs.
     progress: optional callback(message) for coarse-grained status text
         (fold N/M starting, training done, trading done). No timestamp is
         added here -- the caller's callback controls formatting.
@@ -275,7 +284,7 @@ def run_walkforward(
 
         best_params, best_sharpe = _select_best_params(
             train_frames, param_grid, strategy_factory, sizer_factory, initial_capital,
-            shared_kwargs=shared_kwargs, n_jobs=n_jobs,
+            shared_kwargs=shared_kwargs, n_jobs=n_jobs, broker_factory=broker_factory,
         )
         _report(f"fold {fold_index}/{n_folds}: training done -- best sharpe={best_sharpe:.2f} params={best_params}")
 
@@ -287,7 +296,8 @@ def run_walkforward(
         extra_kwargs = trade_extra_kwargs(trade_start) if trade_extra_kwargs else {}
 
         portfolio = _run_backtest(
-            trade_frames, strategy_factory, {**best_params, **extra_kwargs, **shared_kwargs}, sizer_factory, capital
+            trade_frames, strategy_factory, {**best_params, **extra_kwargs, **shared_kwargs}, sizer_factory, capital,
+            broker_factory,
         )
         full_curve = portfolio.equity_curve()
         oos_curve = full_curve.loc[full_curve.index >= trade_start].copy()
