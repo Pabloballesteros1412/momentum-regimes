@@ -1,18 +1,25 @@
 # How much of momentum's drawdown protection survives once it is fully invested?
 
-**Short answer, as far as the published data allows:** in the US, nearly
-none of it is distinguishable from holding less equity. The published US
-regime interaction, where momentum beats buy & hold in bear markets and lags
-it in bull markets, is reproduced at **93%** by a portfolio that simply holds
-**67% buy & hold and 33% cash**. Once that constant exposure is removed, the
-remaining US interaction is −0.009% per day, with a 95% CI of
-[−0.103%, +0.070%]. That isn't significant.
+**Short answer, from the reruns (`python run_cash_v2.py`, 2026-10-10):**
+in the US, the published drawdown protection **does not survive** fixing
+the idle-exit-cash bug (v2). It is **weakened** when the book is made fully
+invested (v2full). Under both, the US regime interaction keeps its sign but
+its 95% CI now includes zero. Momentum still beats buy & hold on drawdown in
+the 2022 window under both versions, so the 2022 condition of the rule holds.
+That doesn't rescue v2, which fails on the retained share.
 
-**What is not answered yet:** how much of that low exposure comes from the
-idle-exit-cash bug and how much from intended design, meaning vol-target cash
-and low-beta stock picks. Answering that needs the v1/v2 reruns. They are
-implemented and tested but haven't run, because this environment can't reach
-Yahoo Finance (see "Status"). No number in this document comes from a rerun.
+| US regime interaction (bull − bear, mean daily) | Gap | 95% CI | Retained vs v1 rerun | 2022 max DD, momentum vs B&H (−40.15%) | Verdict |
+|---|---|---|---|---|---|
+| v1 rerun (= published) | −0.122% | [−0.244, −0.011] | — | −18.24% | (baseline) |
+| **v2** (bug fixed, design cash kept) | −0.015% | [−0.132, +0.082] | **0.12** | −18.67% ✅ | **Does not survive** (retained < 1/3) |
+| **v2full** (fully invested) | −0.060% | [−0.171, +0.041] | **0.49** | −19.96% ✅ | **Weakened** (CI includes 0; retained between 1/3 and 2/3) |
+
+Section 3 of the earlier analysis expected the reverse ordering: v2full not
+surviving, and v2 depending on how much of the 0.67 β was idle cash. The
+reruns put most of it down to idle cash. Fixing only the bug lifts the US
+walk-forward book's average invested fraction from 0.67 to 0.98 and removes
+88% of the interaction. See "Results of the reruns" for details and for the
+v2full oddity behind the ordering.
 
 ---
 
@@ -20,20 +27,15 @@ Yahoo Finance (see "Status"). No number in this document comes from a rerun.
 
 | Step | State |
 |---|---|
-| 1. Invested fraction on real data | **Blocked.** Needs price data. Holdings aren't in any published file, so this can't be inferred from returns. |
-| 2. Engine v2, opt-in, with an exact default-path test | **Done.** `python test_engine_v2.py` |
-| 3. v2 rerun vs published | **Blocked.** Same reason. `python run_cash_v2.py` does everything, including the drift check. |
-| 4. This document | Answered from published returns only (the exposure diagnostic below). The idle-cash split is pending. |
+| 1. Invested fraction on real data | **Done.** `invested_fraction.csv` |
+| 2. Engine v2, opt-in, with an exact default-path test | **Done.** `python test_engine_v2.py` (re-run 2026-10-10: passes) |
+| 3. v2 rerun vs published | **Done.** Drift check passed and the v1 rerun reproduces the published numbers (below). |
+| 4. This document | Verdicts below, under the pre-registered rule. |
 | 5. README sentences | Listed below. README untouched. |
 
-**Blocker:** this cloud environment's network policy denies
-`query1.finance.yahoo.com` and `query2.finance.yahoo.com` (HTTP 403 at the
-egress proxy). There's no `cache/` in the repo. Once either is available,
-this command fills every pending table in `results/v2/`:
-
-```bash
-python run_cash_v2.py        # stages: drift -> runs -> analyze (resumable)
-```
+**Data snapshot.** Yahoo Finance was reachable on 2026-10-10. `run_cash_v2.py`
+also needs `pyarrow` for its price cache, which `requirements.txt` doesn't
+list.
 
 ---
 
@@ -164,6 +166,123 @@ explains 93% of the effect. Whether v2 survives depends on how much of the
 
 ---
 
+## Results of the reruns
+
+All files are in `results/v2/`. Curves and walk-forward fold choices are in
+`curves/`.
+
+### Drift check (`drift_check.csv`): passed
+
+| Series | Days | Correlation | Cumulative return, stored → rerun | Within tolerance |
+|---|---|---|---|---|
+| US buy & hold | 5,032 | 1.0000 | 79.487 → 79.491 | ✅ |
+| Europe buy & hold | 5,171 | 1.0000 | 6.6717 → 6.6722 | ✅ |
+| Emerging buy & hold | 5,032 | 1.0000 | 8.6744 → 8.6725 | ✅ |
+| SPY regime labels | 4,760 | 100% agreement | | ✅ |
+
+No day differs by more than 1 bp. The v1 rerun also reproduces the
+published momentum results: the walk-forward total return is +178.33%
+(published +178.27%), max drawdown −35.58%, Calmar 0.52 and recovery 378
+days, all the same as published. The regime interactions match to the
+fourth decimal, and v1-rerun vs published momentum returns correlate at
+1.0000 in all three universes. So every v1 → v2 difference below comes from
+the engine, not from data drift.
+
+### Invested fraction (`invested_fraction.csv`)
+
+| Book | v1 mean | v2 mean | v2full mean | v1 share of days < 90% | v2 share of days < 90% |
+|---|---|---|---|---|---|
+| US 2015–24 walk-forward | 0.669 | 0.979 | 0.966 | 66% | 0% |
+| US 2015–24 in-sample | 0.706 | 0.885 | 0.875 | 56% | 13% |
+| US 2005–24 walk-forward | 0.816 | 0.986 | 0.971 | 46% | 0% |
+| Europe 2005–24 walk-forward | 0.761 | 0.973 | 0.968 | 52% | 4% |
+| Emerging 2005–24 walk-forward | 0.758 | 0.976 | 0.971 | 59% | 5% |
+| Buy & hold (any) | 0.97–0.99 | same | n/a | | |
+
+Under v1, the US book's invested fraction falls to 0.58 on bearish days,
+against 0.69 on bullish days. That is the idle-cash mechanism of section 4,
+seen directly in the holdings.
+
+**v2full oddity.** v2full is meant to be "literally fully invested", yet its
+mean invested fraction is slightly *below* v2's in every book. Its US
+2015–24 walk-forward total return (+212%) is also far below v2's (+420%).
+Rescaling every target to 100% gross probably leaves no cash buffer for the
+2% haircut and next-open fills, so buys get trimmed, and the walk-forward
+then picks different parameters. That explains why v2full keeps *more* of
+the interaction than v2. Treat the v2full row as "approximately fully
+invested". I did not investigate this further.
+
+### US 2015–2024 headline metrics (`headline_metrics_us2015.csv`)
+
+| Strategy | Version | Total return | Sharpe | Calmar | Max DD | Max DD days |
+|---|---|---|---|---|---|---|
+| Walk-forward momentum | v1 rerun | +178.3% | 0.90 | 0.52 | −35.58% | 378 |
+| | v2 | +419.9% | 1.13 | 0.87 | −36.58% | 124 |
+| | v2full | +212.4% | 0.90 | 0.67 | −31.23% | 133 |
+| In-sample momentum | v1 rerun | +523.8% | 0.92 | 0.88 | −22.86% | 1,050 |
+| | v2 | +1,559.2% | 1.14 | 1.00 | −32.41% | 112 |
+| Buy & hold | v1 = v2 | +1,254.8% | 1.19 | 0.72 | −41.35% | 571 |
+
+Fixing the bug doesn't make walk-forward momentum beat buy & hold
+out of sample. It does make its max drawdown about as deep as before rather
+than shallower, and the recovery times change completely.
+
+### Stress windows, US walk-forward (`stress_us2015.csv`)
+
+| Window | Version | Momentum return | Momentum max DD | Days to recover | B&H max DD |
+|---|---|---|---|---|---|
+| COVID crash | v1 | −18.20% | −35.58% | 378 | −30.27% |
+| | v2 | −17.54% | −36.58% | 124 | |
+| | v2full | −14.53% | −31.23% | 133 | |
+| 2022 bear | v1 | −4.81% | −18.24% | 366 | −40.15% |
+| | v2 | +0.43% | −18.67% | 530 | |
+| | v2full | −7.23% | −19.96% | 758 | |
+
+2022 holds under every version. Momentum's drawdown stays less than half of
+buy & hold's, so that episode's protection reflects what momentum was
+holding, not idle cash. COVID stays a case where momentum did worse, but the
+"378 days to recover" figure is mostly idle cash: it is 124 days under v2.
+
+### Regime interaction, three universes (`regime_interaction.csv`, `summary.json`)
+
+Values are mean daily momentum − B&H, bullish minus bearish, against the v1
+buy & hold rerun. CIs come from a 5,000-iteration block bootstrap.
+
+| Universe | v1 rerun | v2 | v2full |
+|---|---|---|---|
+| US | −0.122% [−0.244, −0.011] **sig.** | −0.015% [−0.132, +0.082] | −0.060% [−0.171, +0.041] |
+| Europe | +0.077% [+0.001, +0.159] **sig.** | +0.070% [+0.003, +0.136] **sig.** | +0.055% [−0.013, +0.118] |
+| Emerging | −0.035% [−0.173, +0.100] | +0.023% [−0.099, +0.141] | −0.037% [−0.180, +0.097] |
+
+### Verdicts under the pre-registered rule
+
+**US.**
+- **v2: Does not survive.** It keeps the same sign, but the CI includes 0
+  and retained = 0.12 < 1/3. 2022 holds, but that doesn't override the
+  interaction test.
+- **v2full: Weakened.** It keeps the same sign, but the CI includes 0 and
+  retained = 0.49, which is between 1/3 and 2/3. 2022 holds.
+
+**Europe ("does not replicate").**
+- **v2:** unchanged. The opposite-direction interaction is still significant.
+- **v2full:** the rule's trigger fires, because Europe loses its
+  significance (CI [−0.013, +0.118]). The point estimate barely moves
+  (+0.077% → +0.055%), so it now reads as "nothing in Europe" rather than
+  "a weak opposite signal". "Does not replicate" still stands.
+
+**Emerging.**
+- **v2 and v2full:** unchanged. It isn't significant in either version, and
+  under v2 the sign isn't even in the US direction.
+
+**Bottom line.** "Momentum's drawdown protection" in the US was mostly the
+v1 engine leaving exit cash idle. With that cash invested, the bull/bear
+asymmetry is no longer distinguishable from zero. The one robust protective
+episode is 2022, where momentum's drawdown is about half of buy & hold's
+under every engine version. Items 4–8 and 10–11 in the list below should be
+corrected or retracted. Item 7 (2022) can stay, apart from its recovery time.
+
+---
+
 ## README sentences that would need correcting
 
 The README was not edited.
@@ -230,5 +349,5 @@ Section 3 already makes the interpretation of the first three items doubtful.
 |---|---|
 | `quantbt/risk/sizing.py`, `quantbt/engine/backtest.py` | Opt-in `engine_version="v2"` and `full_investment`. Default unchanged. |
 | `test_engine_v2.py`, `tests/` | Golden-fixture regression, plus v2 solvency, invested-fraction and timing tests |
-| `run_cash_v2.py` | Drift check, v1/v2/v2full reruns, analysis → `results/v2/*.csv` (pending data) |
+| `run_cash_v2.py` | Drift check, v1/v2/v2full reruns, analysis → `results/v2/*.csv`, `summary.json`, `curves/` |
 | `run_beta_diagnostic.py` → `results/v2/beta_diagnostic.csv` | The section 3 table, from published returns only |
