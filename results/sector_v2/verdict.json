@@ -1,0 +1,22 @@
+{
+  "v1": {
+    "orderings": {
+      "US > Europe, Consumer Cyclical": true,
+      "US > Europe, Technology": true,
+      "Europe > US, Healthcare": true,
+      "Europe > US, Energy": false
+    },
+    "n_hold": 3,
+    "verdict": "partly holds"
+  },
+  "v2": {
+    "orderings": {
+      "US > Europe, Consumer Cyclical": true,
+      "US > Europe, Technology": true,
+      "Europe > US, Healthcare": true,
+      "Europe > US, Energy": false
+    },
+    "n_hold": 3,
+    "verdict": "partly holds"
+  }
+}

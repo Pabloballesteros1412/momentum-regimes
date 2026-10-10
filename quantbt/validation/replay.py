@@ -33,6 +33,10 @@ class ReplayResult:
     holdings: dict[pd.Timestamp, dict[str, int]] = field(default_factory=dict)
     # Market value per symbol on the settlement bar, keyed by rebalance date.
     holdings_value: dict[pd.Timestamp, dict[str, float]] = field(default_factory=dict)
+    # Names the strategy *selected* (LONG signals) at each rebalance. Under
+    # engine v1 some selected names are never bought (cash starvation), so
+    # this can differ from `holdings`.
+    selections: dict[pd.Timestamp, set[str]] = field(default_factory=dict)
 
     def max_equity_gap(self, stored: pd.Series) -> float:
         """Largest relative difference between the replayed and a stored equity curve."""
@@ -50,7 +54,8 @@ def _recording(strategy_factory: Callable, log: list) -> Callable:
         def on_market(event):
             signals = original(event)
             if signals:
-                log.append(pd.Timestamp(event.timestamp))
+                log.append((pd.Timestamp(event.timestamp),
+                            {x.symbol for x in signals if x.direction.name == "LONG"}))
             return signals
 
         strategy.on_market = on_market
@@ -80,6 +85,7 @@ def replay_walkforward(
     curves, rebalances = [], []
     holdings: dict[pd.Timestamp, dict[str, int]] = {}
     values: dict[pd.Timestamp, dict[str, float]] = {}
+    selections: dict[pd.Timestamp, set[str]] = {}
 
     for _, f in folds.iterrows():
         trade_start, trade_end = pd.Timestamp(f["trade_start"]), pd.Timestamp(f["trade_end"])
@@ -91,7 +97,7 @@ def replay_walkforward(
         params["top_decile"] = float(params["top_decile"])
 
         trade_frames = _slice_frames(frames, trade_start - pd.Timedelta(days=warmup_days), trade_end)
-        log: list[pd.Timestamp] = []
+        log: list[tuple[pd.Timestamp, set[str]]] = []
         data = DataHandler(trade_frames)
         portfolio = Portfolio(data, initial_capital=capital)
         strategy = _recording(strategy_factory, log)(data, **params, active_from=trade_start, **shared_kwargs)
@@ -107,7 +113,8 @@ def replay_walkforward(
         fills = pd.DataFrame([{"ts": pd.Timestamp(x.timestamp), "symbol": x.symbol, "qty": x.quantity}
                               for x in portfolio.fills])
         timeline = data.timeline
-        for d in log:
+        for d, selected in log:
+            selections[d] = selected
             i = timeline.get_loc(d)
             settle = timeline[min(i + 1, len(timeline) - 1)]
             pos = fills[fills["ts"] <= settle].groupby("symbol")["qty"].sum() if len(fills) else pd.Series(dtype=int)
@@ -119,4 +126,5 @@ def replay_walkforward(
     combined = pd.concat(curves).sort_index()
     combined = combined[~combined.index.duplicated(keep="first")]
     combined["returns"] = combined["equity"].pct_change().fillna(0.0)
-    return ReplayResult(equity_curve=combined, rebalances=rebalances, holdings=holdings, holdings_value=values)
+    return ReplayResult(equity_curve=combined, rebalances=rebalances, holdings=holdings, holdings_value=values,
+                        selections=selections)
