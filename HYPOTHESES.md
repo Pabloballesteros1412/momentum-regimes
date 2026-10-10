@@ -250,3 +250,43 @@ pairs (20-day blocks, 5,000 iterations, seed 0), 95% CI.
 
 **H6c (descriptive).** Full-sample max drawdown, worst month and skewness
 for every variant, and window returns. No test.
+
+---
+
+## H7 — Task 7: robustness under engine v2
+
+**H7a: parameter sweep (the old "1 of 96" result).** Under v1, 1 of the
+96 parameter combinations (US, 2015–2024, in-sample, single backtests)
+beat buy & hold's total return (`sensitivity_results.csv`). The same 96
+are rerun under v1 and v2 on today's data.
+
+- *Directional prediction:* more combinations beat buy & hold under v2
+  than under the v1 rerun. **Pass** if the v2 count exceeds the v1-rerun
+  count.
+- The same is reported for Sharpe > buy & hold's Sharpe and for
+  max DD shallower than buy & hold's.
+
+**H7b: transaction-cost sensitivity.** The US regime-study walk-forward
+(12-combination grid, 2005–2024, engine v2) is rerun with a flat
+**one-way** cost of 0, 5, 10, 20, 30 and 50 bps of traded notional, in
+place of the default commission and impact model. The cost also applies
+while the walk-forward selects parameters. Buy & hold is rerun at each
+cost too. Reported: CAGR, Sharpe, turnover, and the bull/bear interaction
+against buy & hold.
+
+- **Pass ("robust null")** if the interaction's 95% CI includes 0 at
+  every cost level.
+- The break-even cost, where momentum's CAGR falls to buy & hold's, is
+  reported. It may not exist within 0–50 bps.
+
+**H7c: max-drawdown distribution.** Paired moving block bootstrap (same
+resampled blocks for both series), 20-day blocks (sensitivity: 60),
+5,000 iterations, seed 0. Applied to daily returns of walk-forward
+momentum v2 and buy & hold v2 on (i) the US regime study, common window
+2009–2024, and (ii) the US 2015–2024 study.
+
+- Reported: the max-DD distribution of each series, the 95% CI of
+  (max DD momentum − max DD buy & hold), and P(momentum's max DD is
+  shallower).
+- **"Reliably shallower"** if the CI is entirely > 0 (max DD is
+  negative, so shallower means a larger number).
