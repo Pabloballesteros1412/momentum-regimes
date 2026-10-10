@@ -17,9 +17,8 @@ the regime study; engine v2):
                     ever joined and never sell)
   pit_liquid40      breadth control: PIT, but only the 40 most liquid current
                     members (63-day dollar volume) are ranked
-  sensitivity       the same two with a -30% delisting return (Shumway 1997)
-                    applied to every name whose data ends early. Mergers are
-                    most S&P exits, so this is a pessimistic bound.
+  (a -30% delisting-return sensitivity is implemented in the sizers but
+   not run: no series in the free data ends early -- see DELISTING)
 
 Compared with the fixed 37-name universe from results/v2 (momentum v2 vs
 buy & hold v2) on the same out-of-sample days.
@@ -58,7 +57,11 @@ EXCLUDED = Path("data/sp500_excluded_tickers.txt")
 V2_CURVES = Path("results/v2/curves")
 REGIME_CSV = Path("results/v2/spy_regime_rerun.csv")
 WARMUP_DAYS = int(max(run_regimes.REDUCED_LOOKBACKS) * 7 / 5) + 30
-DELISTING = {"base": 0.0, "shumway": -0.30}
+# A -30% Shumway (1997) delisting return was planned as a sensitivity, but
+# it can never trigger: every one of the 622 Yahoo series runs to the end of
+# 2024 (Yahoo keeps only still-listed symbols), so no held name's data ends
+# early. The run would equal the base exactly, so it is not run.
+DELISTING = {"base": 0.0}
 N_ITERATIONS, BLOCK_SIZE, CONFIDENCE = 5000, 20, 0.95
 
 
