@@ -204,3 +204,49 @@ Reported for every universe and version.
 **H5d (v1 vs v2, directional prediction).** The v2 market loading exceeds
 v1's in every universe, because idle cash lowers beta. Pass if true in all
 three.
+
+---
+
+## H6 — Task 6: volatility-scaled momentum and momentum crashes
+
+**Strategy** (`quantbt/strategies/volscaled.py`). Same selection as
+momentum. Book gross = min(target_vol / σ̂, 1), where σ̂ is the annualised
+126-day volatility of an equal-weight portfolio of the selected names,
+using past closes only. The rest is cash, with no leverage. Engine v2,
+`GrossTargetSizer`.
+
+**Variants.** All are walk-forwards on the 12-combination momentum grid
+over 2005–2024, with the same folds and warm-up as the regime study. The
+volatility settings are fixed, not tuned.
+
+- **Baseline (like-for-like):** target_vol = 10.0. The scale is always 1,
+  so the book is fully invested.
+- **Scaled (primary):** target_vol = 0.20. Sensitivity runs at 0.15 and
+  0.25.
+- **Plain momentum v2** (`results/v2`) is reported for reference.
+
+**Universes.** US fixed 37 names (primary). The PIT S&P 500 with the
+renamed map (`results/pit_us_renamed` membership) runs the baseline and
+0.20 if time allows.
+
+**Crash windows** (Daniel & Moskowitz rebounds):
+
+| Window | Dates |
+|---|---|
+| 2009 rebound | 2009-03-09 → 2009-06-30 |
+| COVID | 2020-02-19 → 2020-06-30 |
+
+**H6a (primary).** Scaled 0.20 has a *shallower max drawdown within each
+crash window* than the baseline.
+
+- **Pass:** true in both windows on the US fixed universe.
+- **H6a-PIT:** the same rule on the PIT universe, if run.
+
+**H6b.** Full-sample (2009–2024 out of sample) Sharpe difference, scaled
+0.20 minus baseline. Paired moving block bootstrap of the daily return
+pairs (20-day blocks, 5,000 iterations, seed 0), 95% CI.
+
+- Significant if the CI excludes 0. Barroso & Santa-Clara predict > 0.
+
+**H6c (descriptive).** Full-sample max drawdown, worst month and skewness
+for every variant, and window returns. No test.
