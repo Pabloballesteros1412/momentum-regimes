@@ -290,3 +290,38 @@ momentum v2 and buy & hold v2 on (i) the US regime study, common window
   shallower).
 - **"Reliably shallower"** if the CI is entirely > 0 (max DD is
   negative, so shallower means a larger number).
+
+---
+
+## H8 — Task 8: extended US sample from 2000 (point-in-time S&P 500)
+
+**Setup.**
+
+- **Membership:** fja05680 (same commit), 1996–2024, with the verified
+  rename map (`data/sp500_rename_map.csv`) applied.
+- **Prices:** Yahoo from 1996.
+- **Engine:** v2. Walk-forward 4y/1y on the 12-combination grid; trading
+  windows 2000–2024 (25 folds). PIT equal-weight benchmark.
+- **Regimes:** SPY regimes computed from 1993 onward with the same
+  classifier.
+- **Output:** `results/pit_us_2000/` (separate data and cache folders,
+  nothing existing overwritten).
+
+**Blocking rule.** If member-day price coverage in 2000–2004 is below
+40%, the run is still reported, but every 2000–2004 number is labelled
+"unreliable (coverage < 40%)".
+
+**H8a.** The momentum − benchmark bull/bear interaction over 2000–2024
+uses the same rule as H1a.
+
+- **Pass:** CI excludes 0 and the estimate is > 0. That would mean
+  momentum does relatively worse in bear markets, extending H1a's
+  direction to a sample that includes the dot-com bust.
+
+**H8b (descriptive).** Dot-com window 2000-03-24 → 2002-10-09 (S&P 500
+peak to trough): momentum and benchmark return and max drawdown. "Momentum
+protected in the dot-com bust" if its max drawdown is shallower than the
+benchmark's. With one episode, no test.
+
+**H8c (descriptive).** Full-period CAGR, Sharpe and max DD for momentum
+and benchmark, 2000–2024 against 2009–2024.
