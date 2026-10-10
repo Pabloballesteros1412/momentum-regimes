@@ -158,3 +158,49 @@ This rule also applies across the 12 parameter sets, by majority.
 
 No significance test. Five episodes can't support one, and none is
 claimed.
+
+---
+
+## H5 — Task 5: Fama-French 5 factors + momentum (UMD)
+
+**Data.** Kenneth French's data library, downloaded 2026-10-11 (copies in
+`data/ff/`):
+
+- **US:** 5 factors (2×3) daily and the momentum factor daily.
+- **Europe:** 5 factors daily and the momentum factor daily (USD).
+- **Emerging:** 5 factors monthly and the momentum factor monthly (no
+  daily file exists).
+
+**Model.** r − RF = α + b·MKT + s·SMB + h·HML + r·RMW + c·CMA + u·UMD + e.
+OLS with Newey-West (HAC) standard errors: 10 lags for daily data, 3 for
+monthly. US series use US factors, Europe uses Europe factors, Emerging
+uses Emerging factors (monthly). The sample is each series' own
+out-of-sample days within 2009–2024.
+
+**Series.** Walk-forward momentum v1 and v2 and buy & hold v2 for each
+universe (`results/v2/curves`); PIT S&P 500 momentum and its benchmark
+(`results/pit_us`, and `results/pit_us_renamed` if finished); and the
+active series momentum − benchmark.
+
+**H5a (the engine reproduces the academic factor).**
+
+- **Pass** if US walk-forward momentum v2 on the fixed universe has a
+  positive UMD loading with HAC t > 2.
+- **H5a-PIT:** the same rule for PIT S&P 500 momentum (renamed map if
+  available, else `pit_us`).
+
+**H5b (tracking, descriptive threshold).** Monthly correlation between
+(momentum − benchmark) and UMD:
+
+- ≥ 0.5 "tracks UMD well".
+- 0.3–0.5 "tracks partly".
+- < 0.3 "does not track".
+
+Reported for every universe and version.
+
+**H5c (alpha).** Report α with its HAC t-stat. α is significant if
+|t| > 2. No direction is predicted.
+
+**H5d (v1 vs v2, directional prediction).** The v2 market loading exceeds
+v1's in every universe, because idle cash lowers beta. Pass if true in all
+three.
