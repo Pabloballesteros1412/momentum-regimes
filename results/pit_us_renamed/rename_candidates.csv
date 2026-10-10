@@ -1,0 +1,566 @@
+old,old_end,new,new_start,generator,old_name,old_name_source,cik,edgar_name,edgar_former_names,A_name_change_at_swap,B_old_name_on_cik,price_coverage,first_bar,C_prices_continuous,D_no_overlap,decision
+AABA,2017-06-16,ALGN,2017-06-19,adjacent,,,1097149.0,ALIGN TECHNOLOGY INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+AABA,2017-06-16,ANSS,2017-06-19,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+AABA,2017-06-16,HLT,2017-06-19,adjacent,,,1585689.0,Hilton Worldwide Holdings Inc.,,False,False,0.28188775510204084,2013-12-12,False,False,"reject: same entity (A/B), price continuity, no overlap"
+AABA,2017-06-16,RE,2017-06-19,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ABC,2023-08-29,COR,2023-08-30,adjacent,AmerisourceBergen,hand list,1140859.0,"Cencora, Inc.",AMERISOURCEBERGEN CORP (to 2023-08-15); AMERISOURCE BERGEN CORP (to 2001-10-09),True,True,1.0,2005-01-03,True,True,ACCEPT
+ABI,2008-11-21,LIFE,2008-11-24,adjacent,,,1788451.0,Ethos Technologies Inc.,,False,False,0.0,,False,True,"reject: same entity (A/B), price continuity"
+ABKFQ,2008-06-10,LO,2008-06-11,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ABMD,2022-12-21,STLD,2022-12-22,adjacent,Abiomed,wikipedia,1022671.0,STEEL DYNAMICS INC,STEEL DYNAMICS INC (to 2026-10-09),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ABS,2006-06-01,JNPR,2006-06-02,adjacent,Albertsons,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ABS,2006-06-01,CBH,2006-06-06,adjacent,Albertsons,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ACAS,2009-03-03,HRL,2009-03-04,adjacent,American Capital,wikipedia,48465.0,HORMEL FOODS CORP /DE/,HORMEL GEO A & CO (to 1995-03-14),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ACAS,2009-03-03,VTR,2009-03-04,adjacent,American Capital,wikipedia,740260.0,"Ventas, Inc.",VENTAS INC (to 2019-06-25); VENCOR INC (to 1998-02-10),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ACS,2010-02-05,URBN,2010-02-08,adjacent,,,912615.0,URBAN OUTFITTERS INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ACV,2006-11-16,CTSH,2006-11-17,adjacent,,,1058290.0,COGNIZANT TECHNOLOGY SOLUTIONS CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ACV,2006-11-16,BTUUQ,2006-11-20,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ADCT,2007-06-29,COV,2007-07-02,adjacent,ADC Telecommunications,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ADCT,2007-06-29,DFS,2007-07-02,adjacent,ADC Telecommunications,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ADCT,2007-06-29,GGP,2007-07-02,adjacent,ADC Telecommunications,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ADCT,2007-06-29,TEL,2007-07-02,adjacent,ADC Telecommunications,wikipedia,1385157.0,TE Connectivity plc,TE Connectivity Ltd. (to 2024-09-23); Tyco Electronics Ltd. (to 2011-03-10),False,False,0.019138755980861243,2007-06-14,False,True,"reject: same entity (A/B), price continuity"
+ADS,2020-06-19,BIO,2020-06-22,adjacent,Alliance Data,hand list,12208.0,"BIO-RAD LABORATORIES, INC.",BIO RAD LABORATORIES INC (to 2018-06-18),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ADS,2020-06-19,TDY,2020-06-22,adjacent,Alliance Data,hand list,1094285.0,TELEDYNE TECHNOLOGIES INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ADS,2020-06-19,TYL,2020-06-22,adjacent,Alliance Data,hand list,860731.0,TYLER TECHNOLOGIES INC,TYLER CORP /NEW/ (to 1999-03-31),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ADT,2016-04-29,AYI,2016-05-03,adjacent,ADT,wikipedia,1144215.0,ACUITY INC. (DE),ACUITY BRANDS INC (to 2025-04-17); L&C SPINCO INC (to 2001-10-29),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+AET,2018-11-28,FANG,2018-12-03,adjacent,Aetna,wikipedia,1539838.0,"Diamondback Energy, Inc.","Diamondback Energy, Inc. (to 2026-10-08)",False,False,0.44031981724728725,2012-10-12,False,True,"reject: same entity (A/B), price continuity"
+AET,2018-11-28,LW,2018-12-03,adjacent,Aetna,wikipedia,1679273.0,"Lamb Weston Holdings, Inc.",,False,False,0.1473443746430611,2016-11-10,False,True,"reject: same entity (A/B), price continuity"
+AET,2018-11-28,MXIM,2018-12-03,adjacent,Aetna,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+AGN,2020-05-11,DPZ,2020-05-12,adjacent,Allergan,wikipedia,1286681.0,DOMINOS PIZZA INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+AGN,2020-05-11,DXCM,2020-05-12,adjacent,Allergan,wikipedia,1093557.0,DEXCOM INC,,False,False,0.981888745148771,2005-04-14,False,True,"reject: same entity (A/B), price continuity"
+AKS,2011-12-16,BWA,2011-12-19,adjacent,AK Steel,wikipedia,908255.0,BORGWARNER INC,BORG WARNER AUTOMOTIVE INC (to 2000-02-15),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+AKS,2011-12-16,DLTR,2011-12-19,adjacent,AK Steel,wikipedia,935703.0,"DOLLAR TREE, INC.",DOLLAR TREE INC (to 2019-07-12); DOLLAR TREE STORES INC (to 2008-03-28),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+AKS,2011-12-16,PRGO,2011-12-19,adjacent,AK Steel,wikipedia,1585364.0,PERRIGO Co plc,PERRIGO Co Ltd (to 2013-11-12),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+AKS,2011-12-16,TRIP,2011-12-21,adjacent,AK Steel,wikipedia,1526520.0,"TripAdvisor, Inc.",,False,False,0.009142857142857144,2011-12-07,False,True,"reject: same entity (A/B), price continuity"
+ALTR,2015-12-24,CHD,2015-12-29,adjacent,Altera,wikipedia,313927.0,CHURCH & DWIGHT CO INC /DE/,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ALXN,2021-07-20,MRNA,2021-07-21,adjacent,Alexion Pharmaceuticals,wikipedia,1682852.0,"Moderna, Inc.","Moderna Therapeutics, Inc. (to 2016-08-24)",False,False,0.2858384013900956,2018-12-07,False,True,"reject: same entity (A/B), price continuity"
+AMCC,2006-05-17,EQ,2006-05-18,adjacent,,,1746466.0,"Equillium, Inc.",,False,False,0.0,2018-10-12,False,True,"reject: same entity (A/B), price continuity"
+ANDV,2018-09-28,ROL,2018-10-01,adjacent,Andeavor,wikipedia,84839.0,ROLLINS INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ANDW,2006-09-29,SII,2006-10-02,adjacent,,,1512920.0,SPROTT INC.,,False,False,0.0,2010-02-22,False,True,"reject: same entity (A/B), price continuity"
+ANDW,2006-09-29,WU,2006-10-02,adjacent,,,1365135.0,Western Union CO,,False,False,0.0,2006-10-02,False,True,"reject: same entity (A/B), price continuity"
+ANRZQ,2012-10-01,ADT,2012-10-02,adjacent,,,1703056.0,ADT Inc.,"ADT Inc. (to 2026-10-08); ADT, Inc. (to 2018-01-30); Prime Security Services Parent, Inc. (to 2017-04-11)",False,False,0.0,2018-01-19,False,True,"reject: same entity (A/B), price continuity"
+ANRZQ,2012-10-01,KRFT,2012-10-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ANTM,2022-06-27,ELV,2022-06-28,adjacent,Anthem,hand list,1156039.0,"Elevance Health, Inc.","Anthem, Inc. (to 2022-06-24); WELLPOINT, INC (to 2014-11-12); WELLPOINT INC (to 2009-12-21); ANTHEM INC (to 2004-11-30)",True,True,1.0,2005-01-03,True,True,ACCEPT
+APC,2019-08-08,IEX,2019-08-09,adjacent,Anadarko Petroleum,wikipedia,832101.0,IDEX CORP /DE/,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+APC,2019-08-08,LDOS,2019-08-09,adjacent,Anadarko Petroleum,wikipedia,1336920.0,"Leidos Holdings, Inc.","SAIC, Inc. (to 2013-09-27)",False,False,0.8772789115646259,2006-10-17,False,False,"reject: same entity (A/B), price continuity, no overlap"
+APCC,2007-02-14,HCBK,2007-02-15,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+APOL,2013-06-28,NWSA,2013-07-01,adjacent,Apollo Education Group,wikipedia,1564708.0,NEWS CORP,New Newscorp Inc (to 2013-06-28); New Newscorp LLC (to 2013-05-24),True,False,0.003743565746373421,2013-06-19,False,True,"reject: same entity (A/B), price continuity"
+ARG,2016-05-20,LKQ,2016-05-23,adjacent,Airgas,wikipedia,1065696.0,LKQ CORP,LKQ CORP (to 2026-09-02),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ARNC,2020-04-03,HWM,2020-04-06,adjacent,Arconic,wikipedia,4281.0,Howmet Aerospace Inc.,Arconic Inc. (to 2020-03-26); ALCOA INC. (to 2016-10-27); ALCOA INC (to 2014-10-03); ALUMINUM CO OF AMERICA (to 1999-01-04),True,True,0.22421875,2016-11-01,False,True,reject: price continuity
+ASN,2007-10-05,NBL,2007-10-08,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ASN,2007-10-05,EXPD,2007-10-10,adjacent,,,746515.0,EXPEDITORS INTERNATIONAL OF WASHINGTON INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ASO,2006-11-03,CELG,2006-11-06,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+AT,2007-11-16,AMT,2007-11-19,adjacent,,,1053507.0,AMERICAN TOWER CORP /MA/,AMERICAN TOWER SYSTEMS CORP (to 1998-05-08),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ATGE,2012-09-28,PNR,2012-10-01,adjacent,,,77360.0,PENTAIR plc,PENTAIR LTD (to 2014-06-03); PENTAIR INC (to 2012-10-02),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ATGE,2012-09-28,ADT,2012-10-02,adjacent,,,1703056.0,ADT Inc.,"ADT Inc. (to 2026-10-08); ADT, Inc. (to 2018-01-30); Prime Security Services Parent, Inc. (to 2017-04-11)",False,False,0.0,2018-01-19,False,True,"reject: same entity (A/B), price continuity"
+ATGE,2012-09-28,KRFT,2012-10-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ATVI,2023-10-17,HUBB,2023-10-18,adjacent,Activision Blizzard,wikipedia,48898.0,HUBBELL INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ATVI,2023-10-17,LULU,2023-10-18,adjacent,Activision Blizzard,wikipedia,1397187.0,lululemon athletica inc.,Lululemon Corp. (to 2007-06-19),False,False,1.0,2007-07-27,True,True,reject: same entity (A/B)
+AV,2007-10-25,JEC,2007-10-26,adjacent,Avaya,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+AV,2007-10-25,TIE,2007-10-29,adjacent,Avaya,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+AVP,2015-03-20,AAL,2015-03-23,adjacent,Avon Products,wikipedia,6201.0,American Airlines Group Inc.,AMR CORP (to 2013-12-09),False,False,0.9280435628160248,2005-09-27,False,True,"reject: same entity (A/B), price continuity"
+AVP,2015-03-20,EQIX,2015-03-23,adjacent,Avon Products,wikipedia,1101239.0,EQUINIX INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+AVP,2015-03-20,HBI,2015-03-23,adjacent,Avon Products,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+AVP,2015-03-20,SLG,2015-03-23,adjacent,Avon Products,wikipedia,1040971.0,SL GREEN REALTY CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+AW,2008-12-04,RSG,2008-12-05,adjacent,,,1060391.0,"REPUBLIC SERVICES, INC.",REPUBLIC SERVICES INC (to 2009-01-07),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+AYE,2011-02-25,JOY,2011-02-28,adjacent,Allegheny Energy,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+AYE,2011-02-25,COV,2011-03-01,adjacent,Allegheny Energy,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+BBBY,2017-07-25,AOS,2017-07-26,adjacent,Bed Bath & Beyond,wikipedia,91142.0,SMITH A O CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BBBY,2017-07-25,DRE,2017-07-26,adjacent,Bed Bath & Beyond,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+BBBY,2017-07-25,MGM,2017-07-26,adjacent,Bed Bath & Beyond,wikipedia,789570.0,MGM Resorts International,MGM MIRAGE (to 2010-05-19); MGM GRAND INC (to 2000-05-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BBBY,2017-07-25,PKG,2017-07-26,adjacent,Bed Bath & Beyond,wikipedia,75677.0,PACKAGING CORP OF AMERICA,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BBBY,2017-07-25,RMD,2017-07-26,adjacent,Bed Bath & Beyond,wikipedia,943819.0,RESMED INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BCR,2017-12-28,HII,2018-01-03,adjacent,CR Bard,wikipedia,1501585.0,"HUNTINGTON INGALLS INDUSTRIES, INC.","HUNTINGTON INGALLS INDUSTRIES, INC. (to 2026-10-02); New Ships, Inc. (to 2010-11-24)",False,False,0.5215530418832162,2011-03-22,False,True,"reject: same entity (A/B), price continuity"
+BDK,2010-03-12,OKE,2010-03-15,adjacent,,,1039684.0,ONEOK INC /NEW/,ONEOK INC /NEW/ (to 2026-10-05); WAI INC (to 1997-11-28),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BEAM,2014-04-30,NAVI,2014-05-01,adjacent,Suntory Global Spirits,wikipedia,1593538.0,NAVIENT CORP,New Corp (to 2014-02-28),True,False,0.0038346825734980826,2014-04-17,False,True,"reject: same entity (A/B), price continuity"
+BEAM,2014-04-30,UAA,2014-05-01,adjacent,Suntory Global Spirits,wikipedia,1336917.0,"Under Armour, Inc.",,False,False,0.9049850873455475,2005-11-18,False,True,"reject: same entity (A/B), price continuity"
+BHGE,2019-10-17,BKR,2019-10-18,adjacent,Baker Hughes a GE Co,hand list,1701605.0,Baker Hughes Co,"Baker Hughes a GE Co (to 2019-10-10); Bear Newco, Inc. (to 2017-05-30)",True,True,1.0,2005-01-03,True,True,ACCEPT
+BIG,2013-02-13,PVH,2013-02-14,adjacent,Big Lots,wikipedia,78239.0,PVH CORP. /DE/,PHILLIPS VAN HEUSEN CORP /DE/ (to 2011-06-23),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BJS,2010-04-28,CERN,2010-04-30,adjacent,BJ Services,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+BLL,2022-05-09,BALL,2022-05-10,adjacent,Ball Corp,hand list,9389.0,BALL Corp,,False,True,1.0,2005-01-03,True,True,ACCEPT
+BLS,2006-12-29,SE,2007-01-03,adjacent,,,1703399.0,Sea Ltd,Sea Ltd (to 2026-10-09),False,False,0.0,2017-10-20,False,True,"reject: same entity (A/B), price continuity"
+BLS,2006-12-29,ESV,2007-01-04,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+BMC,2013-09-10,DAL,2013-09-11,adjacent,BMC Software,wikipedia,27904.0,"DELTA AIR LINES, INC.",DELTA AIR LINES INC /DE/ (to 2019-08-08),False,False,0.732053040695016,2007-05-03,False,True,"reject: same entity (A/B), price continuity"
+BMET,2007-07-11,AKAM,2007-07-12,adjacent,,,1086222.0,AKAMAI TECHNOLOGIES INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BMS,2014-12-04,RCL,2014-12-05,adjacent,Bemis Company,wikipedia,884887.0,ROYAL CARIBBEAN CRUISES LTD,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BNI,2010-02-12,BRK.B,2010-02-16,adjacent,,,1067983.0,BERKSHIRE HATHAWAY INC,NBH INC (to 1999-01-05),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BOL,2007-10-26,TIE,2007-10-29,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+BRCM,2016-01-29,CFG,2016-02-01,adjacent,Broadcom Corporation,wikipedia,759944.0,CITIZENS FINANCIAL GROUP INC/RI,CITIZENS FINANCIAL GROUP INC/DE (to 2000-02-08),False,False,0.12195121951219512,2014-09-24,False,True,"reject: same entity (A/B), price continuity"
+BRCM,2016-01-29,FRT,2016-02-01,adjacent,Broadcom Corporation,wikipedia,34903.0,FEDERAL REALTY INVESTMENT TRUST,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BRL,2008-12-22,MFE,2008-12-23,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+BSC,2008-05-30,ISRG,2008-06-02,adjacent,,,1035267.0,INTUITIVE SURGICAL INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BTUUQ,2014-09-19,UHS,2014-09-22,adjacent,,,352915.0,UNIVERSAL HEALTH SERVICES INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BTUUQ,2014-09-19,URI,2014-09-22,adjacent,,,1067701.0,"UNITED RENTALS, INC.",UNITED RENTALS INC /DE (to 2019-07-01),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BUD,2008-11-17,SRCL,2008-11-19,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+BXLT,2016-06-02,TDG,2016-06-03,adjacent,Baxalta,wikipedia,1260221.0,TransDigm Group INC,TD HOLDING CORP (to 2005-12-20),False,False,1.0,2006-03-15,True,True,reject: same entity (A/B)
+CA,2018-11-05,KEYS,2018-11-06,adjacent,CA Technologies,wikipedia,1601046.0,"Keysight Technologies, Inc.",,False,False,0.29259896729776247,2014-10-20,False,True,"reject: same entity (A/B), price continuity"
+CA,2018-11-05,LIN,2018-11-06,adjacent,CA Technologies,wikipedia,1707925.0,LINDE PLC,ZAMALIGHT PLC (to 2017-07-12),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CAM,2016-04-01,FL,2016-04-04,adjacent,Cameron International,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CBE,2009-09-08,ARG,2009-09-09,adjacent,Cooper Industries,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CBE,2012-11-30,DG,2012-12-03,adjacent,Cooper Industries,wikipedia,29534.0,DOLLAR GENERAL CORP,,False,False,0.178397212543554,2009-11-13,False,False,"reject: same entity (A/B), price continuity, no overlap"
+CBH,2008-03-28,HCP,2008-03-31,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CBH,2008-03-28,PM,2008-03-31,adjacent,,,1413329.0,Philip Morris International Inc.,,False,False,0.019736842105263157,2008-03-17,False,True,"reject: same entity (A/B), price continuity"
+CBS,2019-12-04,VIAC,2019-12-05,adjacent,CBS Corp,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CBS,2019-12-04,WRB,2019-12-05,adjacent,CBS Corp,hand list,11544.0,BERKLEY W R CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CBS,2019-12-04,ODFL,2019-12-09,adjacent,CBS Corp,hand list,878927.0,"OLD DOMINION FREIGHT LINE, INC.",OLD DOMINION FREIGHT LINE INC/VA (to 2019-08-21),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CBS,2019-12-04,TFC,2019-12-09,adjacent,CBS Corp,hand list,92230.0,TRUIST FINANCIAL CORP,BB&T CORP (to 2019-12-06); SOUTHERN NATIONAL CORP /NC/ (to 1997-05-14),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CBSS,2007-09-06,MCHP,2007-09-07,adjacent,,,827054.0,MICROCHIP TECHNOLOGY INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CCE,2016-05-27,AJG,2016-05-31,adjacent,Coca-Cola Enterprises,wikipedia,354190.0,Arthur J. Gallagher & Co.,GALLAGHER ARTHUR J & CO (to 2019-08-14),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CCTYQ,2008-03-28,HCP,2008-03-31,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CCTYQ,2008-03-28,PM,2008-03-31,adjacent,,,1413329.0,Philip Morris International Inc.,,False,False,0.011056511056511056,2008-03-17,False,True,"reject: same entity (A/B), price continuity"
+CDAY,2024-01-31,DAY,2024-02-01,adjacent,Ceridian,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CELG,2019-11-20,NOW,2019-11-21,adjacent,Celgene,wikipedia,1373715.0,"ServiceNow, Inc.",SERVICE-NOW.COM (to 2012-05-01),False,False,0.5668595796527566,2012-06-29,False,True,"reject: same entity (A/B), price continuity"
+CEPH,2011-10-13,TEL,2011-10-17,adjacent,Cephalon,wikipedia,1385157.0,TE Connectivity plc,TE Connectivity Ltd. (to 2024-09-23); Tyco Electronics Ltd. (to 2011-03-10),False,False,1.0,2007-06-14,True,False,"reject: same entity (A/B), no overlap"
+CERN,2022-06-07,VICI,2022-06-08,adjacent,Cerner,wikipedia,1705696.0,VICI PROPERTIES INC.,,False,False,0.3661417322834646,2018-01-02,False,True,"reject: same entity (A/B), price continuity"
+CERN,2022-06-07,META,2022-06-09,adjacent,Cerner,wikipedia,1326801.0,"Meta Platforms, Inc.",Facebook Inc (to 2021-10-27),False,False,0.8300524934383202,2012-05-18,False,True,"reject: same entity (A/B), price continuity"
+CFC,2008-06-30,AKS,2008-07-01,adjacent,Countrywide Financial Corp,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CFC,2008-06-30,SNI,2008-07-01,adjacent,Countrywide Financial Corp,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CFN,2015-03-16,HSIC,2015-03-18,adjacent,Carefusion,wikipedia,1000228.0,HENRY SCHEIN INC,SCHEIN HENRY INC (to 2006-06-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CHIR,2006-04-19,SNDK,2006-04-20,adjacent,,,2023554.0,Sandisk Corp,,False,False,0.0,,False,True,"reject: same entity (A/B), price continuity"
+CHIR,2006-04-19,LM,2006-04-24,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CHK,2018-03-16,NKTR,2018-03-19,adjacent,Chesapeake Energy,wikipedia,906709.0,NEKTAR THERAPEUTICS,INHALE THERAPEUTIC SYSTEMS INC (to 2003-01-10); INHALE THERAPEUTIC SYSTEMS (to 1998-05-14),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CHK,2018-03-16,SIVB,2018-03-19,adjacent,Chesapeake Energy,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CHK,2018-03-16,TTWO,2018-03-19,adjacent,Chesapeake Energy,wikipedia,946581.0,TAKE TWO INTERACTIVE SOFTWARE INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CIN,2006-03-31,BXP,2006-04-03,adjacent,,,1037540.0,"BXP, Inc.",BOSTON PROPERTIES INC (to 2024-06-20),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CIN,2006-03-31,DF,2006-04-03,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CIN,2006-03-31,GOOGL,2006-04-03,adjacent,,,1652044.0,Alphabet Inc.,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CIN,2006-03-31,KIM,2006-04-03,adjacent,,,879101.0,KIMCO REALTY CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CITGQ,2009-07-24,RHT,2009-07-27,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CMA,2024-06-21,CRWD,2024-06-24,adjacent,Comerica,wikipedia,1535527.0,"CrowdStrike Holdings, Inc.",,False,False,0.2583673469387755,2019-06-12,False,True,"reject: same entity (A/B), price continuity"
+CMA,2024-06-21,GDDY,2024-06-24,adjacent,Comerica,wikipedia,1609711.0,GoDaddy Inc.,,False,False,0.47408163265306125,2015-03-31,False,True,"reject: same entity (A/B), price continuity"
+CMA,2024-06-21,KKR,2024-06-24,adjacent,Comerica,wikipedia,1404912.0,KKR & Co. Inc.,KKR & Co. L.P. (to 2018-06-29),False,False,0.7159183673469388,2010-07-15,False,True,"reject: same entity (A/B), price continuity"
+CMVT,2007-01-31,RL,2007-02-02,adjacent,,,1037038.0,RALPH LAUREN CORP,POLO RALPH LAUREN CORP (to 2011-08-11),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CMX,2007-03-22,DDR,2007-03-23,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+COG,2021-10-01,CTRA,2021-10-04,adjacent,Cabot Oil & Gas,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+COV,2009-06-04,FTI,2009-06-05,adjacent,Covidien,hand list,1681459.0,TechnipFMC plc,TechnipFMC Ltd (to 2016-12-21),False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+COV,2009-06-04,ATGE,2009-06-09,adjacent,Covidien,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+COV,2015-01-26,ENDP,2015-01-27,adjacent,Covidien,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+COV,2015-01-26,HCA,2015-01-27,adjacent,Covidien,hand list,860730.0,"HCA Healthcare, Inc.","HCA Holdings, Inc. (to 2017-05-05); HCA INC/TN (to 2010-11-24); HCA THE HEALTHCARE CO (to 2001-05-21); HCA-THE HEALTHCARE CO (to 2001-02-14); COLUMBIA HCA HEALTHCARE CORP (to 2000-05-19); COLUMBIA HCA HEALTHCARE CORP/ (to 2000-02-16); COLUMBIA HEALTHCARE CORP (to 1994-03-01)",False,False,0.6643975493533015,2011-03-10,False,True,"reject: same entity (A/B), price continuity"
+CPGX,2016-06-30,ALB,2016-07-01,adjacent,Columbia Pipeline Group,wikipedia,915913.0,ALBEMARLE CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CPGX,2016-06-30,LNT,2016-07-01,adjacent,Columbia Pipeline Group,wikipedia,352541.0,ALLIANT ENERGY CORP,ALLIANT ENERGY CORP (to 2026-08-21); INTERSTATE ENERGY CORP (to 1999-05-13); WPL HOLDINGS INC (to 1998-02-23),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CPGX,2016-06-30,FTV,2016-07-05,adjacent,Columbia Pipeline Group,wikipedia,1659166.0,Fortive Corp,,False,False,0.0,2016-07-05,False,True,"reject: same entity (A/B), price continuity"
+CPNLQ,2005-12-01,GNW,2005-12-02,adjacent,,,1276520.0,GENWORTH FINANCIAL INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CSRA,2018-04-03,MSCI,2018-04-04,adjacent,CSRA,wikipedia,1408198.0,MSCI Inc.,,False,False,1.0,2007-11-15,True,True,reject: same entity (A/B)
+CTB,2006-07-17,WIN,2006-07-18,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CTL,2020-09-17,LUMN,2020-09-18,adjacent,CenturyLink,hand list,18926.0,"Lumen Technologies, Inc.","CENTURYLINK, INC (to 2021-01-20); CENTURYTEL INC (to 2010-11-08); CENTURY TELEPHONE ENTERPRISES INC (to 1999-05-14)",False,True,1.0,2005-01-03,True,True,ACCEPT
+CTL,2020-09-17,CTLT,2020-09-21,adjacent,CenturyLink,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CTL,2020-09-17,ETSY,2020-09-21,adjacent,CenturyLink,hand list,1370637.0,ETSY INC,,False,False,0.3456384323640961,2015-04-16,False,True,"reject: same entity (A/B), price continuity"
+CTL,2020-09-17,TER,2020-09-21,adjacent,CenturyLink,hand list,97210.0,"TERADYNE, INC",TERADYNE INC (to 2006-10-11),False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+CTLT,2024-12-20,APO,2024-12-23,adjacent,Catalent,wikipedia,1858681.0,"Apollo Global Management, Inc.","Tango Holdings, Inc. (to 2021-11-05)",False,False,1.0,2011-03-30,True,True,reject: same entity (A/B)
+CTLT,2024-12-20,LII,2024-12-23,adjacent,Catalent,wikipedia,1069202.0,LENNOX INTERNATIONAL INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CTLT,2024-12-20,WDAY,2024-12-23,adjacent,Catalent,wikipedia,1327811.0,"Workday, Inc.",Workday Inc (to 2007-09-05); North Tahoe Power Tools Inc (to 2006-12-18),False,False,1.0,2012-10-12,True,True,reject: same entity (A/B)
+CTX,2009-08-18,FMC,2009-08-19,adjacent,Centex Corp.,wikipedia,37785.0,FMC CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CTXS,2022-09-30,EQT,2022-10-03,adjacent,Citrix Systems,wikipedia,33213.0,EQT Corp,EQUITABLE RESOURCES INC /PA/ (to 2009-02-04),False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+CTXS,2022-09-30,PCG,2022-10-03,adjacent,Citrix Systems,wikipedia,1004980.0,PG&E Corp,PG&E CORP (to 2026-10-02); PG&E Corp (to 2026-10-02); PG&E PARENT CO INC (to 1996-02-21),False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+CVG,2009-12-18,CLF,2009-12-21,adjacent,Convergys,wikipedia,764065.0,CLEVELAND-CLIFFS INC.,CLIFFS NATURAL RESOURCES INC. (to 2017-08-14); CLEVELAND CLIFFS INC (to 2008-10-15),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CVG,2009-12-18,LDOS,2009-12-21,adjacent,Convergys,wikipedia,1336920.0,"Leidos Holdings, Inc.","SAIC, Inc. (to 2013-09-27)",False,False,0.6394884092725819,2006-10-17,False,True,"reject: same entity (A/B), price continuity"
+CVG,2009-12-18,MJN,2009-12-21,adjacent,Convergys,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+CVG,2009-12-18,ROST,2009-12-21,adjacent,Convergys,wikipedia,745732.0,"ROSS STORES, INC.",ROSS STORES INC (to 2019-07-15),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CVG,2009-12-18,V,2009-12-21,adjacent,Convergys,wikipedia,1403161.0,VISA INC.,,False,False,0.354916067146283,2008-03-19,False,True,"reject: same entity (A/B), price continuity"
+CVG,2009-12-18,ROP,2009-12-23,adjacent,Convergys,wikipedia,882835.0,ROPER TECHNOLOGIES INC,ROPER TECHNOLOGIES INC (to 2026-10-05); ROPER INDUSTRIES INC (to 2015-04-24); ROPER INDUSTRIES INC /DE/ (to 2008-05-14),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CVH,2013-05-06,MAC,2013-05-09,adjacent,Coventry Health Care,wikipedia,912242.0,MACERICH CO,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CXO,2021-01-20,TRMB,2021-01-21,adjacent,Concho Resources,wikipedia,864749.0,TRIMBLE INC.,TRIMBLE NAVIGATION LTD /CA/ (to 2016-09-06),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+DALRQ,2005-08-18,PSA,2005-08-19,adjacent,,,1393311.0,Public Storage,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+DCNAQ,2006-03-02,CHK,2006-03-03,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+DDR,2009-03-27,TWC,2009-03-30,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+DF,2013-05-23,KSU,2013-05-24,adjacent,Dean Foods,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+DISCA,2022-04-08,WBD,2022-04-11,adjacent,Discovery,hand list,1437107.0,"Warner Bros. Discovery, Inc.","Discovery, Inc. (to 2022-04-08); Discovery Communications, Inc. (to 2018-03-05)",True,True,0.0,,False,True,reject: price continuity
+DISCK,2022-04-08,WBD,2022-04-11,adjacent,"Discovery, Inc.",wikipedia,1437107.0,"Warner Bros. Discovery, Inc.","Discovery, Inc. (to 2022-04-08); Discovery Communications, Inc. (to 2018-03-05)",True,True,0.0,,False,True,reject: price continuity
+DISH,2023-06-16,PANW,2023-06-20,adjacent,Dish Network,wikipedia,1327567.0,Palo Alto Networks Inc,Palo Alto Networks Inc (to 2026-10-09),False,False,1.0,2012-07-20,True,True,reject: same entity (A/B)
+DJ,2007-12-13,GME,2007-12-14,adjacent,Dow Jones,wikipedia,1326380.0,GameStop Corp.,GSC Holdings Corp. (to 2005-10-11),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+DNB,2017-04-04,IT,2017-04-05,adjacent,Dun & Bradstreet,wikipedia,749251.0,GARTNER INC,GARTNER GROUP INC (to 2001-02-08),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+DNR,2015-03-20,AAL,2015-03-23,adjacent,Denbury Resources,wikipedia,6201.0,American Airlines Group Inc.,AMR CORP (to 2013-12-09),False,False,1.0,2005-09-27,True,True,reject: same entity (A/B)
+DNR,2015-03-20,EQIX,2015-03-23,adjacent,Denbury Resources,wikipedia,1101239.0,EQUINIX INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+DNR,2015-03-20,HBI,2015-03-23,adjacent,Denbury Resources,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+DNR,2015-03-20,SLG,2015-03-23,adjacent,Denbury Resources,wikipedia,1040971.0,SL GREEN REALTY CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+DO,2016-09-30,COTY,2016-10-03,adjacent,Diamond Offshore Drilling,wikipedia,1024305.0,COTY INC.,COTY INC / (to 2013-06-13),False,False,0.43521421107628006,2013-06-13,False,True,"reject: same entity (A/B), price continuity"
+DPHIQ,2005-10-10,PDCO,2005-10-11,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+DRE,2022-09-30,EQT,2022-10-03,adjacent,Duke Realty,wikipedia,33213.0,EQT Corp,EQUITABLE RESOURCES INC /PA/ (to 2009-02-04),False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+DRE,2022-09-30,PCG,2022-10-03,adjacent,Duke Realty,wikipedia,1004980.0,PG&E Corp,PG&E CORP (to 2026-10-02); PG&E Corp (to 2026-10-02); PG&E PARENT CO INC (to 1996-02-21),False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+DTV,2015-07-24,SIG,2015-07-29,adjacent,DirecTV,wikipedia,832988.0,SIGNET JEWELERS LTD,SIGNET GROUP PLC (to 2008-09-11),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+DWDP,2019-05-31,CTVA,2019-06-03,adjacent,DowDuPont,hand list,1755672.0,"Corteva, Inc.",,False,False,0.01141552511415525,2019-05-24,False,True,"reject: same entity (A/B), price continuity"
+DWDP,2019-05-31,DD,2019-06-03,adjacent,DowDuPont,hand list,1666700.0,"DuPont de Nemours, Inc.",DowDuPont Inc. (to 2019-05-31),True,True,1.0,2005-01-03,True,True,ACCEPT
+DWDP,2019-05-31,LHX,2019-06-03,adjacent,DowDuPont,hand list,202058.0,"L3HARRIS TECHNOLOGIES, INC. /DE/",HARRIS CORP /DE/ (to 2019-06-25),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+DYN,2009-12-18,CLF,2009-12-21,adjacent,Dynegy,wikipedia,764065.0,CLEVELAND-CLIFFS INC.,CLIFFS NATURAL RESOURCES INC. (to 2017-08-14); CLEVELAND CLIFFS INC (to 2008-10-15),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+DYN,2009-12-18,LDOS,2009-12-21,adjacent,Dynegy,wikipedia,1336920.0,"Leidos Holdings, Inc.","SAIC, Inc. (to 2013-09-27)",False,False,0.6394884092725819,2006-10-17,False,True,"reject: same entity (A/B), price continuity"
+DYN,2009-12-18,MJN,2009-12-21,adjacent,Dynegy,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+DYN,2009-12-18,ROST,2009-12-21,adjacent,Dynegy,wikipedia,745732.0,"ROSS STORES, INC.",ROSS STORES INC (to 2019-07-15),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+DYN,2009-12-18,V,2009-12-21,adjacent,Dynegy,wikipedia,1403161.0,VISA INC.,,False,False,0.354916067146283,2008-03-19,False,True,"reject: same entity (A/B), price continuity"
+DYN,2009-12-18,ROP,2009-12-23,adjacent,Dynegy,wikipedia,882835.0,ROPER TECHNOLOGIES INC,ROPER TECHNOLOGIES INC (to 2026-10-05); ROPER INDUSTRIES INC (to 2015-04-24); ROPER INDUSTRIES INC /DE/ (to 2008-05-14),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+EC,2006-06-05,CBH,2006-06-06,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+EDS,2008-08-25,CF,2008-08-27,adjacent,,,1324404.0,"CF Industries Holdings, Inc.",,False,False,0.8333333333333334,2005-08-11,False,True,"reject: same entity (A/B), price continuity"
+EKDKQ,2010-12-17,CVC,2010-12-20,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+EKDKQ,2010-12-17,FFIV,2010-12-20,adjacent,,,1048695.0,"F5, INC.","F5 NETWORKS, INC. (to 2021-11-12); F5 NETWORKS INC (to 2019-05-31)",False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+EKDKQ,2010-12-17,NFLX,2010-12-20,adjacent,,,1065280.0,NETFLIX INC,NETFLIX COM INC (to 2002-03-06),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+EKDKQ,2010-12-17,NFX,2010-12-20,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+EMC,2016-09-06,CHTR,2016-09-08,adjacent,EMC Corporation,wikipedia,1091667.0,"CHARTER COMMUNICATIONS, INC. /MO/",CHARTER COMMUNICATIONS INC /MO/ (to 2009-12-15),False,False,0.5714285714285714,2010-01-05,False,True,"reject: same entity (A/B), price continuity"
+ENDP,2017-03-01,REG,2017-03-02,adjacent,Endo International,wikipedia,910606.0,REGENCY CENTERS CORP,REGENCY REALTY CORP (to 2001-02-12),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+EOP,2007-02-09,VAR,2007-02-12,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+EQ,2009-06-30,PWR,2009-07-01,adjacent,,,1050915.0,"QUANTA SERVICES, INC.",QUANTA SERVICES INC (to 2019-05-31),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+EQ,2009-06-30,WDC,2009-07-01,adjacent,,,106040.0,WESTERN DIGITAL CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ESRX,2018-12-20,CE,2018-12-24,adjacent,Express Scripts,wikipedia,1306830.0,Celanese Corp,,False,False,0.9963036678987773,2005-01-21,False,True,"reject: same entity (A/B), price continuity"
+ESV,2009-12-22,ROP,2009-12-23,adjacent,Ensco,wikipedia,882835.0,ROPER TECHNOLOGIES INC,ROPER TECHNOLOGIES INC (to 2026-10-05); ROPER INDUSTRIES INC (to 2015-04-24); ROPER INDUSTRIES INC /DE/ (to 2008-05-14),False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+ESV,2016-03-29,CNC,2016-03-30,adjacent,Ensco,wikipedia,1071739.0,CENTENE CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ESV,2016-03-29,HOLX,2016-03-30,adjacent,Ensco,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ETFC,2020-10-06,POOL,2020-10-07,adjacent,E-Trade,wikipedia,945841.0,POOL CORP,SCP POOL CORP (to 2006-05-11),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+EVHC,2018-10-10,FTNT,2018-10-11,adjacent,Envision Healthcare,wikipedia,1262039.0,"Fortinet, Inc.",FORTINET INC (to 2019-05-08),False,False,1.0,2009-11-18,True,True,reject: same entity (A/B)
+FB,2022-06-08,META,2022-06-09,adjacent,Facebook,hand list,1326801.0,"Meta Platforms, Inc.",Facebook Inc (to 2021-10-27),False,True,1.0,2012-05-18,True,True,ACCEPT
+FBHS,2022-12-16,FSLR,2022-12-19,adjacent,Fortune Brands Home & Security,wikipedia,1274494.0,"FIRST SOLAR, INC.",FIRST SOLAR HOLDINGS LLC (to 2003-12-23),False,False,1.0,2006-11-17,True,False,"reject: same entity (A/B), no overlap"
+FDC,2007-09-24,ICE,2007-09-26,adjacent,First Data,wikipedia,1571949.0,"Intercontinental Exchange, Inc.","IntercontinentalExchange Group, Inc. (to 2014-05-29)",False,False,0.6778425655976676,2005-11-16,False,True,"reject: same entity (A/B), price continuity"
+FDC,2007-09-24,ANDV,2007-09-27,adjacent,First Data,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+FDO,2015-07-06,AAP,2015-07-09,adjacent,Family Dollar,wikipedia,1158449.0,ADVANCE AUTO PARTS INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+FII,2012-12-31,ABBV,2013-01-02,adjacent,Federated Investors,wikipedia,1551152.0,AbbVie Inc.,,False,False,0.0,2013-01-02,False,True,"reject: same entity (A/B), price continuity"
+FL,2019-08-08,IEX,2019-08-09,adjacent,Foot Locker,wikipedia,832101.0,IDEX CORP /DE/,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+FL,2019-08-08,LDOS,2019-08-09,adjacent,Foot Locker,wikipedia,1336920.0,"Leidos Holdings, Inc.","SAIC, Inc. (to 2013-09-27)",False,False,1.0,2006-10-17,True,True,reject: same entity (A/B)
+FLIR,2021-05-13,CRL,2021-05-14,adjacent,FLIR Systems,wikipedia,1100682.0,"CHARLES RIVER LABORATORIES INTERNATIONAL, INC.",CHARLES RIVER LABORATORIES INTERNATIONAL INC (to 2019-05-30); CHARLES RIVER LABORATORIES HOLDINGS INC (to 2000-01-28),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+FLT,2024-03-22,CPAY,2024-03-25,adjacent,FleetCor,hand list,1175454.0,"CORPAY, INC.",FLEETCOR TECHNOLOGIES INC (to 2024-03-14),True,True,1.0,2010-12-15,True,True,ACCEPT
+FRC,2023-05-03,AXON,2023-05-04,adjacent,First Republic Bank,wikipedia,1069183.0,"AXON ENTERPRISE, INC.",TASER INTERNATIONAL INC (to 2017-03-23),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+FRX,2014-06-30,AMG,2014-07-01,adjacent,Forest Laboratories,wikipedia,1004434.0,"AFFILIATED MANAGERS GROUP, INC.",AFFILIATED MANAGERS GROUP INC (to 2013-09-20),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+FRX,2014-06-30,MLM,2014-07-02,adjacent,Forest Laboratories,wikipedia,916076.0,MARTIN MARIETTA MATERIALS INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+FSH,2006-11-09,CBRE,2006-11-10,adjacent,,,1138118.0,"CBRE GROUP, INC.",CB RICHARD ELLIS GROUP INC (to 2011-09-09); CB RICHARD ELLIS SERVICES INC (to 2004-02-17); CBRE HOLDING INC (to 2003-12-05),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+FSH,2006-11-09,FIS,2006-11-10,adjacent,,,1136893.0,"Fidelity National Information Services, Inc.",CERTEGY INC (to 2006-02-01); EQUIFAX PS INC (to 2001-05-18),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+FSL,2006-12-01,DTV,2006-12-04,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+FTR,2017-03-17,AMD,2017-03-20,adjacent,Frontier Communications,wikipedia,2488.0,ADVANCED MICRO DEVICES INC,,False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+FTR,2017-03-17,ARE,2017-03-20,adjacent,Frontier Communications,wikipedia,1035443.0,"ALEXANDRIA REAL ESTATE EQUITIES, INC.","ALEXANDRIA REAL ESTATE EQUITIES, INC. (to 2026-10-02); ALEXANDRIA REAL ESTATE EQUITIES INC (to 2019-08-09)",False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+FTR,2017-03-17,RJF,2017-03-20,adjacent,Frontier Communications,wikipedia,720005.0,RAYMOND JAMES FINANCIAL INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+G,2005-09-30,AMP,2005-10-03,adjacent,,,820027.0,AMERIPRISE FINANCIAL INC,AMERICAN EXPRESS FINANCIAL CORP (to 2005-07-26); AMERICAN EXPRESS FINANCIAL ADVISORS (to 2003-03-10); IDS FINANCIAL CORP/MN/ (to 1995-02-06),True,False,0.06349206349206349,2005-09-15,False,True,"reject: same entity (A/B), price continuity"
+G,2005-09-30,LEN,2005-10-04,adjacent,,,920760.0,LENNAR CORP /NEW/,PACIFIC GREYSTONE CORP /DE/ (to 1997-09-26),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+GAS,2016-06-30,ALB,2016-07-01,adjacent,Nicor Gas,wikipedia,915913.0,ALBEMARLE CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+GAS,2016-06-30,LNT,2016-07-01,adjacent,Nicor Gas,wikipedia,352541.0,ALLIANT ENERGY CORP,ALLIANT ENERGY CORP (to 2026-08-21); INTERSTATE ENERGY CORP (to 1999-05-13); WPL HOLDINGS INC (to 1998-02-23),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+GAS,2016-06-30,FTV,2016-07-05,adjacent,Nicor Gas,wikipedia,1659166.0,Fortive Corp,,False,False,0.0,2016-07-05,False,True,"reject: same entity (A/B), price continuity"
+GDT,2006-04-21,LM,2006-04-24,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+GDW,2006-09-29,SII,2006-10-02,adjacent,,,1512920.0,SPROTT INC.,,False,False,0.0,2010-02-22,False,True,"reject: same entity (A/B), price continuity"
+GDW,2006-09-29,WU,2006-10-02,adjacent,,,1365135.0,Western Union CO,,False,False,0.0,2006-10-02,False,True,"reject: same entity (A/B), price continuity"
+GGP,2008-11-12,PBCT,2008-11-13,adjacent,GGP Inc.,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+GGP,2008-11-12,WYNN,2008-11-14,adjacent,GGP Inc.,wikipedia,1174922.0,WYNN RESORTS LTD,,False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+GGP,2008-11-12,XRAY,2008-11-14,adjacent,GGP Inc.,wikipedia,818479.0,DENTSPLY SIRONA Inc.,DENTSPLY INTERNATIONAL INC /DE/ (to 2016-02-29),False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+GGP,2008-11-12,CEPH,2008-11-17,adjacent,GGP Inc.,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+GGP,2018-08-27,ANET,2018-08-28,adjacent,GGP Inc.,wikipedia,1596532.0,"Arista Networks, Inc.",,False,False,0.6942633637548892,2014-06-06,False,True,"reject: same entity (A/B), price continuity"
+GLK,2005-07-01,DHI,2005-07-05,adjacent,Great Lakes Chemical,wikipedia,882184.0,HORTON D R INC /DE/,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+GLK,2005-07-01,STZ,2005-07-05,adjacent,Great Lakes Chemical,wikipedia,16918.0,"CONSTELLATION BRANDS, INC.",CONSTELLATION BRANDS INC (to 2004-05-05); CANANDAIGUA BRANDS INC (to 2000-01-14); CANANDAIGUA WINE CO INC (to 1997-01-31),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+GMCR,2016-03-02,AWK,2016-03-04,adjacent,Keurig Green Mountain,wikipedia,1410636.0,"American Water Works Company, Inc.",,False,False,1.0,2008-04-23,True,True,reject: same entity (A/B)
+GMCR,2016-03-02,UDR,2016-03-07,adjacent,Keurig Green Mountain,wikipedia,74208.0,"UDR, Inc.",UNITED DOMINION REALTY TRUST INC (to 2007-03-14),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+GP,2005-12-19,SSP,2005-12-20,adjacent,,,832428.0,E.W. SCRIPPS Co,SCRIPPS E W CO /DE (to 2015-03-16),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+GPS,2022-02-01,CEG,2022-02-02,adjacent,Gap,hand list,1868275.0,Constellation Energy Corp,"Constellation Newholdco, Inc. (to 2021-11-12)",True,False,0.0023250406882120438,2022-01-19,False,False,"reject: same entity (A/B), price continuity, no overlap"
+GR,2012-07-26,ESV,2012-07-31,adjacent,Goodrich Corporation,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+GTW,2006-07-31,H,2006-08-01,adjacent,,,1468174.0,Hyatt Hotels Corp,,False,False,0.0,2009-11-05,False,True,"reject: same entity (A/B), price continuity"
+GTW,2006-07-31,WYND,2006-08-01,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+H,2007-04-09,AIZ,2007-04-10,adjacent,,,1267238.0,"ASSURANT, INC.",ASSURANT INC (to 2019-08-22),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+HAR,2017-03-10,DISH,2017-03-13,adjacent,Harman International,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+HBI,2021-12-17,FDS,2021-12-20,adjacent,Hanesbrands,wikipedia,1013237.0,FACTSET RESEARCH SYSTEMS INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+HBI,2021-12-17,SBNY,2021-12-20,adjacent,Hanesbrands,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+HBI,2021-12-17,SEDG,2021-12-20,adjacent,Hanesbrands,wikipedia,1419612.0,"SOLAREDGE TECHNOLOGIES, INC.",SolarEdge Technologies Inc (to 2019-08-08),False,False,0.9982352941176471,2015-03-26,False,True,"reject: same entity (A/B), price continuity"
+HCBK,2015-10-30,HPE,2015-11-02,adjacent,Hudson City Bancorp,wikipedia,1645590.0,Hewlett Packard Enterprise Co,,False,False,0.004557885141294439,2015-10-19,False,True,"reject: same entity (A/B), price continuity"
+HCP,2019-11-04,NLOK,2019-11-05,adjacent,HCP Inc,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+HCP,2019-11-04,PEAK,2019-11-05,adjacent,HCP Inc,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+HCR,2007-11-08,POM,2007-11-09,adjacent,,,1877971.0,POMDOCTOR Ltd,,False,False,0.0,,False,True,"reject: same entity (A/B), price continuity"
+HET,2008-01-28,CAM,2008-01-29,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+HFC,2021-06-03,OGN,2021-06-04,adjacent,HollyFrontier,hand list,1821825.0,Organon & Co.,,False,False,0.01876675603217158,2021-05-14,False,True,"reject: same entity (A/B), price continuity"
+HMA,2007-03-01,CHRW,2007-03-02,adjacent,,,1043277.0,"C. H. ROBINSON WORLDWIDE, INC.",C H ROBINSON WORLDWIDE INC (to 2019-07-02),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+HNZ,2013-06-06,GM,2013-06-07,adjacent,Heinz,wikipedia,1467858.0,General Motors Co,,False,False,0.30174446016030176,2010-11-18,False,True,"reject: same entity (A/B), price continuity"
+HOT,2016-09-22,COO,2016-09-23,adjacent,Starwood Hotels and Resorts,wikipedia,711404.0,"COOPER COMPANIES, INC.",COOPER COMPANIES INC (to 2019-06-26),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+HPC,2008-11-13,WYNN,2008-11-14,adjacent,,,1174922.0,WYNN RESORTS LTD,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+HPC,2008-11-13,XRAY,2008-11-14,adjacent,,,818479.0,DENTSPLY SIRONA Inc.,DENTSPLY INTERNATIONAL INC /DE/ (to 2016-02-29),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+HPC,2008-11-13,CEPH,2008-11-17,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+HRS,2019-05-31,CTVA,2019-06-03,adjacent,Harris Corp,hand list,1755672.0,"Corteva, Inc.",,False,False,0.0018580453363062058,2019-05-24,False,True,"reject: same entity (A/B), price continuity"
+HRS,2019-05-31,DD,2019-06-03,adjacent,Harris Corp,hand list,1666700.0,"DuPont de Nemours, Inc.",DowDuPont Inc. (to 2019-05-31),True,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+HRS,2019-05-31,LHX,2019-06-03,adjacent,Harris Corp,hand list,202058.0,"L3HARRIS TECHNOLOGIES, INC. /DE/",HARRIS CORP /DE/ (to 2019-06-25),True,True,1.0,2005-01-03,True,True,ACCEPT
+HSH,2012-06-28,MNST,2012-06-29,adjacent,,,865752.0,Monster Beverage Corp,HANSEN NATURAL CORP (to 2011-12-21),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+HSH,2012-06-28,STX,2012-07-02,adjacent,,,1137789.0,Seagate Technology Holdings plc,Seagate Technology plc (to 2021-05-19); SEAGATE TECHNOLOGY (to 2010-07-06); Seagate Technology (to 2010-07-06); SEAGATE TECHNOLOGY HOLDINGS (to 2002-12-12),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+HSP,2015-09-02,UAL,2015-09-03,adjacent,Hospira,wikipedia,100517.0,"United Airlines Holdings, Inc.","United Continental Holdings, Inc. (to 2019-06-27); UAL CORP /DE/ (to 2010-09-30)",False,False,0.8976172747580045,2006-02-06,False,True,"reject: same entity (A/B), price continuity"
+IAC,2008-08-20,IVZ,2008-08-21,adjacent,,,914208.0,Invesco Ltd.,Invesco Asset Management Deutschland GMBH (to 2021-11-08); Invesco Ltd (to 2008-05-16); INVESCO PLC/LONDON/ (to 2007-12-04); AMVESCAP PLC/LONDON/ (to 2007-05-24); AMVESCAP /LONDON/ (to 1999-12-17); INVESCO PLC /LONDON (to 1994-01-07),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+IGT,2014-06-19,XEC,2014-06-20,adjacent,International Game Technology,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+INFO,2022-03-01,MOH,2022-03-02,adjacent,IHS Markit,wikipedia,1179929.0,"MOLINA HEALTHCARE, INC.",MOLINA HEALTHCARE INC (to 2019-07-03),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+JAVA,2010-01-26,NRG,2010-01-29,adjacent,,,1013871.0,"NRG ENERGY, INC.","NRG ENERGY, INC. (to 2026-09-09); NRG ENERGY INC (to 2004-11-09)",False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+JCP,2013-11-29,ALLE,2013-12-02,adjacent,,,1579241.0,Allegion plc,,False,False,0.004010695187165776,2013-11-18,False,True,"reject: same entity (A/B), price continuity"
+JEC,2019-12-09,J,2019-12-10,adjacent,,,52988.0,JACOBS SOLUTIONS INC.,JACOBS ENGINEERING GROUP INC /DE/ (to 2022-08-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+JNS,2011-11-22,CBE,2011-11-23,adjacent,Janus Capital Group,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+JNY,2009-03-03,HRL,2009-03-04,adjacent,Jones Apparel Group,wikipedia,48465.0,HORMEL FOODS CORP /DE/,HORMEL GEO A & CO (to 1995-03-14),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+JNY,2009-03-03,VTR,2009-03-04,adjacent,Jones Apparel Group,wikipedia,740260.0,"Ventas, Inc.",VENTAS INC (to 2019-06-25); VENCOR INC (to 1998-02-10),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+JOY,2015-10-07,VRSK,2015-10-08,adjacent,Joy Global,wikipedia,1442145.0,"Verisk Analytics, Inc.",,False,False,1.0,2009-10-07,True,True,reject: same entity (A/B)
+JP,2006-03-31,BXP,2006-04-03,adjacent,,,1037540.0,"BXP, Inc.",BOSTON PROPERTIES INC (to 2024-06-20),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+JP,2006-03-31,DF,2006-04-03,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+JP,2006-03-31,GOOGL,2006-04-03,adjacent,,,1652044.0,Alphabet Inc.,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+JP,2006-03-31,KIM,2006-04-03,adjacent,,,879101.0,KIMCO REALTY CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+JWN,2020-06-19,BIO,2020-06-22,adjacent,Nordstrom,wikipedia,12208.0,"BIO-RAD LABORATORIES, INC.",BIO RAD LABORATORIES INC (to 2018-06-18),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+JWN,2020-06-19,TDY,2020-06-22,adjacent,Nordstrom,wikipedia,1094285.0,TELEDYNE TECHNOLOGIES INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+JWN,2020-06-19,TYL,2020-06-22,adjacent,Nordstrom,wikipedia,860731.0,TYLER TECHNOLOGIES INC,TYLER CORP /NEW/ (to 1999-03-31),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+KATE,2008-12-01,DNB,2008-12-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+KMG,2006-08-10,CME,2006-08-11,adjacent,,,1156375.0,CME GROUP INC.,CHICAGO MERCANTILE EXCHANGE HOLDINGS INC (to 2007-07-13),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+KRB,2005-12-30,VIAB,2006-01-03,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+KRB,2005-12-30,WFM,2006-01-03,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+KRB,2005-12-30,EL,2006-01-05,adjacent,,,1001250.0,ESTEE LAUDER COMPANIES INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+KRFT,2015-07-02,KHC,2015-07-06,adjacent,Kraft Foods,wikipedia,1637459.0,Kraft Heinz Co,H.J. Heinz Holding Corp (to 2015-07-01),True,False,0.0,2015-07-06,False,True,"reject: same entity (A/B), price continuity"
+KRI,2006-06-27,CNX,2006-06-28,adjacent,,,1070412.0,CNX Resources Corp,CONSOL ENERGY INC (to 2017-11-17); CONSOL Energy Inc (to 2017-11-17),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+KSE,2007-08-24,JEF,2007-08-27,adjacent,KeySpan,wikipedia,96223.0,Jefferies Financial Group Inc.,Jefferies Financial Group Inc. (to 2026-10-09); LEUCADIA NATIONAL CORP (to 2018-05-15),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+KSU,2021-12-13,EPAM,2021-12-14,adjacent,Kansas City Southern,wikipedia,1352010.0,"EPAM Systems, Inc.",EPAM SYSTEMS INC (to 2007-12-12),False,False,1.0,2012-02-08,True,True,reject: same entity (A/B)
+LB,2021-08-02,BBWI,2021-08-03,adjacent,L Brands,hand list,701985.0,"Bath & Body Works, Inc.","L Brands, Inc. (to 2021-07-30); LIMITED BRANDS INC (to 2013-03-22); LIMITED INC (to 2002-06-12)",True,True,1.0,2005-01-03,True,True,ACCEPT
+LEG,2021-12-17,FDS,2021-12-20,adjacent,Leggett & Platt,wikipedia,1013237.0,FACTSET RESEARCH SYSTEMS INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+LEG,2021-12-17,SBNY,2021-12-20,adjacent,Leggett & Platt,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+LEG,2021-12-17,SEDG,2021-12-20,adjacent,Leggett & Platt,wikipedia,1419612.0,"SOLAREDGE TECHNOLOGIES, INC.",SolarEdge Technologies Inc (to 2019-08-08),False,False,0.3973308358698197,2015-03-26,False,True,"reject: same entity (A/B), price continuity"
+LIFE,2014-01-23,TSCO,2014-01-24,adjacent,Life Technologies,wikipedia,916365.0,TRACTOR SUPPLY CO /DE/,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+LLL,2019-06-28,MKTX,2019-07-01,adjacent,L3 Technologies,wikipedia,1278021.0,MARKETAXESS HOLDINGS INC,MARKETAXESS HOLDINGS INC (to 2026-09-29); MARKETAXESS HOLDING INC (to 2004-04-01),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+LLTC,2017-03-10,DISH,2017-03-13,adjacent,Linear Technology,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+LM,2016-12-01,EVHC,2016-12-02,adjacent,Legg Mason,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+LM,2016-12-01,MAA,2016-12-02,adjacent,Legg Mason,wikipedia,912595.0,MID AMERICA APARTMENT COMMUNITIES INC.,MID AMERICA APARTMENT COMMUNITIES INC (to 2018-05-03),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+LO,2015-06-11,QRVO,2015-06-12,adjacent,Lorillard Tobacco Company,wikipedia,1604778.0,"Qorvo, Inc.","Rocky Holding, Inc. (to 2014-10-08)",False,False,0.0,,False,True,"reject: same entity (A/B), price continuity"
+LSI,2014-05-06,AVGO,2014-05-08,adjacent,LSI Corporation,wikipedia,1730168.0,Broadcom Inc.,Broadcom Ltd (to 2018-03-09),False,False,0.5082943428328371,2009-08-06,False,True,"reject: same entity (A/B), price continuity"
+LU,2006-11-30,IAC,2006-12-01,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+LU,2006-11-30,STR,2006-12-01,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+LU,2006-11-30,DTV,2006-12-04,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+LVLT,2017-10-12,NCLH,2017-10-13,adjacent,Level 3 Communications,wikipedia,1513761.0,Norwegian Cruise Line Holdings Ltd.,,False,False,1.0,2013-01-18,True,True,reject: same entity (A/B)
+LXK,2012-09-28,PNR,2012-10-01,adjacent,Lexmark,wikipedia,77360.0,PENTAIR plc,PENTAIR LTD (to 2014-06-03); PENTAIR INC (to 2012-10-02),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+LXK,2012-09-28,ADT,2012-10-02,adjacent,Lexmark,wikipedia,1703056.0,ADT Inc.,"ADT Inc. (to 2026-10-08); ADT, Inc. (to 2018-01-30); Prime Security Services Parent, Inc. (to 2017-04-11)",False,False,0.0,2018-01-19,False,True,"reject: same entity (A/B), price continuity"
+LXK,2012-09-28,KRFT,2012-10-02,adjacent,Lexmark,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MAY,2005-08-26,CVH,2005-08-30,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MDP,2011-01-03,MMI,2011-01-04,adjacent,Meredith Corp,wikipedia,1578732.0,"Marcus & Millichap, Inc.",,False,False,0.0,2013-10-31,False,True,"reject: same entity (A/B), price continuity"
+MEDI,2007-05-31,PCP,2007-06-01,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MEE,2011-06-01,ANRZQ,2011-06-02,adjacent,Massey Energy,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MEL,2007-06-29,COV,2007-07-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MEL,2007-06-29,DFS,2007-07-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MEL,2007-06-29,GGP,2007-07-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MEL,2007-06-29,TEL,2007-07-02,adjacent,,,1385157.0,TE Connectivity plc,TE Connectivity Ltd. (to 2024-09-23); Tyco Electronics Ltd. (to 2011-03-10),False,False,0.019138755980861243,2007-06-14,False,True,"reject: same entity (A/B), price continuity"
+MER,2008-12-31,FLIR,2009-01-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MER,2008-12-31,OI,2009-01-02,adjacent,,,812074.0,"O-I Glass, Inc. /DE/",OWENS ILLINOIS INC /DE/ (to 2019-12-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MER,2008-12-31,SCG,2009-01-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MER,2008-12-31,IRM,2009-01-06,adjacent,,,1020569.0,IRON MOUNTAIN INC,IRON MOUNTAIN INC/PA (to 2005-06-09); PIERCE LEAHY CORP (to 1999-02-16),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MERQ,2006-01-03,EL,2006-01-05,adjacent,,,1001250.0,ESTEE LAUDER COMPANIES INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MFE,2011-02-28,COV,2011-03-01,adjacent,McAfee,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MHS,2012-03-30,FOSL,2012-04-04,adjacent,Medco Health Solutions,wikipedia,883569.0,"Fossil Group, Inc.",FOSSIL INC (to 2013-05-24); FOSSIL INCORPORATED (to 1994-02-14),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MI,2011-07-05,ACN,2011-07-06,adjacent,Marshall & Ilsley,wikipedia,1467373.0,Accenture plc,Accenture plc (to 2026-10-09),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MJN,2017-06-14,ALGN,2017-06-19,adjacent,Mead Johnson,wikipedia,1097149.0,ALIGN TECHNOLOGY INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MJN,2017-06-14,ANSS,2017-06-19,adjacent,Mead Johnson,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MJN,2017-06-14,HLT,2017-06-19,adjacent,Mead Johnson,wikipedia,1585689.0,Hilton Worldwide Holdings Inc.,,False,False,0.4684014869888476,2013-12-12,False,True,"reject: same entity (A/B), price continuity"
+MJN,2017-06-14,RE,2017-06-19,adjacent,Mead Johnson,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MNK,2017-07-25,AOS,2017-07-26,adjacent,Mallinckrodt,wikipedia,91142.0,SMITH A O CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MNK,2017-07-25,DRE,2017-07-26,adjacent,Mallinckrodt,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MNK,2017-07-25,MGM,2017-07-26,adjacent,Mallinckrodt,wikipedia,789570.0,MGM Resorts International,MGM MIRAGE (to 2010-05-19); MGM GRAND INC (to 2000-05-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MNK,2017-07-25,PKG,2017-07-26,adjacent,Mallinckrodt,wikipedia,75677.0,PACKAGING CORP OF AMERICA,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MNK,2017-07-25,RMD,2017-07-26,adjacent,Mallinckrodt,wikipedia,943819.0,RESMED INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MOLX,2013-12-06,GGP,2013-12-10,adjacent,Molex,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MON,2018-06-06,TWTR,2018-06-07,adjacent,Monsanto,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MRO,2024-11-25,TPL,2024-11-26,adjacent,Marathon Oil,wikipedia,1811074.0,Texas Pacific Land Corp,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MTLQQ,2009-06-02,FTI,2009-06-05,adjacent,,,1681459.0,TechnipFMC plc,TechnipFMC Ltd (to 2016-12-21),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MWV,2015-07-01,CPGX,2015-07-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MWV,2015-07-01,WRK,2015-07-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MWV,2015-07-01,KHC,2015-07-06,adjacent,,,1637459.0,Kraft Heinz Co,H.J. Heinz Holding Corp (to 2015-07-01),True,False,0.0,2015-07-06,False,True,"reject: same entity (A/B), price continuity"
+MWW,2011-12-16,BWA,2011-12-19,adjacent,Monster Worldwide,wikipedia,908255.0,BORGWARNER INC,BORG WARNER AUTOMOTIVE INC (to 2000-02-15),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MWW,2011-12-16,DLTR,2011-12-19,adjacent,Monster Worldwide,wikipedia,935703.0,"DOLLAR TREE, INC.",DOLLAR TREE INC (to 2019-07-12); DOLLAR TREE STORES INC (to 2008-03-28),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MWW,2011-12-16,PRGO,2011-12-19,adjacent,Monster Worldwide,wikipedia,1585364.0,PERRIGO Co plc,PERRIGO Co Ltd (to 2013-11-12),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MWW,2011-12-16,TRIP,2011-12-21,adjacent,Monster Worldwide,wikipedia,1526520.0,"TripAdvisor, Inc.",,False,False,0.004561003420752566,2011-12-07,False,True,"reject: same entity (A/B), price continuity"
+MXIM,2007-09-26,ANDV,2007-09-27,adjacent,Maxim Integrated Products,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MXIM,2007-09-26,TDC,2007-10-01,adjacent,Maxim Integrated Products,wikipedia,816761.0,TERADATA CORP /DE/,TERADATA CORP /DE/ (to 2026-09-17),False,False,0.5003631082062454,2007-10-01,False,True,"reject: same entity (A/B), price continuity"
+MXIM,2021-08-27,TECH,2021-08-30,adjacent,Maxim Integrated Products,wikipedia,842023.0,BIO-TECHNE Corp,TECHNE CORP /MN/ (to 2014-10-28),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MYG,2006-03-31,BXP,2006-04-03,adjacent,,,1037540.0,"BXP, Inc.",BOSTON PROPERTIES INC (to 2024-06-20),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MYG,2006-03-31,DF,2006-04-03,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+MYG,2006-03-31,GOOGL,2006-04-03,adjacent,,,1652044.0,Alphabet Inc.,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MYG,2006-03-31,KIM,2006-04-03,adjacent,,,879101.0,KIMCO REALTY CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+MYL,2020-11-16,VTRS,2020-11-17,adjacent,Mylan,hand list,1792044.0,Viatris Inc,Upjohn Inc (to 2020-11-10),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+NAV,2006-12-19,TEX,2006-12-20,adjacent,,,97216.0,TEREX CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+NBL,2020-10-09,VNT,2020-10-12,adjacent,Noble Energy,wikipedia,1786842.0,Vontier Corp,TTF Holdings Corp. (to 2019-11-15),False,False,0.003663003663003663,2020-09-24,False,True,"reject: same entity (A/B), price continuity"
+NCC,2008-12-31,FLIR,2009-01-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+NCC,2008-12-31,OI,2009-01-02,adjacent,,,812074.0,"O-I Glass, Inc. /DE/",OWENS ILLINOIS INC /DE/ (to 2019-12-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+NCC,2008-12-31,SCG,2009-01-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+NCC,2008-12-31,IRM,2009-01-06,adjacent,,,1020569.0,IRON MOUNTAIN INC,IRON MOUNTAIN INC/PA (to 2005-06-09); PIERCE LEAHY CORP (to 1999-02-16),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+NCR,2007-09-28,TDC,2007-10-01,adjacent,NCR Corporation,wikipedia,816761.0,TERADATA CORP /DE/,TERADATA CORP /DE/ (to 2026-09-17),False,False,0.0,2007-10-01,False,True,"reject: same entity (A/B), price continuity"
+NCR,2007-09-28,EXPE,2007-10-02,adjacent,NCR Corporation,wikipedia,1324424.0,"Expedia Group, Inc.","Expedia, Inc. (to 2018-03-20)",False,False,0.8,2005-07-21,False,True,"reject: same entity (A/B), price continuity"
+NE,2009-03-26,ORLY,2009-03-27,adjacent,Noble Corporation,wikipedia,898173.0,O REILLY AUTOMOTIVE INC,OREILLY AUTOMOTIVE INC (to 1998-04-10),False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+NE,2009-03-26,TWC,2009-03-30,adjacent,Noble Corporation,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+NE,2015-07-17,PYPL,2015-07-20,adjacent,Noble Corporation,wikipedia,1633917.0,"PayPal Holdings, Inc.",,False,False,0.004551661356395084,2015-07-06,False,True,"reject: same entity (A/B), price continuity"
+NFB,2006-11-30,IAC,2006-12-01,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+NFB,2006-11-30,STR,2006-12-01,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+NFB,2006-11-30,DTV,2006-12-04,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+NFX,2019-02-14,ATO,2019-02-15,adjacent,Newfield Exploration,wikipedia,731802.0,ATMOS ENERGY CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+NLOK,2022-11-07,GEN,2022-11-08,adjacent,NortonLifeLock,hand list,849399.0,Gen Digital Inc.,NortonLifeLock Inc. (to 2022-10-12); SYMANTEC CORP (to 2019-10-24),True,True,1.0,2005-01-03,True,True,ACCEPT
+NLSN,2022-10-11,TRGP,2022-10-12,adjacent,Nielsen Holdings,wikipedia,1389170.0,Targa Resources Corp.,Targa Resources Corp. (to 2026-09-17); Targa Resources Investments Inc. (to 2010-11-12),False,False,1.0,2010-12-07,True,True,reject: same entity (A/B)
+NOVL,2011-04-27,CMG,2011-04-28,adjacent,Novell,wikipedia,1058090.0,CHIPOTLE MEXICAN GRILL INC,,False,False,0.8315524827152734,2006-01-26,False,True,"reject: same entity (A/B), price continuity"
+NSM,2011-09-23,MOS,2011-09-26,adjacent,National Semiconductor,wikipedia,1285785.0,MOSAIC CO,GLOBAL NUTRITION SOLUTIONS INC (to 2004-06-18),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+NVLS,2012-06-04,LRCX,2012-06-05,adjacent,Novellus Systems,wikipedia,707549.0,LAM RESEARCH CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+NXTL,2005-08-12,MUR,2005-08-15,adjacent,,,717423.0,MURPHY OIL CORP,MURPHY OIL CORP /DE (to 2019-07-12),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+NYX,2013-11-12,KORS,2013-11-13,adjacent,NYSE Euronext,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ODP,2010-12-17,CVC,2010-12-20,adjacent,Office Depot,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+ODP,2010-12-17,FFIV,2010-12-20,adjacent,Office Depot,wikipedia,1048695.0,"F5, INC.","F5 NETWORKS, INC. (to 2021-11-12); F5 NETWORKS INC (to 2019-05-31)",False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ODP,2010-12-17,NFLX,2010-12-20,adjacent,Office Depot,wikipedia,1065280.0,NETFLIX INC,NETFLIX COM INC (to 2002-03-06),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+ODP,2010-12-17,NFX,2010-12-20,adjacent,Office Depot,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+OMX,2008-06-20,COG,2008-06-23,adjacent,OfficeMax,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+OMX,2008-06-20,MEE,2008-06-23,adjacent,OfficeMax,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+PBCT,2022-04-01,CPT,2022-04-04,adjacent,People's United Financial,wikipedia,906345.0,CAMDEN PROPERTY TRUST,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+PBG,2010-02-26,DISCA,2010-03-01,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+PBG,2010-02-26,HP,2010-03-01,adjacent,,,46765.0,"Helmerich & Payne, Inc.",HELMERICH & PAYNE INC (to 2015-08-07),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+PCL,2016-02-19,CXO,2016-02-22,adjacent,Plum Creek Timber,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+PCP,2016-01-29,CFG,2016-02-01,adjacent,Precision Castparts Corporation,wikipedia,759944.0,CITIZENS FINANCIAL GROUP INC/RI,CITIZENS FINANCIAL GROUP INC/DE (to 2000-02-08),False,False,0.15582034830430797,2014-09-24,False,True,"reject: same entity (A/B), price continuity"
+PCP,2016-01-29,FRT,2016-02-01,adjacent,Precision Castparts Corporation,wikipedia,34903.0,FEDERAL REALTY INVESTMENT TRUST,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+PD,2007-03-19,HST,2007-03-20,adjacent,,,1070750.0,"HOST HOTELS & RESORTS, INC.",HOST MARRIOTT CORP/ (to 2006-04-14); HMC MERGER CORP (to 1998-11-10),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+PDCO,2018-03-16,NKTR,2018-03-19,adjacent,Patterson Companies,wikipedia,906709.0,NEKTAR THERAPEUTICS,INHALE THERAPEUTIC SYSTEMS INC (to 2003-01-10); INHALE THERAPEUTIC SYSTEMS (to 1998-05-14),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+PDCO,2018-03-16,SIVB,2018-03-19,adjacent,Patterson Companies,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+PDCO,2018-03-16,TTWO,2018-03-19,adjacent,Patterson Companies,wikipedia,946581.0,TAKE TWO INTERACTIVE SOFTWARE INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+PEAK,2024-03-01,DOC,2024-03-04,adjacent,Healthpeak,hand list,765880.0,"HEALTHPEAK PROPERTIES, INC.","HCP, INC. (to 2019-10-01); HEALTH CARE PROPERTY INVESTORS INC (to 2007-09-10)",False,True,1.0,2005-01-03,True,True,ACCEPT
+PETM,2015-03-11,SWKS,2015-03-12,adjacent,PetSmart,wikipedia,4127.0,"SKYWORKS SOLUTIONS, INC.",SKYWORKS SOLUTIONS INC (to 2011-06-17); ALPHA INDUSTRIES INC (to 2002-06-17),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+PGL,2007-02-21,TEG,2007-02-22,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+PGN,2012-06-29,STX,2012-07-02,adjacent,Progress Energy,wikipedia,1137789.0,Seagate Technology Holdings plc,Seagate Technology plc (to 2021-05-19); SEAGATE TECHNOLOGY (to 2010-07-06); Seagate Technology (to 2010-07-06); SEAGATE TECHNOLOGY HOLDINGS (to 2002-12-12),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+PKI,2023-05-15,RVTY,2023-05-16,adjacent,PerkinElmer,hand list,31791.0,"REVVITY, INC.",PERKINELMER INC (to 2023-04-14); EG&G INC (to 1999-07-26),True,True,1.0,2005-01-03,True,True,ACCEPT
+PLL,2015-08-28,ATVI,2015-08-31,adjacent,Pall Corporation,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+PMCS,2007-06-29,COV,2007-07-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+PMCS,2007-06-29,DFS,2007-07-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+PMCS,2007-06-29,GGP,2007-07-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+PMCS,2007-06-29,TEL,2007-07-02,adjacent,,,1385157.0,TE Connectivity plc,TE Connectivity Ltd. (to 2024-09-23); Tyco Electronics Ltd. (to 2011-03-10),False,False,0.019138755980861243,2007-06-14,False,True,"reject: same entity (A/B), price continuity"
+PTV,2010-11-16,IR,2010-11-17,adjacent,Pactiv,wikipedia,1699150.0,Ingersoll Rand Inc.,"GARDNER DENVER HOLDINGS, INC. (to 2020-02-26)",False,False,0.0,2017-05-12,False,False,"reject: same entity (A/B), price continuity, no overlap"
+PVN,2005-09-30,AMP,2005-10-03,adjacent,,,820027.0,AMERIPRISE FINANCIAL INC,AMERICAN EXPRESS FINANCIAL CORP (to 2005-07-26); AMERICAN EXPRESS FINANCIAL ADVISORS (to 2003-03-10); IDS FINANCIAL CORP/MN/ (to 1995-02-06),True,False,0.06349206349206349,2005-09-15,False,True,"reject: same entity (A/B), price continuity"
+PVN,2005-09-30,LEN,2005-10-04,adjacent,,,920760.0,LENNAR CORP /NEW/,PACIFIC GREYSTONE CORP /DE/ (to 1997-09-26),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+PWER,2005-03-11,NOV,2005-03-14,adjacent,,,1021860.0,NOV Inc.,NATIONAL OILWELL VARCO INC (to 2020-12-22); NATIONAL OILWELL INC (to 2005-03-08),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+PXD,2024-05-07,VST,2024-05-08,adjacent,Pioneer Natural Resources,wikipedia,1692819.0,Vistra Corp.,Vistra Energy Corp. (to 2020-06-29); Vistra Energy Corp (to 2018-01-29),False,False,0.48562706690409563,2016-10-05,False,True,"reject: same entity (A/B), price continuity"
+Q,2011-03-31,EW,2011-04-01,adjacent,QuintilesIMS,hand list,1099800.0,Edwards Lifesciences Corp,CVG CONTROLLED INC (to 2000-01-21),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+Q,2011-03-31,BLK,2011-04-04,adjacent,QuintilesIMS,hand list,2012383.0,"BlackRock, Inc.","BlackRock, Inc. (to 2026-10-05); BlackRock Funding, Inc. /DE (to 2024-10-01)",False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+QEP,2015-06-30,BXLT,2015-07-01,adjacent,QEP Resources,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+QEP,2015-06-30,JBHT,2015-07-01,adjacent,QEP Resources,wikipedia,728535.0,HUNT J B TRANSPORT SERVICES INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+QEP,2015-06-30,CPGX,2015-07-02,adjacent,QEP Resources,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+QEP,2015-06-30,WRK,2015-07-02,adjacent,QEP Resources,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+QEP,2015-06-30,KHC,2015-07-06,adjacent,QEP Resources,wikipedia,1637459.0,Kraft Heinz Co,H.J. Heinz Holding Corp (to 2015-07-01),True,False,0.0,2015-07-06,False,True,"reject: same entity (A/B), price continuity"
+QLGC,2011-01-14,NE,2011-01-18,adjacent,,,1895262.0,Noble Corp plc,Noble Finco Ltd (to 2022-05-10),False,False,0.0,2021-06-09,False,False,"reject: same entity (A/B), price continuity, no overlap"
+QRVO,2024-12-20,APO,2024-12-23,adjacent,Qorvo,wikipedia,1858681.0,"Apollo Global Management, Inc.","Tango Holdings, Inc. (to 2021-11-05)",False,False,1.0,2011-03-30,True,True,reject: same entity (A/B)
+QRVO,2024-12-20,LII,2024-12-23,adjacent,Qorvo,wikipedia,1069202.0,LENNOX INTERNATIONAL INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+QRVO,2024-12-20,WDAY,2024-12-23,adjacent,Qorvo,wikipedia,1327811.0,"Workday, Inc.",Workday Inc (to 2007-09-05); North Tahoe Power Tools Inc (to 2006-12-18),False,False,1.0,2012-10-12,True,True,reject: same entity (A/B)
+RAI,2017-07-24,AOS,2017-07-26,adjacent,Reynolds American,wikipedia,91142.0,SMITH A O CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+RAI,2017-07-24,DRE,2017-07-26,adjacent,Reynolds American,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+RAI,2017-07-24,MGM,2017-07-26,adjacent,Reynolds American,wikipedia,789570.0,MGM Resorts International,MGM MIRAGE (to 2010-05-19); MGM GRAND INC (to 2000-05-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+RAI,2017-07-24,PKG,2017-07-26,adjacent,Reynolds American,wikipedia,75677.0,PACKAGING CORP OF AMERICA,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+RAI,2017-07-24,RMD,2017-07-26,adjacent,Reynolds American,wikipedia,943819.0,RESMED INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+RBK,2006-01-31,HAR,2006-02-01,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+RBK,2006-01-31,VRSN,2006-02-01,adjacent,,,1014473.0,VERISIGN INC/CA,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+RDC,2014-08-18,MNK,2014-08-19,adjacent,Rowan Companies,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+RE,2023-07-07,EG,2023-07-10,adjacent,Everest Re,hand list,1095073.0,"EVEREST GROUP, LTD.",EVEREST RE GROUP LTD (to 2023-07-06); EVEREST REINSURANCE GROUP LTD (to 2000-03-08),True,True,1.0,2005-01-03,True,True,ACCEPT
+RHT,2019-07-12,TMUS,2019-07-15,adjacent,Red Hat,wikipedia,1283699.0,"T-Mobile US, Inc.",METROPCS COMMUNICATIONS INC (to 2013-04-29),False,False,1.0,2007-04-19,True,False,"reject: same entity (A/B), no overlap"
+ROH,2009-04-01,DNR,2009-04-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+RRD,2012-12-11,GRMN,2012-12-12,adjacent,RR Donnelley,wikipedia,1121788.0,GARMIN LTD,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+RSHCQ,2011-06-30,MPC,2011-07-01,adjacent,,,1510295.0,Marathon Petroleum Corp,,False,False,0.003056234718826406,2011-06-24,False,True,"reject: same entity (A/B), price continuity"
+RSHCQ,2011-06-30,ACN,2011-07-06,adjacent,,,1467373.0,Accenture plc,Accenture plc (to 2026-10-09),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+RTN,2020-04-03,HWM,2020-04-06,adjacent,Raytheon Company,wikipedia,4281.0,Howmet Aerospace Inc.,Arconic Inc. (to 2020-03-26); ALCOA INC. (to 2016-10-27); ALCOA INC (to 2014-10-03); ALUMINUM CO OF AMERICA (to 1999-01-04),True,False,0.22421875,2016-11-01,False,True,"reject: same entity (A/B), price continuity"
+RX,2010-02-25,DISCA,2010-03-01,adjacent,IMS Health,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+RX,2010-02-25,HP,2010-03-01,adjacent,IMS Health,wikipedia,46765.0,"Helmerich & Payne, Inc.",HELMERICH & PAYNE INC (to 2015-08-07),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+S,2013-07-08,NLSN,2013-07-09,adjacent,Sprint Nextel,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+SAF,2008-09-22,PXD,2008-09-24,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+SBL,2007-01-09,AVB,2007-01-10,adjacent,Symbol Technologies,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+SBNY,2023-03-14,BG,2023-03-15,adjacent,Signature Bank,wikipedia,1996862.0,Bunge Global SA,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SBNY,2023-03-14,PODD,2023-03-15,adjacent,Signature Bank,wikipedia,1145197.0,INSULET CORP,,False,False,1.0,2007-05-15,True,True,reject: same entity (A/B)
+SCG,2018-12-31,FRC,2019-01-02,adjacent,SCANA,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+SDS,2005-08-11,VNO,2005-08-12,adjacent,,,899689.0,VORNADO REALTY TRUST,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SDS,2005-08-11,MUR,2005-08-15,adjacent,,,717423.0,MURPHY OIL CORP,MURPHY OIL CORP /DE (to 2019-07-12),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SE,2017-02-24,INCY,2017-02-28,adjacent,Spectra Energy,wikipedia,879169.0,INCYTE CORP,INCYTE INC (to 2003-03-28); INCYTE GENOMICS INC (to 2003-02-25); INCYTE PHARMACEUTICALS INC (to 2000-04-18),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SE,2017-02-24,CBOE,2017-03-01,adjacent,Spectra Energy,wikipedia,1374310.0,"Cboe Global Markets, Inc.","CBOE Holdings, Inc. (to 2017-10-13)",False,False,0.6602739726027397,2010-06-15,False,True,"reject: same entity (A/B), price continuity"
+SEBL,2006-01-31,HAR,2006-02-01,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+SEBL,2006-01-31,VRSN,2006-02-01,adjacent,,,1014473.0,VERISIGN INC/CA,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SEE,2023-12-15,BLDR,2023-12-18,adjacent,Sealed Air,wikipedia,1316835.0,"Builders FirstSource, Inc.",,False,False,0.9744341994970662,2005-06-28,False,True,"reject: same entity (A/B), price continuity"
+SEE,2023-12-15,JBL,2023-12-18,adjacent,Sealed Air,wikipedia,898293.0,JABIL INC,JABIL CIRCUIT INC (to 2017-06-05),False,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+SEE,2023-12-15,UBER,2023-12-18,adjacent,Sealed Air,wikipedia,1543151.0,"Uber Technologies, Inc",,False,False,0.24308466051969824,2019-05-10,False,True,"reject: same entity (A/B), price continuity"
+SFA,2006-02-24,BRL,2006-02-27,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+SGP,2009-11-03,BKNG,2009-11-06,adjacent,Schering-Plough,wikipedia,1075531.0,Booking Holdings Inc.,Priceline Group Inc. (to 2018-02-16); PRICELINE COM INC (to 2014-03-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SHLD,2012-09-04,LYB,2012-09-05,adjacent,Sears Holdings,wikipedia,1489393.0,LyondellBasell Industries N.V.,,False,False,0.31716417910447764,2010-04-28,False,True,"reject: same entity (A/B), price continuity"
+SIAL,2015-11-17,SYF,2015-11-18,adjacent,Sigma-Aldrich,wikipedia,1601712.0,Synchrony Financial,Synchrony Financial (to 2026-10-02),False,False,0.12011683096020445,2014-07-31,False,True,"reject: same entity (A/B), price continuity"
+SIAL,2015-11-17,ILMN,2015-11-19,adjacent,Sigma-Aldrich,wikipedia,1110803.0,"ILLUMINA, INC.",ILLUMINA INC (to 2019-08-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SIVB,2023-03-14,BG,2023-03-15,adjacent,SVB Financial Group,wikipedia,1996862.0,Bunge Global SA,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SIVB,2023-03-14,PODD,2023-03-15,adjacent,SVB Financial Group,wikipedia,1145197.0,INSULET CORP,,False,False,1.0,2007-05-15,True,True,reject: same entity (A/B)
+SLR,2007-10-01,EXPE,2007-10-02,adjacent,Solectron,wikipedia,1324424.0,"Expedia Group, Inc.","Expedia, Inc. (to 2018-03-20)",False,False,0.8002894356005789,2005-07-21,False,True,"reject: same entity (A/B), price continuity"
+SNDK,2016-05-11,ALK,2016-05-13,adjacent,SanDisk,wikipedia,766421.0,"ALASKA AIR GROUP, INC.",ALASKA AIR GROUP INC (to 2012-05-18),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SNI,2018-03-06,IPGP,2018-03-07,adjacent,Scripps Networks Interactive,wikipedia,1111928.0,IPG PHOTONICS CORP,,False,False,1.0,2006-12-13,True,True,reject: same entity (A/B)
+SNV,2007-12-31,TSS,2008-01-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+SOV,2009-01-29,WELL,2009-01-30,adjacent,,,766704.0,WELLTOWER INC.,HEALTH CARE REIT INC /DE/ (to 2015-09-25),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SRCL,2018-11-30,FANG,2018-12-03,adjacent,Stericycle,wikipedia,1539838.0,"Diamondback Energy, Inc.","Diamondback Energy, Inc. (to 2026-10-08)",False,False,0.611243072050673,2012-10-12,False,True,"reject: same entity (A/B), price continuity"
+SRCL,2018-11-30,LW,2018-12-03,adjacent,Stericycle,wikipedia,1679273.0,"Lamb Weston Holdings, Inc.",,False,False,0.20506730007917656,2016-11-10,False,True,"reject: same entity (A/B), price continuity"
+SRCL,2018-11-30,MXIM,2018-12-03,adjacent,Stericycle,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+STI,2019-12-06,ODFL,2019-12-09,adjacent,SunTrust,hand list,878927.0,"OLD DOMINION FREIGHT LINE, INC.",OLD DOMINION FREIGHT LINE INC/VA (to 2019-08-21),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+STI,2019-12-06,TFC,2019-12-09,adjacent,SunTrust,hand list,92230.0,TRUIST FINANCIAL CORP,BB&T CORP (to 2019-12-06); SOUTHERN NATIONAL CORP /NC/ (to 1997-05-14),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+STI,2019-12-06,J,2019-12-10,adjacent,SunTrust,hand list,52988.0,JACOBS SOLUTIONS INC.,JACOBS ENGINEERING GROUP INC /DE/ (to 2022-08-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+STJ,2017-01-04,IDXX,2017-01-05,adjacent,St Jude Medical,wikipedia,874716.0,IDEXX LABORATORIES INC /DE,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+STR,2010-06-30,QEP,2010-07-01,adjacent,Questar,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+SUNEQ,2011-12-16,BWA,2011-12-19,adjacent,,,908255.0,BORGWARNER INC,BORG WARNER AUTOMOTIVE INC (to 2000-02-15),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SUNEQ,2011-12-16,DLTR,2011-12-19,adjacent,,,935703.0,"DOLLAR TREE, INC.",DOLLAR TREE INC (to 2019-07-12); DOLLAR TREE STORES INC (to 2008-03-28),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SUNEQ,2011-12-16,PRGO,2011-12-19,adjacent,,,1585364.0,PERRIGO Co plc,PERRIGO Co Ltd (to 2013-11-12),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SUNEQ,2011-12-16,TRIP,2011-12-21,adjacent,,,1526520.0,"TripAdvisor, Inc.",,False,False,0.006962576153176675,2011-12-07,False,True,"reject: same entity (A/B), price continuity"
+SVU,2012-04-30,PSX,2012-05-01,adjacent,Supervalu,wikipedia,1534701.0,Phillips 66,,False,False,0.007046070460704607,2012-04-12,False,True,"reject: same entity (A/B), price continuity"
+SWN,2017-04-03,DXC,2017-04-04,adjacent,Southwestern Energy,wikipedia,1688568.0,DXC Technology Co,"Everett SpinCo, Inc. (to 2017-03-31)",True,False,1.0,2005-01-03,True,False,"reject: same entity (A/B), no overlap"
+SWN,2017-04-03,IT,2017-04-05,adjacent,Southwestern Energy,wikipedia,749251.0,GARTNER INC,GARTNER GROUP INC (to 2001-02-08),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SWY,2015-01-26,ENDP,2015-01-27,adjacent,Safeway,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+SWY,2015-01-26,HCA,2015-01-27,adjacent,Safeway,wikipedia,860730.0,"HCA Healthcare, Inc.","HCA Holdings, Inc. (to 2017-05-05); HCA INC/TN (to 2010-11-24); HCA THE HEALTHCARE CO (to 2001-05-21); HCA-THE HEALTHCARE CO (to 2001-02-14); COLUMBIA HCA HEALTHCARE CORP (to 2000-05-19); COLUMBIA HCA HEALTHCARE CORP/ (to 2000-02-16); COLUMBIA HEALTHCARE CORP (to 1994-03-01)",False,False,0.38531385708645877,2011-03-10,False,False,"reject: same entity (A/B), price continuity, no overlap"
+SYMC,2019-11-04,NLOK,2019-11-05,adjacent,Symantec,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+SYMC,2019-11-04,PEAK,2019-11-05,adjacent,Symantec,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+TE,2016-06-30,ALB,2016-07-01,adjacent,TECO Energy,wikipedia,915913.0,ALBEMARLE CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TE,2016-06-30,LNT,2016-07-01,adjacent,TECO Energy,wikipedia,352541.0,ALLIANT ENERGY CORP,ALLIANT ENERGY CORP (to 2026-08-21); INTERSTATE ENERGY CORP (to 1999-05-13); WPL HOLDINGS INC (to 1998-02-23),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TE,2016-06-30,FTV,2016-07-05,adjacent,TECO Energy,wikipedia,1659166.0,Fortive Corp,,False,False,0.0,2016-07-05,False,True,"reject: same entity (A/B), price continuity"
+TEG,2015-06-29,BXLT,2015-07-01,adjacent,Integrys Energy Group,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+TEG,2015-06-29,JBHT,2015-07-01,adjacent,Integrys Energy Group,wikipedia,728535.0,HUNT J B TRANSPORT SERVICES INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TEG,2015-06-29,CPGX,2015-07-02,adjacent,Integrys Energy Group,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+TEG,2015-06-29,WRK,2015-07-02,adjacent,Integrys Energy Group,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+TEK,2007-11-15,MTW,2007-11-16,adjacent,,,61986.0,MANITOWOC CO INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TEK,2007-11-15,AMT,2007-11-19,adjacent,,,1053507.0,AMERICAN TOWER CORP /MA/,AMERICAN TOWER SYSTEMS CORP (to 1998-05-08),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TGNA,2017-06-01,INFO,2017-06-02,adjacent,Tegna,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+TIE,2012-12-21,APTV,2012-12-24,adjacent,Titanium Metals,wikipedia,1521332.0,Aptiv PLC,Delphi Automotive PLC (to 2017-11-29),False,False,0.211864406779661,2011-11-17,False,True,"reject: same entity (A/B), price continuity"
+TIF,2021-01-06,ENPH,2021-01-07,adjacent,Tiffany & Co,wikipedia,1463101.0,"Enphase Energy, Inc.",,False,False,0.5475068221285041,2012-03-30,False,True,"reject: same entity (A/B), price continuity"
+TIN,2007-12-28,GHC,2007-12-31,adjacent,,,104889.0,Graham Holdings Co,WASHINGTON POST CO (to 2013-11-18),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TIN,2007-12-28,TSS,2008-01-02,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+TLAB,2011-12-20,TRIP,2011-12-21,adjacent,Tellabs,wikipedia,1526520.0,"TripAdvisor, Inc.",,False,False,0.0056947608200455585,2011-12-07,False,True,"reject: same entity (A/B), price continuity"
+TMK,2019-08-07,GL,2019-08-08,adjacent,Torchmark,hand list,320335.0,GLOBE LIFE INC.,TORCHMARK CORP (to 2019-08-02),True,True,1.0,2005-01-03,True,True,ACCEPT
+TMK,2019-08-07,IEX,2019-08-09,adjacent,Torchmark,hand list,832101.0,IDEX CORP /DE/,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TMK,2019-08-07,LDOS,2019-08-09,adjacent,Torchmark,hand list,1336920.0,"Leidos Holdings, Inc.","SAIC, Inc. (to 2013-09-27)",False,False,0.8772455089820359,2006-10-17,False,False,"reject: same entity (A/B), price continuity, no overlap"
+TOY,2005-07-21,WFT,2005-07-22,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+TRB,2007-12-20,RRC,2007-12-21,adjacent,Tribune Media,wikipedia,315852.0,RANGE RESOURCES CORP,LOMAK PETROLEUM INC (to 1998-07-16),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TSG,2007-03-30,MDLZ,2007-04-02,adjacent,Sabre Corporation,wikipedia,1103982.0,"Mondelez International, Inc.",KRAFT FOODS INC (to 2012-09-28),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TSS,2019-09-20,CDW,2019-09-23,adjacent,TSYS,wikipedia,1402057.0,CDW Corp,"VH Holdings, Inc. (to 2007-06-08)",False,False,0.5320230430362589,2013-06-27,False,True,"reject: same entity (A/B), price continuity"
+TWC,2016-05-17,DLR,2016-05-18,adjacent,Time Warner Cable,wikipedia,1297996.0,"DIGITAL REALTY TRUST, INC.",,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TWTR,2022-10-31,ACGL,2022-11-01,adjacent,Twitter,wikipedia,947484.0,ARCH CAPITAL GROUP LTD.,ARCH CAPITAL GROUP LTD (to 2005-03-10); RISK CAPITAL HOLDINGS INC (to 2000-03-16),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+TWX,2018-06-14,BR,2018-06-18,adjacent,Time Warner,hand list,1383312.0,"BROADRIDGE FINANCIAL SOLUTIONS, INC.","BROADRIDGE FINANCIAL SOLUTIONS, INC. (to 2026-10-06); BROADRIDGE FINANCIAL SOLUTIONS, LLC (to 2007-03-21); BSG LLC (to 2006-12-19)",False,False,0.8354991139988187,2007-03-22,False,False,"reject: same entity (A/B), price continuity, no overlap"
+TWX,2018-06-14,HFC,2018-06-18,adjacent,Time Warner,hand list,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+TXU,2007-10-09,EXPD,2007-10-10,adjacent,,,746515.0,EXPEDITORS INTERNATIONAL OF WASHINGTON INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+UCL,2005-08-10,TSN,2005-08-11,adjacent,,,100493.0,"TYSON FOODS, INC.",TYSON FOODS INC (to 2019-02-07),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+UCL,2005-08-10,VNO,2005-08-12,adjacent,,,899689.0,VORNADO REALTY TRUST,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+UCL,2005-08-10,MUR,2005-08-15,adjacent,,,717423.0,MURPHY OIL CORP,MURPHY OIL CORP /DE (to 2019-07-12),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+UST,2009-01-05,IRM,2009-01-06,adjacent,,,1020569.0,IRON MOUNTAIN INC,IRON MOUNTAIN INC/PA (to 2005-06-09); PIERCE LEAHY CORP (to 1999-02-16),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+UTX,2020-04-02,CARR,2020-04-03,adjacent,United Technologies,hand list,1783180.0,CARRIER GLOBAL Corp,,False,False,0.0028653295128939827,2020-03-19,False,True,"reject: same entity (A/B), price continuity"
+UTX,2020-04-02,OTIS,2020-04-03,adjacent,United Technologies,hand list,1781335.0,Otis Worldwide Corp,,False,False,0.0028653295128939827,2020-03-19,False,True,"reject: same entity (A/B), price continuity"
+UTX,2020-04-02,RTX,2020-04-03,adjacent,United Technologies,hand list,101829.0,RTX Corp,RAYTHEON TECHNOLOGIES CORP (to 2023-06-29); UNITED TECHNOLOGIES CORP /DE/ (to 2020-04-06),True,True,1.0,2005-01-03,True,True,ACCEPT
+UTX,2020-04-02,HWM,2020-04-06,adjacent,United Technologies,hand list,4281.0,Howmet Aerospace Inc.,Arconic Inc. (to 2020-03-26); ALCOA INC. (to 2016-10-27); ALCOA INC (to 2014-10-03); ALUMINUM CO OF AMERICA (to 1999-01-04),True,False,0.224016671008075,2016-11-01,False,True,"reject: same entity (A/B), price continuity"
+UVN,2007-03-28,ANF,2007-03-29,adjacent,,,1018840.0,ABERCROMBIE & FITCH CO /DE/,ABERCROMBIE & FITCH CO /DE/ (to 2026-09-09),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+UVN,2007-03-28,MDLZ,2007-04-02,adjacent,,,1103982.0,"Mondelez International, Inc.",KRAFT FOODS INC (to 2012-09-28),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+VAR,2021-04-19,PTC,2021-04-20,adjacent,Varian Medical Systems,wikipedia,857005.0,PTC INC.,PARAMETRIC TECHNOLOGY CORP (to 2013-01-24),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+VIAB,2019-12-04,VIAC,2019-12-05,adjacent,Viacom,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+VIAB,2019-12-04,WRB,2019-12-05,adjacent,Viacom,wikipedia,11544.0,BERKLEY W R CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+VIAB,2019-12-04,ODFL,2019-12-09,adjacent,Viacom,wikipedia,878927.0,"OLD DOMINION FREIGHT LINE, INC.",OLD DOMINION FREIGHT LINE INC/VA (to 2019-08-21),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+VIAB,2019-12-04,TFC,2019-12-09,adjacent,Viacom,wikipedia,92230.0,TRUIST FINANCIAL CORP,BB&T CORP (to 2019-12-06); SOUTHERN NATIONAL CORP /NC/ (to 1997-05-14),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+VIAC,2022-02-16,PARA,2022-02-17,adjacent,ViacomCBS,hand list,1826011.0,"Banzai International, Inc.",7GC & Co. Holdings Inc. (to 2023-12-15),False,False,0.46126126126126127,2021-02-12,False,True,"reject: same entity (A/B), price continuity"
+VRTS,2005-07-01,DHI,2005-07-05,adjacent,,,882184.0,HORTON D R INC /DE/,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+VRTS,2005-07-01,STZ,2005-07-05,adjacent,,,16918.0,"CONSTELLATION BRANDS, INC.",CONSTELLATION BRANDS INC (to 2004-05-05); CANANDAIGUA BRANDS INC (to 2000-01-14); CANANDAIGUA WINE CO INC (to 1997-01-31),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+VSTNQ,2005-12-30,VIAB,2006-01-03,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+VSTNQ,2005-12-30,WFM,2006-01-03,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+VSTNQ,2005-12-30,EL,2006-01-05,adjacent,,,1001250.0,ESTEE LAUDER COMPANIES INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+WAMUQ,2008-09-29,APH,2008-09-30,adjacent,,,820313.0,AMPHENOL CORP /DE/,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+WAMUQ,2008-09-29,FLS,2008-10-02,adjacent,,,30625.0,FLOWSERVE CORP,DURCO INTERNATIONAL INC (to 1997-05-15); DURIRON CO INC (to 1997-03-14),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+WB,2008-12-31,FLIR,2009-01-02,adjacent,Wachovia Bank,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+WB,2008-12-31,OI,2009-01-02,adjacent,Wachovia Bank,wikipedia,812074.0,"O-I Glass, Inc. /DE/",OWENS ILLINOIS INC /DE/ (to 2019-12-19),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+WB,2008-12-31,SCG,2009-01-02,adjacent,Wachovia Bank,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+WB,2008-12-31,IRM,2009-01-06,adjacent,Wachovia Bank,wikipedia,1020569.0,IRON MOUNTAIN INC,IRON MOUNTAIN INC/PA (to 2005-06-09); PIERCE LEAHY CORP (to 1999-02-16),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+WCG,2020-01-27,PAYC,2020-01-28,adjacent,WellCare,wikipedia,1590955.0,"Paycom Software, Inc.",,False,False,1.0,2014-04-15,True,True,reject: same entity (A/B)
+WFM,2017-08-25,IQV,2017-08-29,adjacent,Whole Foods,hand list,1478242.0,IQVIA HOLDINGS INC.,"Quintiles IMS Holdings, Inc. (to 2017-11-03); Quintiles Transnational Holdings Inc. (to 2016-09-22)",True,False,0.36958745311967267,2013-05-09,False,True,"reject: same entity (A/B), price continuity"
+WFT,2009-02-25,DO,2009-02-26,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+WIN,2015-04-06,O,2015-04-07,adjacent,Windstream Communications,wikipedia,726728.0,REALTY INCOME CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+WLTW,2022-01-07,WTW,2022-01-10,adjacent,Willis Towers Watson,hand list,1140536.0,WILLIS TOWERS WATSON PLC,WILLIS GROUP HOLDINGS PLC (to 2016-01-05); WILLIS GROUP HOLDINGS LTD (to 2010-01-04),False,True,1.0,2005-01-03,True,True,ACCEPT
+WPX,2014-03-21,GMCR,2014-03-24,adjacent,WPX Energy,wikipedia,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+WRK,2024-07-05,SW,2024-07-08,adjacent,,,2005951.0,Smurfit Westrock plc,Smurfit WestRock Ltd (to 2024-06-20),True,False,1.0,2008-06-17,True,True,reject: same entity (A/B)
+WWY,2008-10-06,KDP,2008-10-07,adjacent,,,1418135.0,Keurig Dr Pepper Inc.,"Dr Pepper Snapple Group, Inc. (to 2018-07-02); CSAB Inc. (to 2007-11-13)",False,False,0.1119324181626188,2008-05-07,False,True,"reject: same entity (A/B), price continuity"
+WYE,2009-10-15,FSLR,2009-10-16,adjacent,,,1274494.0,"FIRST SOLAR, INC.",FIRST SOLAR HOLDINGS LLC (to 2003-12-23),False,False,0.6069651741293532,2006-11-17,False,True,"reject: same entity (A/B), price continuity"
+WYND,2018-05-30,ABMD,2018-05-31,adjacent,,,,,,,,,,,,reject: new ticker has no current EDGAR CIK
+X,2014-07-01,MLM,2014-07-02,adjacent,United States Steel,wikipedia,916076.0,MARTIN MARIETTA MATERIALS INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+XEC,2020-03-02,TT,2020-03-03,adjacent,Cimarex Energy,wikipedia,1466258.0,Trane Technologies plc,Ingersoll-Rand plc (to 2020-02-24),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+XLNX,2022-02-14,NDSN,2022-02-15,adjacent,Xilinx,wikipedia,72331.0,NORDSON CORP,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+XLNX,2022-02-14,PARA,2022-02-17,adjacent,Xilinx,wikipedia,1826011.0,"Banzai International, Inc.",7GC & Co. Holdings Inc. (to 2023-12-15),False,False,0.058932714617169375,2021-02-12,False,True,"reject: same entity (A/B), price continuity"
+XTO,2010-06-25,KMX,2010-06-28,adjacent,XTO Energy,wikipedia,1170010.0,CARMAX INC,,False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+BRCM,2016-01-29,AVGO,,name,Broadcom Corporation,wikipedia,1730168.0,Broadcom Inc.,Broadcom Ltd (to 2018-03-09),False,True,0.5853658536585366,2009-08-06,False,False,"reject: price continuity, no overlap"
+GPS,2022-02-01,GAP,,name,Gap,hand list,39911.0,GAP INC,,False,True,1.0,2005-01-03,True,True,ACCEPT
+NE,2015-07-17,NE.WTA,,name,Noble Corporation,wikipedia,1895262.0,Noble Corp plc,Noble Finco Ltd (to 2022-05-10),False,True,0.0,,False,True,reject: price continuity
+NE,2015-07-17,NE.WT,,name,Noble Corporation,wikipedia,1895262.0,Noble Corp plc,Noble Finco Ltd (to 2022-05-10),False,True,0.0,,False,True,reject: price continuity
+TSG,2007-03-30,SABR,,name,Sabre Corporation,wikipedia,1597033.0,Sabre Corp,,False,True,0.0,2014-04-17,False,True,reject: price continuity
+AABA,2017-06-16,EG,,chain via RE,,,1095073.0,"EVEREST GROUP, LTD.",EVEREST RE GROUP LTD (to 2023-07-06); EVEREST REINSURANCE GROUP LTD (to 2000-03-08),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+HCP,2019-11-04,GEN,,chain via NLOK,HCP Inc,hand list,849399.0,Gen Digital Inc.,NortonLifeLock Inc. (to 2022-10-12); SYMANTEC CORP (to 2019-10-24),True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+HCP,2019-11-04,DOC,,chain via PEAK,HCP Inc,hand list,765880.0,"HEALTHPEAK PROPERTIES, INC.","HCP, INC. (to 2019-10-01); HEALTH CARE PROPERTY INVESTORS INC (to 2007-09-10)",True,True,1.0,2005-01-03,True,True,ACCEPT
+MJN,2017-06-14,EG,,chain via RE,Mead Johnson,wikipedia,1095073.0,"EVEREST GROUP, LTD.",EVEREST RE GROUP LTD (to 2023-07-06); EVEREST REINSURANCE GROUP LTD (to 2000-03-08),False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+SYMC,2019-11-04,GEN,,chain via NLOK,Symantec,hand list,849399.0,Gen Digital Inc.,NortonLifeLock Inc. (to 2022-10-12); SYMANTEC CORP (to 2019-10-24),True,True,1.0,2005-01-03,True,True,ACCEPT
+SYMC,2019-11-04,DOC,,chain via PEAK,Symantec,hand list,765880.0,"HEALTHPEAK PROPERTIES, INC.","HCP, INC. (to 2019-10-01); HEALTH CARE PROPERTY INVESTORS INC (to 2007-09-10)",True,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CBH,2008-03-28,DOC,,chain via HCP,,,765880.0,"HEALTHPEAK PROPERTIES, INC.","HCP, INC. (to 2019-10-01); HEALTH CARE PROPERTY INVESTORS INC (to 2007-09-10)",False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)
+CCTYQ,2008-03-28,DOC,,chain via HCP,,,765880.0,"HEALTHPEAK PROPERTIES, INC.","HCP, INC. (to 2019-10-01); HEALTH CARE PROPERTY INVESTORS INC (to 2007-09-10)",False,False,1.0,2005-01-03,True,True,reject: same entity (A/B)

@@ -1,0 +1,21 @@
+old,old_end,new,new_start,generator,old_name,old_name_source,cik,edgar_name,edgar_former_names,A_name_change_at_swap,B_old_name_on_cik,price_coverage,first_bar,C_prices_continuous,D_no_overlap,decision
+ABC,2023-08-29,COR,2023-08-30,adjacent,AmerisourceBergen,hand list,1140859.0,"Cencora, Inc.",AMERISOURCEBERGEN CORP (to 2023-08-15); AMERISOURCE BERGEN CORP (to 2001-10-09),True,True,1.0,2005-01-03,True,True,ACCEPT
+ANTM,2022-06-27,ELV,2022-06-28,adjacent,Anthem,hand list,1156039.0,"Elevance Health, Inc.","Anthem, Inc. (to 2022-06-24); WELLPOINT, INC (to 2014-11-12); WELLPOINT INC (to 2009-12-21); ANTHEM INC (to 2004-11-30)",True,True,1.0,2005-01-03,True,True,ACCEPT
+BHGE,2019-10-17,BKR,2019-10-18,adjacent,Baker Hughes a GE Co,hand list,1701605.0,Baker Hughes Co,"Baker Hughes a GE Co (to 2019-10-10); Bear Newco, Inc. (to 2017-05-30)",True,True,1.0,2005-01-03,True,True,ACCEPT
+BLL,2022-05-09,BALL,2022-05-10,adjacent,Ball Corp,hand list,9389.0,BALL Corp,,False,True,1.0,2005-01-03,True,True,ACCEPT
+CTL,2020-09-17,LUMN,2020-09-18,adjacent,CenturyLink,hand list,18926.0,"Lumen Technologies, Inc.","CENTURYLINK, INC (to 2021-01-20); CENTURYTEL INC (to 2010-11-08); CENTURY TELEPHONE ENTERPRISES INC (to 1999-05-14)",False,True,1.0,2005-01-03,True,True,ACCEPT
+DWDP,2019-05-31,DD,2019-06-03,adjacent,DowDuPont,hand list,1666700.0,"DuPont de Nemours, Inc.",DowDuPont Inc. (to 2019-05-31),True,True,1.0,2005-01-03,True,True,ACCEPT
+FB,2022-06-08,META,2022-06-09,adjacent,Facebook,hand list,1326801.0,"Meta Platforms, Inc.",Facebook Inc (to 2021-10-27),False,True,1.0,2012-05-18,True,True,ACCEPT
+FLT,2024-03-22,CPAY,2024-03-25,adjacent,FleetCor,hand list,1175454.0,"CORPAY, INC.",FLEETCOR TECHNOLOGIES INC (to 2024-03-14),True,True,1.0,2010-12-15,True,True,ACCEPT
+HRS,2019-05-31,LHX,2019-06-03,adjacent,Harris Corp,hand list,202058.0,"L3HARRIS TECHNOLOGIES, INC. /DE/",HARRIS CORP /DE/ (to 2019-06-25),True,True,1.0,2005-01-03,True,True,ACCEPT
+LB,2021-08-02,BBWI,2021-08-03,adjacent,L Brands,hand list,701985.0,"Bath & Body Works, Inc.","L Brands, Inc. (to 2021-07-30); LIMITED BRANDS INC (to 2013-03-22); LIMITED INC (to 2002-06-12)",True,True,1.0,2005-01-03,True,True,ACCEPT
+NLOK,2022-11-07,GEN,2022-11-08,adjacent,NortonLifeLock,hand list,849399.0,Gen Digital Inc.,NortonLifeLock Inc. (to 2022-10-12); SYMANTEC CORP (to 2019-10-24),True,True,1.0,2005-01-03,True,True,ACCEPT
+PEAK,2024-03-01,DOC,2024-03-04,adjacent,Healthpeak,hand list,765880.0,"HEALTHPEAK PROPERTIES, INC.","HCP, INC. (to 2019-10-01); HEALTH CARE PROPERTY INVESTORS INC (to 2007-09-10)",False,True,1.0,2005-01-03,True,True,ACCEPT
+PKI,2023-05-15,RVTY,2023-05-16,adjacent,PerkinElmer,hand list,31791.0,"REVVITY, INC.",PERKINELMER INC (to 2023-04-14); EG&G INC (to 1999-07-26),True,True,1.0,2005-01-03,True,True,ACCEPT
+RE,2023-07-07,EG,2023-07-10,adjacent,Everest Re,hand list,1095073.0,"EVEREST GROUP, LTD.",EVEREST RE GROUP LTD (to 2023-07-06); EVEREST REINSURANCE GROUP LTD (to 2000-03-08),True,True,1.0,2005-01-03,True,True,ACCEPT
+TMK,2019-08-07,GL,2019-08-08,adjacent,Torchmark,hand list,320335.0,GLOBE LIFE INC.,TORCHMARK CORP (to 2019-08-02),True,True,1.0,2005-01-03,True,True,ACCEPT
+UTX,2020-04-02,RTX,2020-04-03,adjacent,United Technologies,hand list,101829.0,RTX Corp,RAYTHEON TECHNOLOGIES CORP (to 2023-06-29); UNITED TECHNOLOGIES CORP /DE/ (to 2020-04-06),True,True,1.0,2005-01-03,True,True,ACCEPT
+WLTW,2022-01-07,WTW,2022-01-10,adjacent,Willis Towers Watson,hand list,1140536.0,WILLIS TOWERS WATSON PLC,WILLIS GROUP HOLDINGS PLC (to 2016-01-05); WILLIS GROUP HOLDINGS LTD (to 2010-01-04),False,True,1.0,2005-01-03,True,True,ACCEPT
+GPS,2022-02-01,GAP,,name,Gap,hand list,39911.0,GAP INC,,False,True,1.0,2005-01-03,True,True,ACCEPT
+HCP,2019-11-04,DOC,,chain via PEAK,HCP Inc,hand list,765880.0,"HEALTHPEAK PROPERTIES, INC.","HCP, INC. (to 2019-10-01); HEALTH CARE PROPERTY INVESTORS INC (to 2007-09-10)",True,True,1.0,2005-01-03,True,True,ACCEPT
+SYMC,2019-11-04,GEN,,chain via NLOK,Symantec,hand list,849399.0,Gen Digital Inc.,NortonLifeLock Inc. (to 2022-10-12); SYMANTEC CORP (to 2019-10-24),True,True,1.0,2005-01-03,True,True,ACCEPT
