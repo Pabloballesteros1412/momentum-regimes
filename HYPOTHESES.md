@@ -101,3 +101,60 @@ holds under v2" if **all four** published orderings hold in the v2 replay:
 It "partly holds" if 2 or 3 orderings hold, and "does not hold" if 0 or 1
 do. The concentration claim is checked separately (share of folds choosing
 the 10% fraction, Europe > US).
+
+---
+
+## H4 — Task 4: is 2022 explained by sector composition, and is it the rule?
+
+**Episodes, fixed before any computation.** S&P 500 closing peak to
+trough:
+
+| Episode | Start (peak) | End (trough) |
+|---|---|---|
+| GFC | 2007-10-09 | 2009-03-09 |
+| 2011 | 2011-04-29 | 2011-10-03 |
+| Q4 2018 | 2018-09-20 | 2018-12-24 |
+| COVID | 2020-02-19 | 2020-03-23 |
+| 2022 | 2022-01-03 | 2022-10-12 |
+
+**Series.**
+
+- **Primary:** momentum v2 with **fixed parameters** over 2005–2024 on the
+  37-name US universe, against equal-weight buy & hold of the same names
+  (engine v2). The walk-forward only trades from 2009, so it can't cover
+  the GFC. The fixed parameters are the modal v2 US walk-forward choice
+  (from `regime_US_wf_momentum_v2_folds.csv`). That is an in-sample choice
+  and is labelled as such. Robustness: the same episode returns for all 12
+  grid parameter sets.
+- **Secondary:** the v2 walk-forward replay, for the four episodes after
+  2009.
+
+**Attribution.** Daily Brinson decomposition of momentum − B&H, using GICS
+sectors from Yahoo (`data/sectors_yahoo.csv`) and summed arithmetically
+over the episode:
+
+- *Allocation* = Σ (w_mom,s − w_bh,s) × (r_bh,s − r_bh)
+- *Selection* = Σ w_mom,s × (r_mom,s − r_bh,s)
+- *Cash* = w_mom,cash × (0 − r_bh)
+
+The residual (compounding, costs) is reported. The *energy* allocation
+term is reported separately.
+
+**H4a (2022 explained by composition).** The pass rule:
+
+- **Passes** if 2022's allocation effect is positive and accounts for
+  ≥ 50% of 2022's arithmetic excess return.
+- **"Energy-driven"** if, in addition, the energy allocation term alone
+  is ≥ 50% of the allocation effect.
+
+**H4b (rule or exception).** Count the other four episodes in which
+primary-series momentum beat buy & hold (episode excess return > 0):
+
+- 3–4 of 4: 2022 is **the rule**.
+- 2: **mixed**.
+- 0–1: 2022 is **the exception**.
+
+This rule also applies across the 12 parameter sets, by majority.
+
+No significance test. Five episodes can't support one, and none is
+claimed.
