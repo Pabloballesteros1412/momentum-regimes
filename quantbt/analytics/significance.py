@@ -156,3 +156,56 @@ def bootstrap_regime_differences(
         )
 
     return pd.DataFrame([asdict(r) for r in rows])
+
+
+# ----------------------------------------------------------------------
+# p-values and multiple-testing correction (added for the reversal study;
+# the functions above are unchanged)
+# ----------------------------------------------------------------------
+def _bootstrap_pvalue(boot: np.ndarray) -> float:
+    """Two-sided bootstrap p-value by CI inversion: twice the smaller tail
+    mass at zero, floored at 1/len(boot) so it is never reported as 0."""
+    boot = boot[~np.isnan(boot)]
+    if len(boot) == 0:
+        return float("nan")
+    tail = min(float(np.mean(boot <= 0)), float(np.mean(boot >= 0)))
+    return float(min(1.0, max(2.0 * tail, 1.0 / len(boot))))
+
+
+def bootstrap_mean_test(
+    values_a: np.ndarray,
+    values_b: np.ndarray | None = None,
+    confidence: float = 0.95,
+    block_size: int = 20,
+    n_iterations: int = 5000,
+    seed: int | None = 0,
+) -> dict:
+    """Block-bootstrap test of mean(values_a) == 0 (one sample) or
+    mean(values_a) == mean(values_b) (two samples), with the same moving
+    block bootstrap as bootstrap_regime_differences. Returns the point
+    estimate, percentile CI and a two-sided p-value."""
+    rng = np.random.default_rng(seed)
+    a = np.asarray(values_a, dtype=float)
+    boot = _block_bootstrap_means(a, block_size, n_iterations, rng)
+    estimate = float(a.mean())
+    if values_b is not None:
+        b = np.asarray(values_b, dtype=float)
+        boot = boot - _block_bootstrap_means(b, block_size, n_iterations, rng)
+        estimate -= float(b.mean())
+    alpha = 1.0 - confidence
+    ci_low, ci_high = np.percentile(boot, [100 * alpha / 2, 100 * (1 - alpha / 2)])
+    return {"estimate": estimate, "ci_low": float(ci_low), "ci_high": float(ci_high),
+            "p_value": _bootstrap_pvalue(boot)}
+
+
+def holm_adjust(p_values) -> np.ndarray:
+    """Holm-Bonferroni step-down adjusted p-values (family-wise error)."""
+    p = np.asarray(p_values, dtype=float)
+    m = len(p)
+    order = np.argsort(p)
+    adjusted = np.empty(m)
+    running = 0.0
+    for rank, idx in enumerate(order):
+        running = max(running, (m - rank) * p[idx])
+        adjusted[idx] = min(1.0, running)
+    return adjusted
