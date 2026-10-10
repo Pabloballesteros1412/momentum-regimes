@@ -161,7 +161,7 @@ A third variant, v2full, also scales the book up to 100% gross whenever vol targ
 
 ## Limitations
 
-**The universes are not point-in-time.** All three are fixed, current ticker lists. Companies that delisted or went bankrupt never enter the sample, which inflates both the strategy and the benchmark. Building this properly requires historical index constituents, which are commercial data outside the US. The emerging universe illustrates the problem directly: several ADRs are absent because of geopolitical delisting, which is survivorship bias visible in the dataset itself.
+**The universes are not point-in-time.** All three are fixed, current ticker lists. Companies that delisted or went bankrupt never enter the sample, which inflates both the strategy and the benchmark. Building this properly requires historical index constituents, which are commercial data outside the US. The emerging universe illustrates the problem directly: several ADRs are absent because of geopolitical delisting, which is survivorship bias visible in the dataset itself. For the US, a first point-in-time check on the historical S&P 500 (`results/pit_us/FINDINGS_PIT.md`, 74% price coverage from free data) roughly halves both momentum's and the benchmark's CAGR over 2009-2024. It also turns the US regime interaction significant in the *opposite* direction to protection, as in Europe. That check is exploratory and still biased upward by the 351 names with no free price data.
 
 **The momentum book is still not a pure factor.** Under v2 the book is close to fully invested, but its beta to buy & hold is 0.87 in the US, 0.92 in Europe and 0.77 in emerging markets. It holds four to eight names, so idiosyncratic risk is large.
 
