@@ -64,3 +64,40 @@ the change in momentum and benchmark CAGR, Sharpe and max DD.
 `results/pit_us`. No delisting return (none can trigger on Yahoo data).
 Output goes to `results/pit_us_renamed/`. `results/pit_us/` is not
 touched.
+
+---
+
+## H3 — Task 3: sector attribution under engine v2 (descriptive)
+
+**Published claim (README §3, engine v1).** Across the bearish-day monthly
+rebalances in 2009–2024, US momentum held consumer cyclicals more often
+than Europe (72.7% vs 30.3%) and technology more often (57.6% vs 18.2%).
+Europe held healthcare more often (81.8% vs 54.5%) and energy more often
+(42.4% vs 27.3%). Europe picked the concentrated 10% fraction more often
+(62.5% vs 50% of folds).
+
+**Method.** Replay each walk-forward's trading folds with its stored
+parameters (`quantbt/validation/replay.py`). The replayed out-of-sample
+equity must equal the stored curve to a relative 1e-9, or the universe is
+dropped and the failure reported. Holdings are the positions after each
+rebalance settles. Sectors are Yahoo Finance's `sector` field, as a
+snapshot taken today; the snapshot date is recorded. The metric is the
+same as the published one: the share of bearish-day rebalances (SPY trend
+label on the rebalance day) whose portfolio holds at least one name in the
+sector. Value weights are reported as well.
+
+**Method check (run first).** The v1 replay should reproduce the published
+v1 shares. If it doesn't, the difference is reported and the v1 *replay*
+numbers, not the published ones, are the baseline for the v2 comparison.
+
+**H3 (descriptive, no significance test).** The composition story "still
+holds under v2" if **all four** published orderings hold in the v2 replay:
+
+- US > Europe on consumer cyclical share.
+- US > Europe on technology share.
+- Europe > US on healthcare share.
+- Europe > US on energy share.
+
+It "partly holds" if 2 or 3 orderings hold, and "does not hold" if 0 or 1
+do. The concentration claim is checked separately (share of folds choosing
+the 10% fraction, Europe > US).
