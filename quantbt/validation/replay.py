@@ -37,6 +37,9 @@ class ReplayResult:
     # engine v1 some selected names are never bought (cash starvation), so
     # this can differ from `holdings`.
     selections: dict[pd.Timestamp, set[str]] = field(default_factory=dict)
+    # Daily end-of-day position quantities (rows: out-of-sample dates,
+    # columns: symbols), positions reset at each fold like run_walkforward.
+    positions: pd.DataFrame = field(default_factory=pd.DataFrame)
 
     def max_equity_gap(self, stored: pd.Series) -> float:
         """Largest relative difference between the replayed and a stored equity curve."""
@@ -86,6 +89,7 @@ def replay_walkforward(
     holdings: dict[pd.Timestamp, dict[str, int]] = {}
     values: dict[pd.Timestamp, dict[str, float]] = {}
     selections: dict[pd.Timestamp, set[str]] = {}
+    position_frames: list[pd.DataFrame] = []
 
     for _, f in folds.iterrows():
         trade_start, trade_end = pd.Timestamp(f["trade_start"]), pd.Timestamp(f["trade_end"])
@@ -113,6 +117,7 @@ def replay_walkforward(
         fills = pd.DataFrame([{"ts": pd.Timestamp(x.timestamp), "symbol": x.symbol, "qty": x.quantity}
                               for x in portfolio.fills])
         timeline = data.timeline
+        position_frames.append(daily_positions(portfolio.fills, curve.index).loc[oos.index])
         for d, selected in log:
             selections[d] = selected
             i = timeline.get_loc(d)
@@ -126,5 +131,17 @@ def replay_walkforward(
     combined = pd.concat(curves).sort_index()
     combined = combined[~combined.index.duplicated(keep="first")]
     combined["returns"] = combined["equity"].pct_change().fillna(0.0)
+    positions = pd.concat(position_frames).fillna(0.0)
+    positions = positions[~positions.index.duplicated(keep="first")]
     return ReplayResult(equity_curve=combined, rebalances=rebalances, holdings=holdings, holdings_value=values,
-                        selections=selections)
+                        selections=selections, positions=positions)
+
+
+def daily_positions(fills, index: pd.DatetimeIndex) -> pd.DataFrame:
+    """End-of-day position quantity per symbol from a Portfolio's fills
+    (a fill is stamped with the bar it executed on)."""
+    if not fills:
+        return pd.DataFrame(index=index)
+    df = pd.DataFrame([{"ts": pd.Timestamp(x.timestamp), "symbol": x.symbol, "qty": x.quantity} for x in fills])
+    q = df.pivot_table(index="ts", columns="symbol", values="qty", aggfunc="sum").fillna(0.0).cumsum()
+    return q.reindex(index.union(q.index)).ffill().fillna(0.0).reindex(index)
