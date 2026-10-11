@@ -56,6 +56,7 @@ class SignalCache:
 
     @classmethod
     def build(cls, frames: dict[str, pd.DataFrame]) -> "SignalCache":
+        """Precompute close arrays and date positions for every symbol in `frames`."""
         close: dict[str, np.ndarray] = {}
         position: dict[str, dict[pd.Timestamp, int]] = {}
         for symbol, df in frames.items():
@@ -64,7 +65,7 @@ class SignalCache:
             position[symbol] = {ts: i for i, ts in enumerate(df.index)}
         return cls(close=close, position=position)
 
-    def floor_position(self, symbol: str, earliest_visible_date) -> int:
+    def floor_position(self, symbol: str, earliest_visible_date: pd.Timestamp) -> int:
         """The array position a caller may not look before, for `symbol`."""
         pos_map = self.position.get(symbol)
         if pos_map is None:
@@ -72,8 +73,9 @@ class SignalCache:
         return pos_map.get(earliest_visible_date, 0)
 
     def momentum_score(
-        self, symbol: str, current_time, lookback: int, skip: int, floor: int = 0
+        self, symbol: str, current_time: datetime, lookback: int, skip: int, floor: int = 0
     ) -> float | None:
+        """Return over [pos-lookback+1, pos-skip] for `symbol`, or None if the window is not available above `floor`."""
         pos_map = self.position.get(symbol)
         if pos_map is None:
             return None
@@ -136,6 +138,7 @@ class CrossSectionalMomentum(Strategy):
         self._held: set[str] = set()
 
     def on_market(self, event: MarketEvent) -> list[SignalEvent]:
+        """On a rebalance day, EXIT names leaving the top fraction and emit LONG for the current top fraction."""
         if self.active_from is not None and event.timestamp < self.active_from:
             return []
         if not self._is_rebalance_day(event.timestamp):

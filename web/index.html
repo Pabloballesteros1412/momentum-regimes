@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Momentum Regime Explorer</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Engine-v2 momentum and short-term reversal against buy &amp; hold, by universe and SPY regime, 2009-2024.">
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7;
+    --surface-1: #fcfcfb;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+    --border: rgba(11, 11, 11, 0.10);
+    --shade: rgba(11, 11, 11, 0.07);
+    --series-1: #2a78d6;
+    --series-2: #eb6834;
+    --good: #006300;
+    --bad: #d03b3b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --page: #0d0d0d;
+      --surface-1: #1a1a19;
+      --text-primary: #f0efec;
+      --text-secondary: #c3c2b7;
+      --text-muted: #898781;
+      --grid: #2c2c2a;
+      --axis: #383835;
+      --border: rgba(255, 255, 255, 0.10);
+      --shade: rgba(255, 255, 255, 0.08);
+      --series-1: #3987e5;
+      --series-2: #d95926;
+      --good: #0ca30c;
+      --bad: #e66767;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface-1: #1a1a19;
+    --text-primary: #f0efec;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.10);
+    --shade: rgba(255, 255, 255, 0.08);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --good: #0ca30c;
+    --bad: #e66767;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text-primary);
+    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  main { max-width: 1080px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 22px; font-weight: 600; margin: 0 0 4px; }
+  .sub { color: var(--text-secondary); margin: 0 0 20px; max-width: 70ch; }
+  .filters { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+  .filters label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--text-secondary); }
+  select {
+    font: inherit; color: var(--text-primary); background: var(--surface-1);
+    border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; min-width: 160px;
+  }
+  .card {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px; margin-bottom: 16px;
+  }
+  .card h2 { font-size: 15px; font-weight: 600; margin: 0 0 2px; }
+  .card .note { font-size: 13px; color: var(--text-muted); margin: 0 0 8px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .key { width: 16px; height: 2px; border-radius: 1px; display: inline-block; }
+  .key.shade { height: 10px; width: 14px; background: var(--shade); border-radius: 2px; }
+  .chart { position: relative; width: 100%; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .tick { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+  .endlabel { fill: var(--text-secondary); font-size: 12px; }
+  .tooltip {
+    position: absolute; pointer-events: none; background: var(--surface-1); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12); white-space: nowrap; display: none; z-index: 2;
+  }
+  .tooltip .row { display: flex; align-items: center; gap: 8px; }
+  .tooltip strong { font-variant-numeric: tabular-nums; }
+  .tooltip .date { color: var(--text-muted); margin-bottom: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: right; padding: 8px 6px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-weight: 600; color: var(--text-secondary); font-size: 13px; }
+  .tablewrap { overflow-x: auto; }
+  .verdict { font-size: 14px; color: var(--text-secondary); margin-top: 10px; }
+  .error { color: var(--bad); }
+  footer { color: var(--text-muted); font-size: 12px; max-width: 75ch; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Momentum regime explorer</h1>
+  <p class="sub">Walk-forward strategies on engine v2 (exit cash redeployed) against equal-weight buy &amp; hold of
+    the same universe. Out-of-sample 2009–2024; regimes are SPY's trend (200-day average) and volatility
+    (21-day vol vs its expanding 75th percentile).</p>
+
+  <div class="filters" role="group" aria-label="Filters">
+    <label>Universe
+      <select id="universe">
+        <option value="US">US (37 names)</option>
+        <option value="Europe">Europe (38 names)</option>
+        <option value="Emerging">Emerging (37 ADRs)</option>
+      </select>
+    </label>
+    <label>Strategy
+      <select id="strategy">
+        <option value="momentum">Momentum</option>
+        <option value="reversal">Short-term reversal</option>
+      </select>
+    </label>
+    <label>Regime
+      <select id="regime">
+        <option value="all">All days</option>
+        <option value="bullish_low">Bullish, low vol</option>
+        <option value="bullish_high">Bullish, high vol</option>
+        <option value="bearish_low">Bearish, low vol</option>
+        <option value="bearish_high">Bearish, high vol</option>
+      </select>
+    </label>
+  </div>
+
+  <section class="card">
+    <h2>Growth of $1 (log scale)</h2>
+    <p class="note" id="eqnote">Both series rebased to 1 on the first out-of-sample day.</p>
+    <div class="legend" id="legend-eq"></div>
+    <div class="chart" id="eq"></div>
+  </section>
+
+  <section class="card">
+    <h2>Drawdown from running peak</h2>
+    <div class="legend" id="legend-dd"></div>
+    <div class="chart" id="dd"></div>
+  </section>
+
+  <section class="card">
+    <h2 id="mtitle">Metrics</h2>
+    <p class="note" id="mnote"></p>
+    <div class="tablewrap"><table id="metrics"></table></div>
+    <p class="verdict" id="verdict"></p>
+  </section>
+
+  <footer>
+    Data: <code>web/data/v2/</code>, exported from the repository's persisted results (see its manifest).
+    Fixed, present-day universes: survivorship bias applies to every series here. Regime metrics compound
+    each regime's days as one series. Nothing here is an allocation rule.
+  </footer>
+</main>
+
+<script>
+(() => {
+  const BASE = "data/v2/";
+  const LABEL = { momentum: "Momentum", reversal: "Reversal", buyhold: "Buy & hold" };
+  const REGIME_LABEL = { all: "All days", bullish_low: "Bullish, low vol", bullish_high: "Bullish, high vol",
+                         bearish_low: "Bearish, low vol", bearish_high: "Bearish, high vol" };
+  const cache = {};
+  const $ = (id) => document.getElementById(id);
+  const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+  async function load(path) {
+    if (!cache[path]) cache[path] = fetch(BASE + path).then((r) => {
+      if (!r.ok) throw new Error(path + ": HTTP " + r.status);
+      return r.json();
+    });
+    return cache[path];
+  }
+
+  const pct = (x, d = 1) => (x == null || !isFinite(x)) ? "–" : (x * 100).toFixed(d) + "%";
+  const num = (x, d = 2) => (x == null || !isFinite(x)) ? "–" : x.toFixed(d);
+
+  function el(tag, attrs = {}, text) {
+    const ns = ["svg", "g", "path", "line", "rect", "text", "circle"].includes(tag) ? "http://www.w3.org/2000/svg" : null;
+    const e = ns ? document.createElementNS(ns, tag) : document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  function legend(target, names) {
+    const box = $(target);
+    box.replaceChildren();
+    names.forEach(([label, color]) => {
+      const s = el("span");
+      const k = el("i", { class: color === "shade" ? "key shade" : "key" });
+      if (color !== "shade") k.style.background = color;
+      s.append(k, document.createTextNode(label));
+      box.append(s);
+    });
+  }
+
+  // Line chart: series = [{name, color, values}] on shared dates. One y-axis.
+  function lineChart(target, dates, series, opts) {
+    const box = $(target);
+    box.replaceChildren();
+    const W = Math.max(320, box.clientWidth || 800), H = opts.height || 300;
+    const m = { l: 52, r: 92, t: 8, b: 26 };
+    const iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const tr = opts.log ? (v) => Math.log(v) : (v) => v;
+    let lo = Infinity, hi = -Infinity;
+    series.forEach((s) => s.values.forEach((v) => { if (v != null && isFinite(tr(v))) { lo = Math.min(lo, tr(v)); hi = Math.max(hi, tr(v)); } }));
+    if (opts.zeroTop) hi = 0;
+    const pad = (hi - lo) * 0.05 || 0.1;
+    lo -= pad; if (!opts.zeroTop) hi += pad;
+    const x = (i) => m.l + (i / (dates.length - 1)) * iw;
+    const y = (v) => m.t + (1 - (tr(v) - lo) / (hi - lo)) * ih;
+    const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": opts.aria });
+
+    // Regime shading (behind everything).
+    if (opts.shade) {
+      let start = null;
+      for (let i = 0; i <= dates.length; i++) {
+        const on = i < dates.length && opts.shade[i];
+        if (on && start === null) start = i;
+        if (!on && start !== null) {
+          svg.append(el("rect", { x: x(start), y: m.t, width: Math.max(1, x(i - 1) - x(start)), height: ih,
+                                   fill: css("--shade") }));
+          start = null;
+        }
+      }
+    }
+    // Gridlines and y ticks.
+    const ticks = opts.ticks(lo, hi);
+    ticks.forEach((t) => {
+      const yy = y(t);
+      if (yy < m.t - 1 || yy > m.t + ih + 1) return;
+      svg.append(el("line", { x1: m.l, x2: m.l + iw, y1: yy, y2: yy, stroke: css("--grid"), "stroke-width": 1 }));
+      svg.append(el("text", { x: m.l - 8, y: yy + 4, "text-anchor": "end", class: "tick" }, opts.fmt(t)));
+    });
+    // X ticks: years.
+    let lastYear = null;
+    dates.forEach((d, i) => {
+      const yr = d.slice(0, 4);
+      if (yr !== lastYear) {
+        lastYear = yr;
+        if (+yr % (iw < 500 ? 4 : 2) === 0) {
+          svg.append(el("text", { x: x(i), y: H - 6, "text-anchor": "middle", class: "tick" }, yr));
+        }
+      }
+    });
+    svg.append(el("line", { x1: m.l, x2: m.l + iw, y1: m.t + ih, y2: m.t + ih, stroke: css("--axis"), "stroke-width": 1 }));
+
+    // Lines + end labels.
+    const ends = [];
+    series.forEach((s) => {
+      let d = "", pen = false;
+      s.values.forEach((v, i) => {
+        if (v == null || !isFinite(tr(v))) { pen = false; return; }
+        d += (pen ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1);
+        pen = true;
+      });
+      svg.append(el("path", { d, fill: "none", stroke: s.color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+      const li = s.values.length - 1;
+      ends.push({ s, yy: y(s.values[li]), v: s.values[li] });
+    });
+    ends.sort((a, b) => a.yy - b.yy);
+    for (let k = 1; k < ends.length; k++) if (ends[k].yy - ends[k - 1].yy < 14) ends[k].labelY = ends[k - 1].yy + 14;
+    ends.forEach((e) => {
+      const ly = e.labelY || e.yy;
+      svg.append(el("circle", { cx: x(dates.length - 1), cy: e.yy, r: 4, fill: e.s.color, stroke: css("--surface-1"), "stroke-width": 2 }));
+      if (ly !== e.yy) svg.append(el("line", { x1: x(dates.length - 1) + 6, x2: x(dates.length - 1) + 12, y1: e.yy, y2: ly, stroke: css("--axis") }));
+      svg.append(el("text", { x: x(dates.length - 1) + 14, y: ly + 4, class: "endlabel" }, e.s.name + " " + opts.fmt(e.v, true)));
+    });
+
+    // Crosshair + tooltip.
+    const hair = el("line", { y1: m.t, y2: m.t + ih, stroke: css("--axis"), "stroke-width": 1, visibility: "hidden" });
+    const dots = series.map((s) => el("circle", { r: 4, fill: s.color, stroke: css("--surface-1"), "stroke-width": 2, visibility: "hidden" }));
+    svg.append(hair, ...dots);
+    const hit = el("rect", { x: m.l, y: m.t, width: iw, height: ih, fill: "transparent", tabindex: 0 });
+    svg.append(hit);
+    const tip = el("div", { class: "tooltip", role: "status" });
+    box.append(svg, tip);
+
+    function show(i) {
+      i = Math.max(0, Math.min(dates.length - 1, i));
+      const xx = x(i);
+      hair.setAttribute("x1", xx); hair.setAttribute("x2", xx); hair.setAttribute("visibility", "visible");
+      tip.replaceChildren(el("div", { class: "date" }, dates[i] + (opts.shade && opts.shade[i] ? " · in regime" : "")));
+      series.forEach((s, k) => {
+        const v = s.values[i];
+        if (v == null) { dots[k].setAttribute("visibility", "hidden"); return; }
+        dots[k].setAttribute("cx", xx); dots[k].setAttribute("cy", y(v)); dots[k].setAttribute("visibility", "visible");
+        const row = el("div", { class: "row" });
+        const key = el("i", { class: "key" }); key.style.background = s.color;
+        row.append(key, el("strong", {}, opts.fmt(v, true)), document.createTextNode(s.name));
+        tip.append(row);
+      });
+      const bw = box.clientWidth, scale = bw / W;
+      tip.style.display = "block";
+      const left = xx * scale + 12;
+      tip.style.left = (left + tip.offsetWidth > bw ? xx * scale - tip.offsetWidth - 12 : left) + "px";
+      tip.style.top = (m.t * scale + 4) + "px";
+    }
+    function hide() { hair.setAttribute("visibility", "hidden"); dots.forEach((d) => d.setAttribute("visibility", "hidden")); tip.style.display = "none"; }
+    const idxAt = (ev) => {
+      const r = svg.getBoundingClientRect();
+      const px = (ev.clientX - r.left) * (W / r.width);
+      return Math.round(((px - m.l) / iw) * (dates.length - 1));
+    };
+    let cur = dates.length - 1;
+    hit.addEventListener("pointermove", (ev) => { cur = idxAt(ev); show(cur); });
+    hit.addEventListener("pointerleave", hide);
+    hit.addEventListener("focus", () => show(cur));
+    hit.addEventListener("blur", hide);
+    hit.addEventListener("keydown", (ev) => {
+      if (ev.key === "ArrowLeft") { cur = Math.max(0, cur - 21); show(cur); ev.preventDefault(); }
+      if (ev.key === "ArrowRight") { cur = Math.min(dates.length - 1, cur + 21); show(cur); ev.preventDefault(); }
+    });
+  }
+
+  function logTicks(lo, hi) {
+    const out = [];
+    for (let e = Math.floor(lo / Math.LN10) - 1; e <= Math.ceil(hi / Math.LN10) + 1; e++) {
+      for (const k of [1, 2, 5]) { const v = k * Math.pow(10, e); if (Math.log(v) >= lo && Math.log(v) <= hi) out.push(v); }
+    }
+    return out;
+  }
+  function linTicks(lo, hi) {
+    const step = [0.05, 0.1, 0.2, 0.25].find((s) => (hi - lo) / s <= 6) || 0.5;
+    const out = [];
+    for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(4));
+    return out;
+  }
+
+  async function render() {
+    const u = $("universe").value, s = $("strategy").value, rg = $("regime").value;
+    try {
+      const [eq, regimes, metrics, rmetrics, sig] = await Promise.all([
+        load(`equity/${u}.json`), load("regimes.json"), load("metrics.json"), load("regime_metrics.json"), load("significance.json"),
+      ]);
+      const raw = eq.series[s].equity;
+      const first = raw.findIndex((v) => v != null);
+      const dates = eq.dates.slice(first);
+      const rebase = (arr) => { const a = arr.slice(first); const b = a.find((v) => v != null); return a.map((v) => v == null ? null : v / b); };
+      const strat = rebase(raw), bh = rebase(eq.series.buyhold.equity);
+      const dd = (arr) => { let pk = -Infinity; return arr.map((v) => { if (v == null) return null; pk = Math.max(pk, v); return v / pk - 1; }); };
+      const regOf = Object.fromEntries(regimes.dates.map((d, i) => [d, regimes.label[i]]));
+      const shade = rg === "all" ? null : dates.map((d) => regOf[d] === rg);
+
+      const c1 = css("--series-1"), c2 = css("--series-2");
+      const named = [[LABEL[s], c1], ["Buy & hold", c2]];
+      legend("legend-eq", shade ? [...named, [REGIME_LABEL[rg] + " days", "shade"]] : named);
+      legend("legend-dd", shade ? [...named, [REGIME_LABEL[rg] + " days", "shade"]] : named);
+      $("eqnote").textContent = `Both series rebased to 1 on ${dates[0]}, the first out-of-sample day.`;
+      lineChart("eq", dates, [{ name: LABEL[s], color: c1, values: strat }, { name: "Buy & hold", color: c2, values: bh }],
+        { log: true, ticks: logTicks, fmt: (v, full) => full ? v.toFixed(2) + "×" : (v >= 1 ? v.toFixed(0) : v.toFixed(1)) + "×",
+          shade, aria: `Growth of one dollar, ${LABEL[s]} vs buy and hold, ${u}` });
+      lineChart("dd", dates, [{ name: LABEL[s], color: c1, values: dd(strat) }, { name: "Buy & hold", color: c2, values: dd(bh) }],
+        { ticks: linTicks, fmt: (v) => pct(v, 0), zeroTop: true, height: 200, shade,
+          aria: `Drawdown, ${LABEL[s]} vs buy and hold, ${u}` });
+
+      // Metrics table (doubles as the chart's table view).
+      const t = $("metrics");
+      t.replaceChildren();
+      const head = el("tr");
+      ["", LABEL[s], "Buy & hold", "Difference"].forEach((h) => head.append(el("th", {}, h)));
+      t.append(head);
+      let rows;
+      if (rg === "all") {
+        const pick = (k) => metrics.find((r) => r.universe === u && r.strategy === k && r.window === "common");
+        const a = pick(s), b = pick("buyhold");
+        $("mtitle").textContent = "Metrics, common out-of-sample window";
+        $("mnote").textContent = `${a.start} to ${a.end}, ${a.days.toLocaleString()} days with an SPY regime label.`;
+        rows = [["CAGR", a.cagr, b.cagr, pct], ["Total return", a.total_return, b.total_return, (x) => pct(x, 0)],
+                ["Annual volatility", a.annual_volatility, b.annual_volatility, pct], ["Sharpe", a.sharpe, b.sharpe, num],
+                ["Sortino", a.sortino, b.sortino, num], ["Max drawdown", a.max_drawdown, b.max_drawdown, pct],
+                ["Worst month", a.worst_month, b.worst_month, pct], ["CVaR 95% (daily)", a.cvar_95, b.cvar_95, (x) => pct(x, 2)]];
+      } else {
+        const pick = (k) => rmetrics.find((r) => r.universe === u && r.strategy === k && r.regime === rg);
+        const a = pick(s), b = pick("buyhold");
+        $("mtitle").textContent = `Metrics, ${REGIME_LABEL[rg].toLowerCase()} days only`;
+        $("mnote").textContent = `${a.days.toLocaleString()} days, compounded as one series (shaded on the charts).`;
+        rows = [["Annualised return", a.annual_return, b.annual_return, pct], ["Annual volatility", a.annual_vol, b.annual_vol, pct],
+                ["Sharpe", a.sharpe, b.sharpe, num], ["Max drawdown (within regime days)", a.max_drawdown, b.max_drawdown, pct]];
+      }
+      rows.forEach(([name, a, b, f]) => {
+        const tr = el("tr");
+        const diff = (a != null && b != null) ? a - b : null;
+        tr.append(el("td", {}, name), el("td", {}, f(a)), el("td", {}, f(b)),
+                  el("td", {}, diff == null ? "–" : (diff > 0 ? "+" : "") + f(diff)));
+        t.append(tr);
+      });
+
+      // One-line regime verdict from the pre-computed tests.
+      let v = "";
+      if (s === "momentum") {
+        const r = sig.momentum_minus_buyhold_bull_vs_bear.find((x) => x.universe === u);
+        v = `Momentum minus buy & hold, bullish minus bearish days: ${(r.mean_diff * 100).toFixed(3)}% a day, 95% CI [${(r.ci_low * 100).toFixed(3)}%, ${(r.ci_high * 100).toFixed(3)}%] — ${r.significant ? "significant" : "not significant"}.`;
+      } else {
+        const r = sig.reversal_test_family.find((x) => x.universe === u && x.test === "T1");
+        v = `Reversal minus buy & hold, bullish vs bearish: ${(r.estimate * 100).toFixed(3)}% a day, Holm-adjusted p = ${r.p_holm.toFixed(2)} — ${r.significant_holm ? "significant" : "not significant"} after correcting for 24 tests.`;
+      }
+      $("verdict").textContent = v;
+    } catch (err) {
+      $("metrics").replaceChildren();
+      $("verdict").textContent = "";
+      $("eq").replaceChildren(el("p", { class: "error" }, "Could not load data: " + err.message +
+        ". Serve the web/ folder over HTTP (e.g. python -m http.server) so the JSON files can be fetched."));
+    }
+  }
+
+  ["universe", "strategy", "regime"].forEach((id) => $(id).addEventListener("change", render));
+  let rt;
+  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(render, 150); });
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+  render();
+})();
+</script>
+</body>
+</html>

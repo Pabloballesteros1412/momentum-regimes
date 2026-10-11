@@ -1,0 +1,5 @@
+series,days_compared,label_agreement,days_stored_only,days_rerun_only,correlation,max_abs_daily_diff,days_diff_over_1bp,total_return_stored,total_return_rerun,within_tolerance
+SPY regime labels,4760,1.0,,,,,,,,
+US buy & hold returns,5032,,0.0,0.0,0.9999999600238509,4.6036980399066785e-05,0.0,79.48712522995575,79.49123693980775,True
+Europe buy & hold returns,5171,,0.0,0.0,0.9999999844119434,2.9106423905300716e-05,0.0,6.67167694798874,6.672216336543476,True
+Emerging buy & hold returns,5032,,0.0,0.0,0.999999996121992,1.645162221119989e-05,0.0,8.674414725615298,8.672474695409226,True

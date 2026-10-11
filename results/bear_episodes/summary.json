@@ -1,0 +1,27 @@
+{
+  "fixed_params": {
+    "lookback": 189,
+    "skip": 21,
+    "top_decile": 0.1
+  },
+  "walkforward_replay_max_rel_gap": 3.1596709780366147e-16,
+  "H4a": {
+    "allocation": 0.4797595788947794,
+    "selection": -0.009273333458158867,
+    "cash": 0.010413693627904182,
+    "arithmetic_excess": 0.4808999390645247,
+    "allocation_share": 0.9976286955411896,
+    "energy_share_of_allocation": 0.5514070343744204,
+    "passes": true,
+    "energy_driven": true
+  },
+  "H4b": {
+    "episodes_beating_bh_excl_2022": 1,
+    "verdict": "exception",
+    "param_sets_verdicts": {
+      "exception": 10,
+      "mixed": 2
+    },
+    "param_sets_2022_beat_bh": 12
+  }
+}

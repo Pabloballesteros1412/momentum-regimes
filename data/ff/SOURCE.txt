@@ -1,0 +1,1 @@
+Downloaded 2026-10-11 from https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html (US built from the 202608 CRSP database). Unmodified copies.

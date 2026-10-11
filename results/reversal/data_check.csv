@@ -1,0 +1,4 @@
+universe,days,stored_only,rerun_only,max_abs_diff,identical
+US,5032,0,0,0.0,True
+Europe,5171,0,0,0.0,True
+Emerging,5032,0,0,0.0,True

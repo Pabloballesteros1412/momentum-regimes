@@ -1,0 +1,113 @@
+ticker,universe,sector,snapshot_date
+AAPL,US,Technology,2026-10-10
+MSFT,US,Technology,2026-10-10
+NVDA,US,Technology,2026-10-10
+GOOGL,US,Communication Services,2026-10-10
+META,US,Communication Services,2026-10-10
+AVGO,US,Technology,2026-10-10
+ORCL,US,Technology,2026-10-10
+CRM,US,Technology,2026-10-10
+ADBE,US,Technology,2026-10-10
+AMZN,US,Consumer Cyclical,2026-10-10
+TSLA,US,Consumer Cyclical,2026-10-10
+HD,US,Consumer Cyclical,2026-10-10
+MCD,US,Consumer Cyclical,2026-10-10
+NKE,US,Consumer Cyclical,2026-10-10
+PG,US,Consumer Defensive,2026-10-10
+KO,US,Consumer Defensive,2026-10-10
+PEP,US,Consumer Defensive,2026-10-10
+WMT,US,Consumer Defensive,2026-10-10
+COST,US,Consumer Defensive,2026-10-10
+JNJ,US,Healthcare,2026-10-10
+UNH,US,Healthcare,2026-10-10
+PFE,US,Healthcare,2026-10-10
+ABBV,US,Healthcare,2026-10-10
+MRK,US,Healthcare,2026-10-10
+JPM,US,Financial Services,2026-10-10
+BAC,US,Financial Services,2026-10-10
+GS,US,Financial Services,2026-10-10
+V,US,Financial Services,2026-10-10
+MA,US,Financial Services,2026-10-10
+XOM,US,Energy,2026-10-10
+CVX,US,Energy,2026-10-10
+BA,US,Industrials,2026-10-10
+CAT,US,Industrials,2026-10-10
+GE,US,Industrials,2026-10-10
+UNP,US,Industrials,2026-10-10
+DIS,US,Communication Services,2026-10-10
+NFLX,US,Communication Services,2026-10-10
+SAP,Europe,Technology,2026-10-10
+NVS,Europe,Healthcare,2026-10-10
+NVO,Europe,Healthcare,2026-10-10
+AZN,Europe,Healthcare,2026-10-10
+SNY,Europe,Healthcare,2026-10-10
+SHEL,Europe,Energy,2026-10-10
+BP,Europe,Energy,2026-10-10
+HSBC,Europe,Financial Services,2026-10-10
+DEO,Europe,Consumer Defensive,2026-10-10
+BTI,Europe,Consumer Defensive,2026-10-10
+RIO,Europe,Basic Materials,2026-10-10
+UL,Europe,Consumer Defensive,2026-10-10
+VOD,Europe,Communication Services,2026-10-10
+ING,Europe,Financial Services,2026-10-10
+TTE,Europe,Energy,2026-10-10
+E,Europe,Energy,2026-10-10
+RACE,Europe,Consumer Cyclical,2026-10-10
+GSK,Europe,Healthcare,2026-10-10
+ASML,Europe,Technology,2026-10-10
+UBS,Europe,Financial Services,2026-10-10
+MC.PA,Europe,Consumer Cyclical,2026-10-10
+OR.PA,Europe,Consumer Defensive,2026-10-10
+AI.PA,Europe,Basic Materials,2026-10-10
+BNP.PA,Europe,Financial Services,2026-10-10
+SU.PA,Europe,Industrials,2026-10-10
+DG.PA,Europe,Industrials,2026-10-10
+EL.PA,Europe,Healthcare,2026-10-10
+SIE.DE,Europe,Industrials,2026-10-10
+ALV.DE,Europe,Financial Services,2026-10-10
+DTE.DE,Europe,Communication Services,2026-10-10
+BAS.DE,Europe,Basic Materials,2026-10-10
+BMW.DE,Europe,Consumer Cyclical,2026-10-10
+MBG.DE,Europe,Consumer Cyclical,2026-10-10
+HEIA.AS,Europe,Consumer Defensive,2026-10-10
+NESN.SW,Europe,Consumer Defensive,2026-10-10
+ZURN.SW,Europe,Financial Services,2026-10-10
+ISP.MI,Europe,Financial Services,2026-10-10
+ENEL.MI,Europe,Utilities,2026-10-10
+TSM,Emerging,Technology,2026-10-10
+INFY,Emerging,Technology,2026-10-10
+IBN,Emerging,Financial Services,2026-10-10
+HDB,Emerging,Financial Services,2026-10-10
+WIT,Emerging,Technology,2026-10-10
+RDY,Emerging,Healthcare,2026-10-10
+VALE,Emerging,Basic Materials,2026-10-10
+PBR,Emerging,Energy,2026-10-10
+ITUB,Emerging,Financial Services,2026-10-10
+BBD,Emerging,Financial Services,2026-10-10
+ABEV,Emerging,Consumer Defensive,2026-10-10
+SID,Emerging,Basic Materials,2026-10-10
+GGB,Emerging,Basic Materials,2026-10-10
+SBS,Emerging,Utilities,2026-10-10
+CIG,Emerging,Utilities,2026-10-10
+AMX,Emerging,Communication Services,2026-10-10
+BSAC,Emerging,Financial Services,2026-10-10
+CCU,Emerging,Consumer Defensive,2026-10-10
+CIB,Emerging,Financial Services,2026-10-10
+EC,Emerging,Energy,2026-10-10
+BAP,Emerging,Financial Services,2026-10-10
+SSL,Emerging,Basic Materials,2026-10-10
+AU,Emerging,Basic Materials,2026-10-10
+HMY,Emerging,Basic Materials,2026-10-10
+GFI,Emerging,Basic Materials,2026-10-10
+SKM,Emerging,Communication Services,2026-10-10
+PKX,Emerging,Basic Materials,2026-10-10
+KB,Emerging,Financial Services,2026-10-10
+WF,Emerging,Financial Services,2026-10-10
+TKC,Emerging,Communication Services,2026-10-10
+CHT,Emerging,Communication Services,2026-10-10
+UMC,Emerging,Technology,2026-10-10
+MELI,Emerging,Consumer Cyclical,2026-10-10
+NTES,Emerging,Communication Services,2026-10-10
+BABA,Emerging,Consumer Cyclical,2026-10-10
+JD,Emerging,Consumer Cyclical,2026-10-10
+PDD,Emerging,Consumer Cyclical,2026-10-10

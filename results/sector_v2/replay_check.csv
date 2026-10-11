@@ -1,0 +1,7 @@
+universe,version,max_rel_equity_gap,replay_ok,rebalances
+US,v1,3.2306456147946113e-16,True,199
+US,v2,3.1596709780366147e-16,True,199
+Europe,v1,3.2114322676525504e-16,True,202
+Europe,v2,3.121674666282654e-16,True,202
+Emerging,v1,3.039124974750594e-16,True,199
+Emerging,v2,3.150463278044004e-16,True,199

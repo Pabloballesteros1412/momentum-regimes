@@ -42,6 +42,7 @@ class BuyAndHold(Strategy):
         self._invested: set[str] = set()
 
     def on_market(self, event: MarketEvent) -> list[SignalEvent]:
+        """Emit a LONG signal the first time each symbol has data; never sell."""
         from ..engine.events import Direction
 
         signals: list[SignalEvent] = []

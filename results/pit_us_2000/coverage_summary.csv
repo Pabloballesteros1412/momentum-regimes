@@ -1,0 +1,13 @@
+,value
+distinct_tickers,1175
+found_fully,575
+found_partially,22
+excluded_reused,10
+missing_entirely,568
+missing_still_member_2024,17
+possible_ticker_reuse,17
+excluded_reused_ticker,10
+member_days,3634968
+member_days_covered,2379551
+member_day_coverage,0.654627771138563
+membership_commit,a2430f2af0c79ddf0748e91de11bdeb1616ab5a7

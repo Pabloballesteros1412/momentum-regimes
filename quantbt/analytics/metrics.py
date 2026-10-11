@@ -37,6 +37,7 @@ def cagr(returns: pd.Series, periods_per_year: int = TRADING_DAYS_PER_YEAR) -> f
 
 
 def annualized_volatility(returns: pd.Series, periods_per_year: int = TRADING_DAYS_PER_YEAR) -> float:
+    """Standard deviation of returns, annualised by sqrt(periods_per_year)."""
     returns = _clean(returns)
     return float(returns.std() * np.sqrt(periods_per_year))
 
@@ -44,10 +45,13 @@ def annualized_volatility(returns: pd.Series, periods_per_year: int = TRADING_DA
 def sharpe_ratio(
     returns: pd.Series, risk_free: float = 0.0, periods_per_year: int = TRADING_DAYS_PER_YEAR
 ) -> float:
+    """Annualised mean excess return over its standard deviation (NaN if the series has no variance)."""
     returns = _clean(returns)
     excess = returns - risk_free / periods_per_year
     std = excess.std()
-    if not std or pd.isna(std):
+    # A constant series has a std of ~1e-18 from float noise, not 0; treat
+    # anything that small as zero rather than report a Sharpe of 1e16.
+    if not std or pd.isna(std) or std < 1e-12:
         return float("nan")
     return float(excess.mean() / std * np.sqrt(periods_per_year))
 
@@ -73,6 +77,7 @@ def _drawdown_series(returns: pd.Series) -> pd.Series:
 
 
 def max_drawdown(returns: pd.Series) -> float:
+    """Worst peak-to-trough decline of the compounded series, as a negative fraction."""
     drawdown = _drawdown_series(returns)
     if drawdown.empty:
         return float("nan")
@@ -103,6 +108,7 @@ def max_drawdown_duration_days(returns: pd.Series) -> int:
 
 
 def calmar_ratio(returns: pd.Series, periods_per_year: int = TRADING_DAYS_PER_YEAR) -> float:
+    """CAGR divided by the absolute max drawdown."""
     dd = max_drawdown(returns)
     if not dd or pd.isna(dd):
         return float("nan")
@@ -128,6 +134,7 @@ def historical_cvar(returns: pd.Series, confidence: float = 0.95) -> float:
 
 
 def skewness(returns: pd.Series) -> float:
+    """Sample skewness of the returns."""
     returns = _clean(returns)
     if len(returns) < 3:
         return float("nan")
@@ -150,6 +157,7 @@ class NormalityTest:
 
 
 def jarque_bera_test(returns: pd.Series) -> NormalityTest:
+    """Jarque-Bera normality test on the returns."""
     returns = _clean(returns)
     if len(returns) < 8:
         return NormalityTest(float("nan"), float("nan"), False)
@@ -162,6 +170,7 @@ def jarque_bera_test(returns: pd.Series) -> NormalityTest:
 
 
 def win_rate(returns: pd.Series) -> float:
+    """Share of non-zero-return periods with a positive return."""
     returns = _clean(returns)
     if returns.empty:
         return float("nan")
@@ -169,11 +178,13 @@ def win_rate(returns: pd.Series) -> float:
 
 
 def best_day(returns: pd.Series) -> float:
+    """Largest single-period return."""
     returns = _clean(returns)
     return float(returns.max()) if not returns.empty else float("nan")
 
 
 def worst_day(returns: pd.Series) -> float:
+    """Smallest single-period return."""
     returns = _clean(returns)
     return float(returns.min()) if not returns.empty else float("nan")
 
@@ -187,11 +198,13 @@ def monthly_returns(returns: pd.Series) -> pd.Series:
 
 
 def best_month(returns: pd.Series) -> float:
+    """Largest compounded calendar-month return."""
     monthly = monthly_returns(returns)
     return float(monthly.max()) if not monthly.empty else float("nan")
 
 
 def worst_month(returns: pd.Series) -> float:
+    """Smallest compounded calendar-month return."""
     monthly = monthly_returns(returns)
     return float(monthly.min()) if not monthly.empty else float("nan")
 

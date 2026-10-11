@@ -24,6 +24,7 @@ class Position:
     realised_pnl: float = 0.0
 
     def apply_fill(self, fill: FillEvent) -> None:
+        """Update quantity and average cost for a fill on this symbol."""
         new_quantity = self.quantity + fill.quantity
 
         # Adding to an existing position (or opening one): blend the cost basis.
@@ -44,9 +45,11 @@ class Position:
         self.quantity = new_quantity
 
     def market_value(self, price: float) -> float:
+        """Signed value of the position at `price`."""
         return self.quantity * price
 
     def unrealised_pnl(self, price: float) -> float:
+        """Profit or loss of the position at `price` against its average cost."""
         if self.quantity == 0:
             return 0.0
         return self.quantity * (price - self.average_cost)
@@ -70,6 +73,7 @@ class Portfolio:
 
     # ------------------------------------------------------------------
     def on_fill(self, fill: FillEvent) -> None:
+        """Book a fill: debit or credit cash, update the position, record costs."""
         self.cash -= fill.total_cost
         self.positions[fill.symbol].apply_fill(fill)
         self.fills.append(fill)
@@ -98,11 +102,13 @@ class Portfolio:
     # ------------------------------------------------------------------
     @property
     def current_equity(self) -> float:
+        """Equity at the latest mark-to-market (initial capital before the first)."""
         if not self.history:
             return self.initial_capital
         return float(self.history[-1]["equity"])
 
     def equity_curve(self) -> pd.DataFrame:
+        """Recorded history with returns, cumulative growth and drawdown columns."""
         if not self.history:
             raise RuntimeError("Portfolio has no recorded history")
         curve = pd.DataFrame(self.history).set_index("timestamp")

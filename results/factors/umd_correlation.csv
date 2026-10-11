@@ -1,0 +1,9 @@
+universe,series,corr_daily,corr_monthly,months,H5b
+US,momentum v1 - benchmark,0.28888986270357875,0.36216517883716515,192,tracks partly
+US,momentum v2 - benchmark,0.3715749981534495,0.30503097338174173,192,tracks partly
+US,momentum PIT S&P 500 (pit_us) - benchmark,0.7413852722291033,0.7088176760095257,192,tracks well
+US,momentum PIT S&P 500 renamed (pit_us_renamed) - benchmark,0.7437673138982975,0.7077548148751782,192,tracks well
+Europe,momentum v1 - benchmark,0.37799381491865935,0.42056037975765176,192,tracks partly
+Europe,momentum v2 - benchmark,0.46110184747978467,0.33387602346513073,192,tracks partly
+Emerging,momentum v1 - benchmark,,0.3617827312375618,192,tracks partly
+Emerging,momentum v2 - benchmark,,0.2483195531823538,192,does not track

@@ -1,0 +1,7 @@
+universe,version,share_folds_top10pct
+US,v1,0.5
+US,v2,0.375
+Europe,v1,0.625
+Europe,v2,0.3125
+Emerging,v1,0.875
+Emerging,v2,0.5
