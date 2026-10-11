@@ -8,8 +8,10 @@ repository as the published record.*
 
 An earlier version of this project reported that cross-sectional momentum
 cushions US equity drawdowns, and that the effect does not replicate in
-Europe or emerging markets. Both claims were produced by a bug in my own
-backtesting engine. The engine left the proceeds of every exit in cash
+Europe or emerging markets. The US claim was produced by a bug in my own
+backtesting engine. (The non-replication abroad survives: Europe shows
+the opposite sign, and Emerging shows nothing.) The engine left the
+proceeds of every exit in cash
 until the next rebalance, so the "momentum" book ran at about two-thirds
 equity exposure (beta 0.67). When that is fixed (engine v2), the
 published US bull/bear asymmetry shrinks to an eighth of its size and its
