@@ -1,3 +1,147 @@
+# Morning summary — night 2 (2026-10-11)
+
+All 11 tasks are done on `claude/fervent-faraday-oz0knf`, with a pushed
+checkpoint after each. A few failures came up along the way (see "What
+failed"), and each was resolved.
+
+- **Safety checks.** Nothing was merged. `README.md`, the published CSVs,
+  `tearsheet.png` and every existing results folder are byte-identical to
+  before. The one addition to an existing folder is the
+  `results/pit_us/RENAME_MAP.md` you asked for. New runs each have their
+  own folder.
+- **Tests.** All 34 pass (`pytest test_*.py`), with 92% line coverage of
+  `quantbt`.
+- **Pre-registration.** Every new test was written into `HYPOTHESES.md`
+  (H1, H3–H8) and committed before it ran.
+- **PR #2.** Not watched, as asked. It now carries tonight's commits
+  too.
+
+**The paper is `PAPER_v2.md`. It's the best single thing to read
+first.**
+
+## Headline
+
+1. **On a point-in-time S&P 500, the US regime effect is significant in
+   the *opposite* direction to "protection".**
+   - Momentum minus the benchmark, bull days minus bear days: +0.075%/day
+     on 2009–24, 95% CI [+0.003, +0.152]. That is H1, pre-registered;
+     it passes narrowly.
+   - Over 2000–24: +0.082%/day [+0.023, +0.130] (H8).
+   - Momentum lost 27% in the dot-com bust against the benchmark's 10%,
+     and missed the 2009 rebound (+12% against +45%).
+2. **2022 was a sector bet and the exception.**
+   - Allocation explains 99.8% of momentum's 2022 excess. Energy is 55%
+     of that: 42% weight against 0.7% for buy & hold.
+   - Momentum beat buy & hold in only 1 of the other 4 US bear episodes
+     (H4).
+3. **The engine reproduces the academic factor.**
+   - The point-in-time active return correlates 0.71 monthly with
+     Fama-French UMD. There is no alpha beyond FF5+UMD.
+   - The fixed 37-name buy & hold has **11.8% a year of FF5+UMD alpha
+     (t = 4.4)**: the hindsight in choosing that list, measured
+     directly (H5).
+4. **The "1 of 96 parameter sets beats buy & hold" result was the bug.**
+   - Under v2, 40 of 96 beat it (in-sample).
+   - The regime null holds at every cost from 0 to 50 bp.
+   - Momentum's lower max drawdown is not reliable: P(shallower) is about
+     0.5 (H7).
+5. **Long-only volatility scaling doesn't fix momentum crashes.** It cuts
+   crash drawdowns on the 37 names but *significantly lowers* Sharpe on
+   the point-in-time universe (−0.09), because it de-risks just before
+   rebounds (H6).
+
+## Task by task
+
+| # | Task | Result | Folder / file |
+|---|---|---|---|
+| 1 | Rename map | 20 mappings, each with EDGAR evidence (old name on the same CIK) and 100% price continuity. Coverage 74.3% → 76.7%. Results barely move. **H1a passes** (+0.075%/day, CI [0.003, 0.152]). | `results/pit_us/RENAME_MAP.md`, `results/pit_us_renamed/` |
+| 2 | v2 tearsheet | `tearsheet_v2.png`, drawn from the persisted v2 curves; old tearsheet kept | `run_tearsheet_v2.py` |
+| 3 | Sector attribution under v2 | **H3: partly holds (3/4 orderings).** US tech/cyclicals and Europe healthcare tilts hold; energy ordering and the concentration argument don't. The published v1 shares counted *selected* names (7/8 reproduced exactly); v1 often never bought them. | `results/sector_v2/` |
+| 4 | 2022 deep dive, five bear episodes | **H4a passes, energy-driven. H4b: exception** (1/4 other episodes; 10/12 parameter sets "exception", 2 "mixed") | `results/bear_episodes/` |
+| 5 | FF5 + UMD | **H5a pass** (US v2 UMD 0.54, t 21.9; PIT 0.46, t 29.7). **H5d pass** (v2 beta > v1 everywhere). H5b: PIT tracks UMD well (0.71); 37-name books track partly (≈0.3). | `results/factors/` |
+| 6 | Vol-scaled momentum | US: **H6a pass** (2009 rebound DD −4.3% vs −18.3%), H6b n.s. PIT: H6a passes by negligible margins; **H6b significant against** (Sharpe −0.09) | `results/volscaled/` |
+| 7 | Robustness | **H7a pass** (40/96 vs 1/96). **H7b robust null**, no cost break-even (momentum trails buy & hold even at 0 bp). **H7c**: max DD not reliably shallower | `results/robustness_v2/` |
+| 8 | US from 2000 | 2000–04 coverage 49.7% (above the 40% flag). **H8a pass**; no dot-com protection | `results/pit_us_2000/` |
+| 9 | Engineering | CI workflow (`.github/workflows/tests.yml`), 13 new tests, coverage 59% → 92%, docstrings and type hints on every public `quantbt` function. **Two real bugs found and fixed** (below). | `test_*.py`, `pytest.ini` |
+| 10 | Web explorer | `web/index.html`, a no-dependency static page. Universe/strategy/regime pickers, log equity and drawdown vs buy & hold with regime shading, tooltip, metrics table; light/dark. Checked at 1200 px and 390 px. | `web/` |
+| 11 | Paper | `PAPER_v2.md`: full working-paper draft with tables and references | |
+
+## Decisions I made
+
+- **Rename-map rule made stricter twice, before H1 ran** (documented in
+  RENAME_MAP.md and HYPOTHESES-consistent):
+  - "Name changed at the swap date" was dropped as sufficient. It accepted
+    acquisitions where the acquirer renamed itself (SunTrust→Truist,
+    Mylan→Viatris).
+  - Substring name matching was replaced by a strict token rule. It had
+    accepted Twitter→ITT.
+- **Old company names came from a hand list** when Wikipedia's change
+  table lacked them. Every name was still verified on EDGAR.
+- **Sector attribution** uses Yahoo's sector field as of today, and the
+  same "share of bearish rebalances holding ≥1 name" metric as the
+  original. Value weights are reported too.
+- **The bear-episode study needs 2008.** The walk-forward starts in 2009,
+  so the primary series is fixed-parameter momentum (in-sample modal
+  parameters), labelled as such. It has a 12-parameter-set robustness
+  check and a walk-forward replay cross-check.
+- **Factor regressions use regional factors.** Europe uses Europe
+  factors and Emerging uses Emerging factors (monthly only), rather than
+  US factors.
+- **Cost sensitivity uses a flat one-way cost.** It replaces the default
+  friction model and applies during parameter selection too. That needed
+  an opt-in `broker_factory` argument in `run_walkforward`; the default
+  path is unchanged and the golden test passes.
+- **Vol scaling is applied to the whole book,** not per name, because
+  engine v2's cash cap would otherwise undo it. There is no leverage, and
+  the targets were fixed in advance, not tuned.
+- **The extended sample** uses its own data folder (`results/pit_us_2000/data`)
+  and cache (`cache/pit1996`), so `data/` was not overwritten.
+- **SEC requests:** my first test request to EDGAR mistakenly sent your
+  email address in its User-Agent header. Every later request used a
+  placeholder address.
+
+## What failed (and what I did)
+
+- **Two engine bugs found by the new tests, both fixed.**
+  - `metrics.sharpe_ratio` returned about 1e16 for a constant series,
+    because float-noise variance wasn't treated as zero.
+  - `export.clean` turned `NaT` into the string `"NaT"`. No exported file
+    was affected.
+- **Two wait loops matched their own command line** and stalled the job
+  queue for about 15 minutes before I noticed. No results were affected.
+- **The PIT vol-scaled run crashed once** on a `super()` error in the run
+  script's PIT subclass. I fixed it and reran it from scratch.
+- **Rename coverage is limited.** 154 candidate targets have no current
+  EDGAR record (themselves delisted), and acquired or bankrupt names
+  can't be priced from free data. That leaves 23% of member-days missing.
+- **The 1996+ build differs slightly from the 2005+ build.** It excludes
+  10 reused tickers instead of 5, so its 2009–24 numbers differ a little
+  from `pit_us_renamed` (13.4% against 14.0% momentum CAGR). Noted in its
+  findings.
+
+## Next steps (prioritised)
+
+1. **Decide the paper's main universe.** I'd make the point-in-time
+   S&P 500 the main US result and the 37-name list the robustness check.
+   Then replace README.md with README_v2 updated to that framing, after
+   your review.
+2. **Get delisted prices** (CRSP via WRDS, or Tiingo with a key) for the
+   remaining 23% of member-days, which are mostly failures. That is the
+   biggest open bias. H1's narrow CI makes it worth doing before
+   publishing the sign flip.
+3. **A like-for-like liquid-40 benchmark** (equal weight of the same 40
+   names). It separates the breadth effect from survivorship cleanly.
+4. **Long-short momentum** (or a levered vol-scaled book) to test
+   Barroso & Santa-Clara and Daniel & Moskowitz on their own terms. The
+   long-only results here say little about the factor itself.
+5. **A point-in-time Europe universe** (Euro Stoxx 50 from 2010) to see
+   whether Europe's opposite-sign interaction survives point-in-time
+   data, as the US one does.
+6. **Host the web explorer** (GitHub Pages from `web/`), and add the
+   point-in-time and extended series to the export.
+
+---
+
 # Morning summary (overnight, 2026-10-10)
 
 All six tasks are done, on branch `claude/fervent-faraday-oz0knf`, with a
