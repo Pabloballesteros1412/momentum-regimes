@@ -35,7 +35,11 @@ def synthetic_universe(n_symbols: int = 24, n_days: int = 1600, seed: int = 7) -
     for i in range(n_symbols):
         mu = rng.normal(0.0004, 0.0004)
         sigma = rng.uniform(0.012, 0.035)
-        close = rng.uniform(20, 300) * np.exp(np.cumsum(rng.normal(mu, sigma, n_days)))
+        # cumprod of (1 + r), not exp(cumsum(r)): numpy's vectorised exp can
+        # differ in the last bit between CPUs (AVX-512 vs not), which broke
+        # the bit-for-bit fixture comparison on some CI runners. Products of
+        # IEEE doubles in a fixed order are identical on every machine.
+        close = rng.uniform(20, 300) * np.cumprod(1.0 + rng.normal(mu, sigma, n_days))
         open_ = close * (1 + rng.normal(0, 0.004, n_days))
         high = np.maximum(open_, close) * (1 + np.abs(rng.normal(0, 0.004, n_days)))
         low = np.minimum(open_, close) * (1 - np.abs(rng.normal(0, 0.004, n_days)))
