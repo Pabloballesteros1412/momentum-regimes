@@ -16,3 +16,19 @@ env/
 .DS_Store
 Thumbs.db
 .coverage
+
+# Regenerable intermediates (rerun the scripts in README "Reproducing").
+# Daily equity curves; the walk-forward fold-parameter tables are kept.
+results/**/curves/*.csv
+!results/**/curves/*_folds.csv
+results/robustness_v2/costs/*.csv
+!results/robustness_v2/costs/*_folds.csv
+results/**/returns_detail.csv
+results/**/spy_regime*.csv
+results/pit_us_2000/calendar_1996.csv
+results/pit_us_2000/data/
+# Downloaded French factor files (run_factor_regressions.py re-downloads) and
+# membership files derived from the pinned fja05680 commit (build_universe_us.py).
+data/ff/*.csv
+data/sp500_membership_intervals*.csv
+data/sp500_excluded_tickers.txt

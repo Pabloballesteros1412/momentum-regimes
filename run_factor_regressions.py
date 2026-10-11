@@ -30,6 +30,29 @@ REGION_FILES = {
 HAC_LAGS = {"daily": 10, "monthly": 3}
 
 
+FRENCH_URL = "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/"
+ZIP_NAME = {"F-F_Research_Data_5_Factors_2x3_daily.csv": "F-F_Research_Data_5_Factors_2x3_daily_CSV",
+            "F-F_Momentum_Factor_daily.csv": "F-F_Momentum_Factor_daily_CSV",
+            "Europe_5_Factors_Daily.csv": "Europe_5_Factors_Daily_CSV",
+            "Europe_MOM_Factor_Daily.csv": "Europe_Mom_Factor_Daily_CSV",
+            "Emerging_5_Factors.csv": "Emerging_5_Factors_CSV",
+            "Emerging_MOM_Factor.csv": "Emerging_MOM_Factor_CSV"}
+
+
+def ensure_french(name: str) -> Path:
+    """Path to a French data-library CSV in data/ff/, downloading it if absent.
+    The CSVs are not committed; values can be revised by the library over time."""
+    path = FF / name
+    if not path.exists():
+        import io
+        import urllib.request
+        import zipfile
+        FF.mkdir(parents=True, exist_ok=True)
+        with urllib.request.urlopen(FRENCH_URL + ZIP_NAME[name] + ".zip", timeout=60) as r:
+            zipfile.ZipFile(io.BytesIO(r.read())).extractall(FF)
+    return path
+
+
 def read_french(path: Path) -> pd.DataFrame:
     """First table of a French CSV (header line starts with ','), in decimals."""
     lines = path.read_text(errors="ignore").splitlines()
@@ -52,8 +75,8 @@ def read_french(path: Path) -> pd.DataFrame:
 
 def factors(region: str) -> tuple[pd.DataFrame, str]:
     five, mom, freq = REGION_FILES[region]
-    f = read_french(FF / five)
-    m = read_french(FF / mom)
+    f = read_french(ensure_french(five))
+    m = read_french(ensure_french(mom))
     m.columns = ["UMD"]  # US file calls it Mom, the others WML
     return f.join(m, how="inner"), freq
 
