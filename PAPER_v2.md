@@ -25,7 +25,9 @@ I then rebuild the evidence on firmer ground:
   30% → 14%). On the point-in-time universe the US regime interaction is
   significant again, but in the **opposite** direction: momentum does
   relatively worse in bear markets (+0.075%/day bull minus bear, 95% CI
-  [+0.003, +0.152]).
+  [+0.003, +0.152]). Extended back to 2000, the effect is stronger
+  (+0.082%/day [+0.023, +0.130]). Momentum lagged in the dot-com bust and
+  missed the 2009 rebound by 34 points.
 - **The one surviving protective episode, 2022, is a sector bet.**
   Energy and healthcare allocation explains essentially all of it, and it
   is the exception among five US bear markets.
@@ -36,8 +38,9 @@ I then rebuild the evidence on firmer ground:
 - **Short-term reversal is no regime hedge.** None of 24 pre-registered
   reversal-vs-momentum regime tests survive a Holm correction.
 - **Volatility scaling cuts momentum's crash drawdowns but not its risk-
-  adjusted return.** It halves within-window drawdowns in the 2009
-  rebound and COVID, with no Sharpe gain over the full sample.
+  adjusted return.** It cuts the within-window drawdown in the 2009
+  rebound (−4% against −18%) and in COVID (−26% against −30%), with no
+  Sharpe gain over the full sample.
 
 Every confirmatory test in this paper was written down, with its pass/fail
 rule, before it was run (`HYPOTHESES.md`). Exploratory results are
@@ -285,7 +288,27 @@ mega-caps.
 
 ### 6.4 Extending to 2000 (H8)
 
-{{H8}}
+The same pipeline was run from 1996 membership, so the walk-forward
+trades 2000–2024 (25 folds) and includes the dot-com bust. Member-day
+coverage in 2000–2004 is about 50%, above the pre-registered 40%
+threshold for flagging a year as unreliable.
+
+| | Momentum CAGR | Sharpe | Benchmark CAGR | Sharpe | Interaction / day | 95% CI |
+|---|---|---|---|---|---|---|
+| 2000–2024 | 9.2% | 0.51 | 10.6% | 0.61 | **+0.082%** | **[+0.023, +0.130]** |
+
+| Window | Momentum | Benchmark |
+|---|---|---|
+| Dot-com, 2000-03 → 2002-10 | −27.1% (max DD −34.7%) | −10.4% (max DD −32.4%) |
+| GFC, 2007-10 → 2009-03 | −54.7% | −57.0% |
+| Calendar 2009 (rebound) | +11.5% | +45.4% |
+
+- **H8a passes.** The interaction is more clearly positive over 25 years
+  than over 16.
+- **No dot-com protection.** Momentum entered 2000 in the technology
+  winners and lagged by 16 points that year. The missing data, mostly
+  dot-com failures, probably flatters it.
+- **2009 is the textbook momentum crash** (Daniel & Moskowitz 2016).
 
 ## 7. Factor regressions (H5)
 
