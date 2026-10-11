@@ -37,10 +37,10 @@ I then rebuild the evidence on firmer ground:
   year of FF5+UMD alpha, which measures the hindsight in choosing it.
 - **Short-term reversal is no regime hedge.** None of 24 pre-registered
   reversal-vs-momentum regime tests survive a Holm correction.
-- **Volatility scaling cuts momentum's crash drawdowns but not its risk-
-  adjusted return.** It cuts the within-window drawdown in the 2009
-  rebound (−4% against −18%) and in COVID (−26% against −30%), with no
-  Sharpe gain over the full sample.
+- **Long-only volatility scaling doesn't fix momentum crashes.** On the
+  37-name list it cuts crash-window drawdowns (2009 rebound −4% against
+  −18%) with no Sharpe gain. On the point-in-time universe it
+  significantly *lowers* Sharpe (−0.09) and misses the 2009 rebound.
 
 Every confirmatory test in this paper was written down, with its pass/fail
 rule, before it was run (`HYPOTHESES.md`). Exploratory results are
@@ -381,7 +381,24 @@ strategy held fully invested.
 
 The long-only version cuts drawdowns, but, unlike the long-short factor
 in the literature, it does not improve risk-adjusted return. In COVID it
-de-risked after the crash and missed the rebound. {{H6PIT}}
+de-risked after the crash and missed the rebound.
+
+On the point-in-time S&P 500 the picture is worse:
+
+| PIT S&P 500 (renamed), walk-forward | CAGR | Sharpe | 2009 rebound return | COVID max DD |
+|---|---|---|---|---|
+| Baseline (fully invested) | 14.0% | 0.78 | +18.7% | −34.3% |
+| Vol-scaled, 20% target | 11.2% | 0.69 | +3.5% | −34.3% |
+
+- **H6a passes only technically**, by margins of 0.3 and 0.04 points.
+- **H6b is significant in the wrong direction:** Sharpe falls by 0.09,
+  CI [−0.18, −0.007].
+
+Long-only momentum has no short leg whose rebound crash the scaling could
+avoid. Its crash risk is mostly market risk, and trailing-volatility
+timing de-risks after the damage, just before the rebound. Barroso &
+Santa-Clara also lever the factor up when its volatility is low, which
+this unlevered engine doesn't do.
 
 ## 10. Robustness (H7)
 
