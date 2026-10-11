@@ -24,7 +24,6 @@ from quantbt.analytics import metrics
 from quantbt.data.handler import DataHandler
 from quantbt.data.universe import UniverseSchedule
 from quantbt.strategies.momentum import SignalCache
-from quantbt.strategies.pit import PointInTimeMomentum
 from quantbt.strategies.volscaled import GrossTargetSizer, VolScaledMomentum
 from quantbt.validation.walkforward import run_walkforward
 from run_walkforward import TRADE_YEARS, TRAIN_YEARS
@@ -43,7 +42,10 @@ class PITVolScaledMomentum(VolScaledMomentum):
         super().__init__(data, **kwargs)
         self.schedule = schedule
 
-    _momentum_score = PointInTimeMomentum._momentum_score
+    def _momentum_score(self, symbol: str) -> float | None:
+        if not self.schedule.is_member(symbol, self.data.current_time):
+            return None
+        return super()._momentum_score(symbol)
 
 
 def _log(m: str) -> None:

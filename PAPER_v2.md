@@ -366,8 +366,17 @@ de-risked after the crash and missed the rebound. {{H6PIT}}
   reliable. In a paired block bootstrap, P(momentum's max DD is
   shallower) is 0.43–0.55 across both US samples and both block lengths
   (20 and 60 days). Every 95% CI of the difference spans zero.
-- {{H7A}}
-- {{H7B}}
+- **Parameter sweep (H7a, pass).** The published "only 1 of 96 parameter
+  sets beats buy & hold" (US 2015–2024, in-sample) reproduces exactly
+  under v1. Under v2, **40 of 96** sets beat buy & hold, and the median
+  total return rises from +301% to +1,123%. The bug handicapped every
+  parameter set. These are in-sample results, and the walk-forward still
+  doesn't beat buy & hold.
+- **Transaction costs (H7b, robust null).** The walk-forward was rerun
+  with a flat one-way cost of 0–50 bp, applied during parameter selection
+  too. The bull/bear interaction is insignificant at every level. Each
+  10 bp costs momentum about 1–1.5 CAGR points. Momentum trails buy &
+  hold even at zero cost (−2.0 points), so there is no break-even.
 
 ## 11. Limitations
 
